@@ -110,7 +110,8 @@ export function Navbar() {
         <div
           className={cn(
             "lg:hidden overflow-hidden transition-all duration-300 ease-in-out",
-            isOpen ? "max-h-96 pb-4" : "max-h-0"
+            isOpen ? "max-h-96 pb-4" : "max-h-0",
+            isOpen && "bg-background/95 backdrop-blur-md border-t border-border/50"
           )}
         >
           <div className="flex flex-col gap-1 pt-2">
