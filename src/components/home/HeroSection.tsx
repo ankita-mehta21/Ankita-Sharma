@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star, Award, Clock, Users } from "lucide-react";
+import { ArrowRight, Star, Clock, GraduationCap, ShieldCheck } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -20,24 +20,23 @@ export function HeroSection() {
               style={{ animationDelay: "100ms", animationFillMode: "forwards" }}
             >
               <Star className="w-4 h-4 fill-primary" />
-              <span>Beverly Hills' Trusted Dental Practice</span>
+              <span>California Board Certified Dentist</span>
             </div>
 
             <h1 
               className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-foreground leading-tight mb-6 opacity-0 animate-fade-in-up"
               style={{ animationDelay: "200ms", animationFillMode: "forwards" }}
             >
-              Your Smile,{" "}
-              <span className="gradient-text">Our Passion</span>
+              Dr. Ankita Sharma{" "}
+              <span className="gradient-text">DMD, MDS</span>
             </h1>
 
             <p 
               className="text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 opacity-0 animate-fade-in-up"
               style={{ animationDelay: "300ms", animationFillMode: "forwards" }}
             >
-              Experience world-class dental care with Dr. Sarah Mitchell. 
-              Over 15 years of expertise in cosmetic and family dentistry, 
-              dedicated to creating beautiful, healthy smiles.
+              A portfolio of clinical care by a California Board Certified Dentist with 3.5+ years of
+              experience in preventive and restorative dentistry, oral surgery, and oral cancer screening.
             </p>
 
             <div 
@@ -45,8 +44,8 @@ export function HeroSection() {
               style={{ animationDelay: "400ms", animationFillMode: "forwards" }}
             >
               <Button asChild size="lg" className="rounded-full px-8 gap-2 btn-hover-scale">
-                <Link to="/contact">
-                  Book Your Consultation
+                <Link to="/about">
+                  View Portfolio
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
@@ -63,23 +62,23 @@ export function HeroSection() {
               <div className="text-center lg:text-left group">
                 <div className="flex items-center justify-center lg:justify-start gap-2 text-primary mb-1">
                   <Clock className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
-                  <span className="font-display text-2xl font-bold">15+</span>
+                  <span className="font-display text-2xl font-bold">3.5+ Years</span>
                 </div>
-                <p className="text-sm text-muted-foreground">Years Experience</p>
+                <p className="text-sm text-muted-foreground">Clinical Experience</p>
               </div>
               <div className="text-center lg:text-left group">
                 <div className="flex items-center justify-center lg:justify-start gap-2 text-primary mb-1">
-                  <Users className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
-                  <span className="font-display text-2xl font-bold">5,000+</span>
+                  <GraduationCap className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
+                  <span className="font-display text-2xl font-bold">DMD + MDS</span>
                 </div>
-                <p className="text-sm text-muted-foreground">Happy Patients</p>
+                <p className="text-sm text-muted-foreground">Advanced Education</p>
               </div>
               <div className="text-center lg:text-left group">
                 <div className="flex items-center justify-center lg:justify-start gap-2 text-primary mb-1">
-                  <Award className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
-                  <span className="font-display text-2xl font-bold">20+</span>
+                  <ShieldCheck className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
+                  <span className="font-display text-2xl font-bold">CA Board Certified</span>
                 </div>
-                <p className="text-sm text-muted-foreground">Awards Won</p>
+                <p className="text-sm text-muted-foreground">Professional Credential</p>
               </div>
             </div>
           </div>
@@ -93,13 +92,13 @@ export function HeroSection() {
               {/* Placeholder for dentist image */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-32 h-32 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4 transition-transform duration-500 hover:scale-105">
-                    <span className="font-display text-5xl font-bold text-primary">SM</span>
-                  </div>
-                  <p className="text-muted-foreground">Dr. Sarah Mitchell</p>
-                  <p className="text-sm text-muted-foreground/70">DDS, FAGD</p>
+                <div className="w-32 h-32 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4 transition-transform duration-500 hover:scale-105">
+                    <span className="font-display text-5xl font-bold text-primary">AS</span>
                 </div>
+                <p className="text-muted-foreground">Dr. Ankita Sharma</p>
+                <p className="text-sm text-muted-foreground/70">DMD, MDS</p>
               </div>
+            </div>
 
               {/* Floating Cards */}
               <div 
@@ -117,17 +116,17 @@ export function HeroSection() {
                       </div>
                     ))}
                   </div>
-                  <div>
-                    <div className="flex items-center gap-1 mb-0.5">
-                      {[1, 2, 3, 4, 5].map((i) => (
-                        <Star key={i} className="w-3 h-3 fill-warning text-warning" />
-                      ))}
+                    <div>
+                      <div className="flex items-center gap-1 mb-0.5">
+                        {[1, 2, 3, 4, 5].map((i) => (
+                          <Star key={i} className="w-3 h-3 fill-warning text-warning" />
+                        ))}
+                      </div>
+                    <p className="text-xs text-muted-foreground">Verified patient feedback</p>
                     </div>
-                    <p className="text-xs text-muted-foreground">500+ verified reviews</p>
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </div>

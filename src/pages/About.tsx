@@ -1,116 +1,252 @@
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeader } from "@/components/ui/section-header";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
-import { GraduationCap, Award, Heart, Users } from "lucide-react";
 
-const timeline = [
-  { year: "2005", title: "UCLA School of Dentistry", description: "Graduated with honors, Doctor of Dental Surgery" },
-  { year: "2008", title: "Advanced Cosmetic Training", description: "Completed fellowship in aesthetic dentistry" },
-  { year: "2010", title: "Private Practice", description: "Opened premier dental clinic in Beverly Hills" },
-  { year: "2015", title: "FAGD Certification", description: "Achieved Fellowship in the Academy of General Dentistry" },
-  { year: "2020", title: "Digital Dentistry Pioneer", description: "Implemented cutting-edge 3D imaging technology" },
+const summary =
+  "A California Board Certified Dentist with over 3.5 years of experience providing a full array of preventive and restorative dental services, patient care, and dental surgeries. Proven track record of improving patient satisfaction by providing superior dental care to a diverse patient base. Experienced in procedures associated with oral cancer screening and identifying early stages of oral cancer, oral benign, and pre-malignant lesions. Strong interpersonal and time management skills.";
+
+const education = [
+  {
+    date: "09/2021",
+    degree: "Doctor of Dental Medicine (DMD), Advanced Standing",
+    school: "Henry M. Goldman School of Dental Sciences",
+    location: "Boston, MA",
+  },
+  {
+    date: "07/2017",
+    degree: "BDS, MDS (Oral and Maxillofacial Pathology)",
+    school: "Manipal College of Dental Sciences",
+    location: "Mangalore, India",
+  },
 ];
 
-const values = [
-  { icon: Heart, title: "Patient Comfort", desc: "Your comfort and wellbeing are our top priorities." },
-  { icon: Award, title: "Excellence", desc: "Committed to the highest standards of dental care." },
-  { icon: GraduationCap, title: "Education", desc: "Continuously learning the latest techniques." },
-  { icon: Users, title: "Relationships", desc: "Building lasting connections with our patients." },
+const certifications = [
+  "Invisalign Certification",
+  "Facial injectables and Botox Certified",
+];
+
+const publications = [
+  "Understanding patterns of invasion: a novel approach to assessment of podoplanin expression in prediction of lymph node metastasis in OSCC, Sharma A, Boaz K, N. Srikant, Histopathology, 72, 4, 672-678, 2018",
+  "Dysgenetic Polycystic Disease of Minor Salivary Gland: A Rare Case Report and Review of the Literature, N. Srikant, Shweta Yellapurkar, Karen Boaz, Mohan Baliga, Nidhi Manaktala, Ankita Sharma, Shakthi Dorai, Prajwal Pai, Case Reports in Pathology, 2017, 5279025, 5, 2017",
+  "Rapidly Enlarging Swelling of the Palate: A Case Report, K. Boaz, A. Sharma, N. Srikant, Journal of Oral and Maxillofacial Surgery, Medicine and Pathology, Japanese Editorial, 29, 6, 576-580, 2017",
+  "Vitality and accuracy of age estimation using tooth coronal index, cementum and sclerosis index, Reddy BM, Natarajan S, Sharma A, Dorai SB, JCDUR, 7, 2, 3-7, 2016",
+  "Rhinocerebral mucormycosis: a systematic review of case reports and case series from a global perspective, Kumar M et al., Oral Surg Oral Med Oral Pathol Oral Radiol, 134, 6, 708-716, 2022",
+];
+
+const experience = [
+  {
+    dates: "06/2022 - Current",
+    role: "General Dentist",
+    organization: "Family Health Care",
+    location: "Baldwin, MI",
+    bullets: [
+      "Performed routine dental procedures including extractions (simple and partially impacted), simple and complex restorations, full coverage restorations, partial and complete dentures, emergency care, endodontic treatment of anterior teeth, premolars, and first mandibular molars with ideal anatomy, and outpatient oral surgery procedures (e.g. incisional biopsy, alveoloplasty).",
+      "Diagnosis and treatment planning for oral benign, pre-malignant, and malignant lesions.",
+      "Conducted patient assessments and developed tailored treatment plans.",
+      "Collaborated with dental specialists to ensure comprehensive patient care.",
+      "Trained and supervised dental assistants in daily clinical operations.",
+      "Communicated treatment options and procedures clearly to patients.",
+      "Managed appointment scheduling and patient follow-ups to enhance clinic efficiency.",
+      "Engaged in community outreach programs to promote oral health awareness.",
+    ],
+  },
+  {
+    dates: "10/2021 - 05/2022",
+    role: "General Dentist",
+    organization: "Royal Dental Clinic",
+    location: "Pontiac, MI",
+    bullets: [],
+  },
+  {
+    dates: "11/2017 - 11/2017",
+    role: "Shadowed Dr. Joseph Leonetti",
+    organization: "MainLine Centre",
+    location: "Paoli, PA",
+    bullets: [
+      "Assisted in patient evaluations to gather health history and clinical information.",
+      "Observed treatment procedures to learn advanced techniques in patient care.",
+      "Shadowed dental specialists to understand diverse treatment approaches and methodologies.",
+    ],
+  },
+];
+
+const languages = [
+  { language: "English", level: "Fluent/Full professional proficiency" },
+  { language: "Hindi", level: "Native/Bilingual" },
+];
+
+const additionalDetails = [
+  "H1-B visa status (CAP exempt) with PERM approved.",
+  "Resume Reference: #HRJ#42 930574-4 511-4ce5-ab3b-e041e6eb4466#",
 ];
 
 export default function About() {
   return (
     <Layout>
-      {/* Hero */}
       <section className="section-padding" style={{ background: "var(--gradient-hero)" }}>
         <div className="container-wide">
           <div className="max-w-3xl mx-auto text-center">
             <AnimateOnScroll animation="fade-up">
               <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-                About Dr. Mitchell
+                Portfolio
               </span>
             </AnimateOnScroll>
             <AnimateOnScroll animation="fade-up" delay={100}>
-              <h1 className="font-display text-4xl md:text-5xl font-semibold text-foreground mb-6">
-                Dedicated to Creating Beautiful, Healthy Smiles
+              <h1 className="font-display text-4xl md:text-5xl font-semibold text-foreground mb-4">
+                Dr. Ankita Sharma, DMD, MDS
               </h1>
             </AnimateOnScroll>
             <AnimateOnScroll animation="fade-up" delay={200}>
               <p className="text-lg text-muted-foreground">
-                With over 15 years of experience and a passion for excellence, Dr. Sarah Mitchell 
-                combines artistry with advanced dental science to deliver exceptional results.
+                California Board Certified Dentist focused on preventive, restorative, and surgical care with a
+                patient-centered approach.
               </p>
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-up" delay={300}>
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
+                <span>ankita.omfp@outlook.com</span>
+                <span className="hidden sm:inline">|</span>
+                <span>Baldwin, MI (Current Practice)</span>
+              </div>
             </AnimateOnScroll>
           </div>
         </div>
       </section>
 
-      {/* Timeline */}
       <section className="section-padding">
-        <div className="container-tight">
+        <div className="container-wide">
           <AnimateOnScroll animation="fade-up">
-            <SectionHeader badge="Journey" title="Professional Timeline" />
+            <SectionHeader badge="Summary" title="Professional Overview" />
           </AnimateOnScroll>
-          <div className="relative">
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-border hidden md:block" />
-            <div className="space-y-8">
-              {timeline.map((item, i) => (
-                <AnimateOnScroll 
-                  key={item.year} 
-                  animation={i % 2 === 0 ? "fade-right" : "fade-left"}
-                  delay={i * 100}
-                >
-                  <div className={`flex items-center gap-8 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
-                    <div className="flex-1 text-right hidden md:block">
-                      {i % 2 === 0 && (
-                        <div className="glass-card p-6 rounded-2xl inline-block text-left">
-                          <span className="text-primary font-semibold">{item.year}</span>
-                          <h3 className="font-display text-lg font-semibold mt-1">{item.title}</h3>
-                          <p className="text-muted-foreground text-sm mt-1">{item.description}</p>
-                        </div>
-                      )}
-                    </div>
-                    <div className="w-4 h-4 rounded-full bg-primary shrink-0 hidden md:block" />
-                    <div className="flex-1 hidden md:block">
-                      {i % 2 !== 0 && (
-                        <div className="glass-card p-6 rounded-2xl inline-block">
-                          <span className="text-primary font-semibold">{item.year}</span>
-                          <h3 className="font-display text-lg font-semibold mt-1">{item.title}</h3>
-                          <p className="text-muted-foreground text-sm mt-1">{item.description}</p>
-                        </div>
-                      )}
-                    </div>
-                    <div className="glass-card p-6 rounded-2xl md:hidden w-full">
-                      <span className="text-primary font-semibold">{item.year}</span>
-                      <h3 className="font-display text-lg font-semibold mt-1">{item.title}</h3>
-                      <p className="text-muted-foreground text-sm mt-1">{item.description}</p>
-                    </div>
-                  </div>
-                </AnimateOnScroll>
-              ))}
+          <AnimateOnScroll animation="fade-up" delay={100}>
+            <div className="glass-card p-8 rounded-3xl">
+              <p className="text-muted-foreground leading-relaxed">{summary}</p>
             </div>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      <section className="section-padding bg-muted/30">
+        <div className="container-wide">
+          <AnimateOnScroll animation="fade-up">
+            <SectionHeader badge="Credentials" title="Education & Certifications" />
+          </AnimateOnScroll>
+          <div className="grid lg:grid-cols-2 gap-8">
+            <AnimateOnScroll animation="fade-right" delay={100}>
+              <div className="glass-card p-8 rounded-3xl h-full">
+                <h3 className="font-display text-xl font-semibold mb-4">Education</h3>
+                <div className="space-y-4">
+                  {education.map((item) => (
+                    <div key={item.degree} className="border-l-2 border-primary/20 pl-4">
+                      <p className="text-primary font-semibold">{item.date}</p>
+                      <p className="font-semibold text-foreground">{item.degree}</p>
+                      <p className="text-sm text-muted-foreground">{item.school}</p>
+                      <p className="text-sm text-muted-foreground">{item.location}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-left" delay={100}>
+              <div className="glass-card p-8 rounded-3xl h-full">
+                <h3 className="font-display text-xl font-semibold mb-4">Certifications</h3>
+                <ul className="space-y-3 text-muted-foreground">
+                  {certifications.map((cert) => (
+                    <li key={cert} className="flex items-start gap-2">
+                      <span className="w-2 h-2 mt-2 rounded-full bg-primary" />
+                      <span>{cert}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="section-padding bg-muted/30">
+      <section id="experience" className="section-padding">
         <div className="container-wide">
           <AnimateOnScroll animation="fade-up">
-            <SectionHeader badge="Philosophy" title="Our Core Values" />
+            <SectionHeader badge="Experience" title="Clinical Roles" />
           </AnimateOnScroll>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((item, index) => (
-              <AnimateOnScroll key={item.title} animation="fade-up" delay={index * 100}>
-                <div className="glass-card p-6 rounded-2xl text-center h-full">
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <item.icon className="w-7 h-7 text-primary" />
+          <div className="space-y-6">
+            {experience.map((role, index) => (
+              <AnimateOnScroll key={role.organization} animation="fade-up" delay={index * 100}>
+                <div className="glass-card p-8 rounded-3xl">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
+                    <div>
+                      <h3 className="font-display text-xl font-semibold text-foreground">{role.role}</h3>
+                      <p className="text-muted-foreground">
+                        {role.organization} - {role.location}
+                      </p>
+                    </div>
+                    <p className="text-primary font-semibold">{role.dates}</p>
                   </div>
-                  <h3 className="font-display text-lg font-semibold mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  {role.bullets.length > 0 ? (
+                    <ul className="space-y-2 text-muted-foreground">
+                      {role.bullets.map((bullet) => (
+                        <li key={bullet} className="flex items-start gap-2">
+                          <span className="w-2 h-2 mt-2 rounded-full bg-primary" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-muted-foreground">General dentistry role supporting comprehensive patient care.</p>
+                  )}
                 </div>
               </AnimateOnScroll>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="publications" className="section-padding bg-muted/30">
+        <div className="container-wide">
+          <AnimateOnScroll animation="fade-up">
+            <SectionHeader badge="Research" title="Publications" />
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="fade-up" delay={100}>
+            <div className="glass-card p-8 rounded-3xl">
+              <ol className="space-y-4 text-muted-foreground list-decimal list-inside">
+                {publications.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ol>
+            </div>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      <section className="section-padding">
+        <div className="container-wide">
+          <div className="grid lg:grid-cols-2 gap-8">
+            <AnimateOnScroll animation="fade-right">
+              <div className="glass-card p-8 rounded-3xl h-full">
+                <SectionHeader badge="Languages" title="Language Proficiency" align="left" className="mb-6" />
+                <ul className="mt-6 space-y-3 text-muted-foreground">
+                  {languages.map((language) => (
+                    <li key={language.language} className="flex items-center justify-between">
+                      <span className="font-semibold text-foreground">{language.language}</span>
+                      <span>{language.level}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-left">
+              <div className="glass-card p-8 rounded-3xl h-full">
+                <SectionHeader badge="Additional" title="Professional Details" align="left" className="mb-6" />
+                <ul className="mt-6 space-y-3 text-muted-foreground">
+                  {additionalDetails.map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className="w-2 h-2 mt-2 rounded-full bg-primary" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>

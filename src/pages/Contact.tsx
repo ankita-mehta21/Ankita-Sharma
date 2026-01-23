@@ -5,24 +5,30 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Mail, MapPin, Briefcase } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
-import { services } from "@/data/services";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", service: "", date: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", topic: "", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: "Request Sent!", description: "We'll contact you within 24 hours to confirm your appointment." });
-    setFormData({ name: "", email: "", phone: "", service: "", date: "", message: "" });
+    toast({ title: "Thank you!", description: "Your message has been received. Responses typically arrive within 1-2 business days." });
+    setFormData({ name: "", email: "", phone: "", topic: "", message: "" });
   };
 
+  const topics = [
+    "Patient Inquiry",
+    "Professional Collaboration",
+    "Speaking or Publication",
+    "Community Outreach",
+    "Other",
+  ];
+
   const contactInfo = [
-    { icon: Phone, title: "Phone", content: "(123) 456-7890", href: "tel:+1234567890" },
-    { icon: Mail, title: "Email", content: "info@drmitchell.com", href: "mailto:info@drmitchell.com" },
-    { icon: MapPin, title: "Address", content: "123 Dental Care Avenue\nBeverly Hills, CA 90210" },
-    { icon: Clock, title: "Hours", content: "Mon-Fri: 8AM-6PM\nSat: 9AM-3PM" },
+    { icon: Mail, title: "Email", content: "ankita.omfp@outlook.com", href: "mailto:ankita.omfp@outlook.com" },
+    { icon: MapPin, title: "Location", content: "Baldwin, MI (Current Practice)" },
+    { icon: Briefcase, title: "Current Role", content: "General Dentist - Family Health Care" },
   ];
 
   return (
@@ -30,10 +36,10 @@ export default function Contact() {
       <section className="section-padding" style={{ background: "var(--gradient-hero)" }}>
         <div className="container-wide text-center">
           <AnimateOnScroll animation="fade-up">
-            <h1 className="font-display text-4xl md:text-5xl font-semibold mb-4">Book an Appointment</h1>
+            <h1 className="font-display text-4xl md:text-5xl font-semibold mb-4">Contact Ankita</h1>
           </AnimateOnScroll>
           <AnimateOnScroll animation="fade-up" delay={100}>
-            <p className="text-lg text-muted-foreground">We respond within 24 hours</p>
+            <p className="text-lg text-muted-foreground">Patient inquiries, referrals, and professional collaborations welcome.</p>
           </AnimateOnScroll>
         </div>
       </section>
@@ -64,31 +70,27 @@ export default function Contact() {
                     <div className="grid sm:grid-cols-2 gap-4">
                       <Input 
                         type="tel" 
-                        placeholder="Phone Number *" 
-                        required 
+                        placeholder="Phone Number (optional)" 
                         value={formData.phone} 
                         onChange={e => setFormData({...formData, phone: e.target.value})} 
                       />
-                      <Input 
-                        type="date" 
-                        value={formData.date} 
-                        onChange={e => setFormData({...formData, date: e.target.value})} 
-                      />
+                      <Select value={formData.topic} onValueChange={v => setFormData({...formData, topic: v})}>
+                        <SelectTrigger><SelectValue placeholder="Reason for reaching out" /></SelectTrigger>
+                        <SelectContent>
+                          {topics.map((topic) => (
+                            <SelectItem key={topic} value={topic}>{topic}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
                     </div>
-                    <Select value={formData.service} onValueChange={v => setFormData({...formData, service: v})}>
-                      <SelectTrigger><SelectValue placeholder="Service of Interest" /></SelectTrigger>
-                      <SelectContent>
-                        {services.map(s => <SelectItem key={s.id} value={s.id}>{s.title}</SelectItem>)}
-                      </SelectContent>
-                    </Select>
                     <Textarea 
-                      placeholder="Additional Message..." 
+                      placeholder="How can I help you?" 
                       value={formData.message} 
                       onChange={e => setFormData({...formData, message: e.target.value})} 
                       rows={4} 
                     />
                     <Button type="submit" size="lg" className="w-full btn-hover-scale">
-                      Request Appointment
+                      Send Message
                     </Button>
                   </form>
                 </div>

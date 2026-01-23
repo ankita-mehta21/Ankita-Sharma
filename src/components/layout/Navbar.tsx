@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/reviews", label: "Reviews" },
+  { href: "/about", label: "Portfolio" },
+  { href: "/reviews", label: "Patient Reviews" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -47,14 +45,14 @@ export function Navbar() {
             className="flex items-center gap-2 group"
           >
             <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-              <span className="text-xl font-display font-bold text-primary">D</span>
+              <span className="text-xl font-display font-bold text-primary">AS</span>
             </div>
             <div className="hidden sm:block">
               <span className="font-display text-lg font-semibold text-foreground">
-                Dr. Sarah Mitchell
+                Dr. Ankita Sharma
               </span>
               <span className="block text-xs text-muted-foreground -mt-0.5">
-                Cosmetic & Family Dentistry
+                General Dentist | Oral & Maxillofacial Pathology
               </span>
             </div>
           </Link>
@@ -79,16 +77,15 @@ export function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-3">
-            <ThemeSwitcher />
             <a
-              href="tel:+1234567890"
+              href="mailto:ankita.omfp@outlook.com"
               className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              <Phone className="w-4 h-4" />
-              <span className="hidden xl:inline">(123) 456-7890</span>
+              <Mail className="w-4 h-4" />
+              <span className="hidden xl:inline">ankita.omfp@outlook.com</span>
             </a>
             <Button asChild size="sm" className="rounded-full px-6">
-              <Link to="/contact">Book Appointment</Link>
+              <Link to="/contact">Get in Touch</Link>
             </Button>
           </div>
 
@@ -130,9 +127,8 @@ export function Navbar() {
               </Link>
             ))}
             <div className="pt-3 px-4 flex items-center gap-3">
-              <ThemeSwitcher />
               <Button asChild className="w-full rounded-full">
-                <Link to="/contact">Book Appointment</Link>
+                <Link to="/contact">Get in Touch</Link>
               </Button>
             </div>
           </div>

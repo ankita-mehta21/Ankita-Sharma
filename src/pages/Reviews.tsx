@@ -27,7 +27,9 @@ export default function Reviews() {
       <section className="section-padding" style={{ background: "var(--gradient-hero)" }}>
         <div className="container-wide text-center">
           <AnimateOnScroll animation="fade-up">
-            <h1 className="font-display text-4xl md:text-5xl font-semibold mb-4">Patient Reviews</h1>
+            <h1 className="font-display text-4xl md:text-5xl font-semibold mb-4">
+              Patient Reviews for Dr. Ankita Sharma
+            </h1>
           </AnimateOnScroll>
           <AnimateOnScroll animation="scale" delay={100}>
             <div className="flex items-center justify-center gap-2 mb-2">
@@ -52,7 +54,7 @@ export default function Reviews() {
               >
                 All
               </Button>
-              {treatmentTypes.slice(0, 5).map(t => (
+              {treatmentTypes.map(t => (
                 <Button 
                   key={t} 
                   variant={filter === t ? "default" : "outline"} 
@@ -98,6 +100,9 @@ export default function Reviews() {
           <AnimateOnScroll animation="fade-up">
             <div className="max-w-2xl mx-auto glass-card p-8 rounded-3xl">
               <h2 className="font-display text-2xl font-semibold mb-6 text-center">Share Your Experience</h2>
+              <p className="text-sm text-muted-foreground text-center mb-6">
+                Reviews are reviewed before publishing to the portfolio.
+              </p>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <Input 
                   placeholder="Your Name (optional)" 
@@ -105,7 +110,7 @@ export default function Reviews() {
                   onChange={e => setFormData({...formData, name: e.target.value})} 
                 />
                 <Select value={formData.treatment} onValueChange={v => setFormData({...formData, treatment: v})}>
-                  <SelectTrigger><SelectValue placeholder="Treatment received" /></SelectTrigger>
+                  <SelectTrigger><SelectValue placeholder="Visit type" /></SelectTrigger>
                   <SelectContent>{treatmentTypes.map(t => <SelectItem key={t} value={t}>{t}</SelectItem>)}</SelectContent>
                 </Select>
                 <div>
@@ -124,7 +129,7 @@ export default function Reviews() {
                   </div>
                 </div>
                 <Textarea 
-                  placeholder="Your review..." 
+                  placeholder="Your review (all submissions are reviewed before publishing)..." 
                   value={formData.review} 
                   onChange={e => setFormData({...formData, review: e.target.value})} 
                   rows={4} 

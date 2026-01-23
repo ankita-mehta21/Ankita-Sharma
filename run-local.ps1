@@ -1,6 +1,6 @@
 # PowerShell script to run the website locally and open in browser
 
-Write-Host "Starting Gentle Dental Care website..." -ForegroundColor Cyan
+Write-Host "Starting Ankita Sharma portfolio site..." -ForegroundColor Cyan
 
 # Get the script directory
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path

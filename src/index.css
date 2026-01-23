@@ -4,63 +4,63 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Premium Dentist Clinic - Soft Blue & Lavender Design System */
+/* Premium Dentist Clinic - Classic Medical Blue Design System */
 
 @layer base {
   :root {
-    /* Soft Blue & Lavender Palette */
-    --background: 240 33% 99%;
-    --foreground: 230 25% 18%;
+    /* Classic Medical Blue Palette */
+    --background: 214 95% 98%;
+    --foreground: 217 50% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 230 25% 18%;
+    --card-foreground: 217 50% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 230 25% 18%;
+    --popover-foreground: 217 50% 15%;
 
-    /* Primary - Soft Blue */
-    --primary: 217 71% 53%;
+    /* Primary - Medical Blue */
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Lavender */
-    --secondary: 263 40% 64%;
-    --secondary-foreground: 0 0% 100%;
+    /* Secondary - Soft Blue */
+    --secondary: 214 95% 93%;
+    --secondary-foreground: 217 91% 40%;
 
     /* Muted backgrounds */
-    --muted: 240 20% 96%;
-    --muted-foreground: 230 15% 45%;
+    --muted: 214 30% 95%;
+    --muted-foreground: 217 30% 45%;
 
-    /* Accent - Soft Lavender */
-    --accent: 263 50% 94%;
-    --accent-foreground: 263 40% 35%;
+    /* Accent - Cool Blue */
+    --accent: 214 80% 92%;
+    --accent-foreground: 217 91% 35%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 20% 90%;
-    --input: 240 20% 90%;
-    --ring: 217 71% 53%;
+    --border: 214 30% 88%;
+    --input: 214 30% 88%;
+    --ring: 217 91% 60%;
 
     --radius: 0.75rem;
 
     /* Custom colors */
-    --lavender: 263 40% 64%;
-    --lavender-light: 263 50% 94%;
-    --soft-blue: 217 71% 53%;
-    --soft-blue-light: 217 80% 95%;
-    --cream: 45 30% 96%;
+    --lavender: 217 40% 52%;
+    --lavender-light: 214 80% 92%;
+    --soft-blue: 217 91% 60%;
+    --soft-blue-light: 214 95% 93%;
+    --cream: 214 20% 96%;
     --success: 158 64% 40%;
     --warning: 45 93% 47%;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217 71% 53%) 0%, hsl(263 40% 64%) 100%);
-    --gradient-soft: linear-gradient(180deg, hsl(240 33% 99%) 0%, hsl(263 50% 97%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(217 80% 97%) 0%, hsl(263 50% 96%) 50%, hsl(240 33% 99%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(217 91% 45%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(214 95% 98%) 0%, hsl(214 80% 96%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(214 95% 97%) 0%, hsl(217 80% 94%) 50%, hsl(214 95% 98%) 100%);
 
     /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(230 25% 18% / 0.08);
-    --shadow-card: 0 8px 30px -8px hsl(230 25% 18% / 0.12);
-    --shadow-glow: 0 0 40px hsl(217 71% 53% / 0.15);
+    --shadow-soft: 0 4px 20px -4px hsl(217 50% 15% / 0.08);
+    --shadow-card: 0 8px 30px -8px hsl(217 50% 15% / 0.12);
+    --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.15);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -69,156 +69,7 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217 71% 53%;
-  }
-
-  .dark {
-    --background: 230 25% 10%;
-    --foreground: 240 20% 96%;
-
-    --card: 230 25% 14%;
-    --card-foreground: 240 20% 96%;
-
-    --popover: 230 25% 14%;
-    --popover-foreground: 240 20% 96%;
-
-    --primary: 217 71% 60%;
-    --primary-foreground: 230 25% 10%;
-
-    --secondary: 263 40% 60%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 230 20% 18%;
-    --muted-foreground: 240 15% 65%;
-
-    --accent: 263 30% 25%;
-    --accent-foreground: 263 50% 85%;
-
-    --destructive: 0 62% 50%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 230 20% 22%;
-    --input: 230 20% 22%;
-    --ring: 217 71% 60%;
-
-    --lavender: 263 40% 60%;
-    --lavender-light: 263 30% 25%;
-    --soft-blue: 217 71% 60%;
-    --soft-blue-light: 217 50% 20%;
-    --cream: 45 10% 15%;
-
-    --gradient-primary: linear-gradient(135deg, hsl(217 71% 45%) 0%, hsl(263 40% 50%) 100%);
-    --gradient-soft: linear-gradient(180deg, hsl(230 25% 10%) 0%, hsl(263 30% 15%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(217 50% 12%) 0%, hsl(263 30% 14%) 50%, hsl(230 25% 10%) 100%);
-
-    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
-    --shadow-card: 0 8px 30px -8px hsl(0 0% 0% / 0.4);
-    --shadow-glow: 0 0 40px hsl(217 71% 60% / 0.2);
-
-    --sidebar-background: 230 25% 10%;
-    --sidebar-foreground: 240 20% 96%;
-    --sidebar-primary: 217 71% 60%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 230 20% 18%;
-    --sidebar-accent-foreground: 240 20% 96%;
-    --sidebar-border: 230 20% 22%;
-    --sidebar-ring: 217 71% 60%;
-  }
-
-  /* Classic Medical Blue Theme */
-  [data-theme="medical-blue"] {
-    --background: 214 95% 98%;
-    --foreground: 217 50% 15%;
-    --card: 0 0% 100%;
-    --card-foreground: 217 50% 15%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 217 50% 15%;
-    --primary: 217 91% 60%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 214 95% 93%;
-    --secondary-foreground: 217 91% 40%;
-    --muted: 214 30% 95%;
-    --muted-foreground: 217 30% 45%;
-    --accent: 214 80% 92%;
-    --accent-foreground: 217 91% 35%;
-    --border: 214 30% 88%;
-    --input: 214 30% 88%;
-    --ring: 217 91% 60%;
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(217 91% 45%) 100%);
-    --gradient-soft: linear-gradient(180deg, hsl(214 95% 98%) 0%, hsl(214 80% 96%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(214 95% 97%) 0%, hsl(217 80% 94%) 50%, hsl(214 95% 98%) 100%);
-  }
-
-  /* Teal & Aqua Theme */
-  [data-theme="teal-aqua"] {
-    --background: 167 40% 98%;
-    --foreground: 168 50% 12%;
-    --card: 0 0% 100%;
-    --card-foreground: 168 50% 12%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 168 50% 12%;
-    --primary: 168 84% 32%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 167 85% 89%;
-    --secondary-foreground: 168 84% 22%;
-    --muted: 167 30% 95%;
-    --muted-foreground: 168 30% 40%;
-    --accent: 167 60% 90%;
-    --accent-foreground: 168 84% 25%;
-    --border: 167 30% 88%;
-    --input: 167 30% 88%;
-    --ring: 168 84% 32%;
-    --gradient-primary: linear-gradient(135deg, hsl(168 84% 32%) 0%, hsl(167 85% 45%) 100%);
-    --gradient-soft: linear-gradient(180deg, hsl(167 40% 98%) 0%, hsl(167 60% 95%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(167 60% 96%) 0%, hsl(168 70% 92%) 50%, hsl(167 40% 98%) 100%);
-  }
-
-  /* Navy & Gold Theme */
-  [data-theme="navy-gold"] {
-    --background: 40 30% 98%;
-    --foreground: 210 53% 18%;
-    --card: 0 0% 100%;
-    --card-foreground: 210 53% 18%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 53% 18%;
-    --primary: 210 53% 24%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 44 75% 66%;
-    --secondary-foreground: 210 53% 15%;
-    --muted: 40 20% 95%;
-    --muted-foreground: 210 30% 40%;
-    --accent: 44 60% 90%;
-    --accent-foreground: 210 53% 20%;
-    --border: 40 25% 88%;
-    --input: 40 25% 88%;
-    --ring: 210 53% 24%;
-    --gradient-primary: linear-gradient(135deg, hsl(210 53% 24%) 0%, hsl(44 75% 50%) 100%);
-    --gradient-soft: linear-gradient(180deg, hsl(40 30% 98%) 0%, hsl(44 40% 95%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(40 40% 96%) 0%, hsl(44 50% 93%) 50%, hsl(40 30% 98%) 100%);
-  }
-
-  /* Healing Green Theme */
-  [data-theme="healing-green"] {
-    --background: 149 40% 98%;
-    --foreground: 160 50% 12%;
-    --card: 0 0% 100%;
-    --card-foreground: 160 50% 12%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 160 50% 12%;
-    --primary: 160 94% 22%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 149 80% 90%;
-    --secondary-foreground: 160 94% 18%;
-    --muted: 149 30% 95%;
-    --muted-foreground: 160 30% 40%;
-    --accent: 149 60% 90%;
-    --accent-foreground: 160 94% 20%;
-    --border: 149 30% 88%;
-    --input: 149 30% 88%;
-    --ring: 160 94% 22%;
-    --gradient-primary: linear-gradient(135deg, hsl(160 94% 22%) 0%, hsl(149 80% 40%) 100%);
-    --gradient-soft: linear-gradient(180deg, hsl(149 40% 98%) 0%, hsl(149 60% 95%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(149 60% 96%) 0%, hsl(160 70% 92%) 50%, hsl(149 40% 98%) 100%);
+    --sidebar-ring: 217 91% 60%;
   }
 }
 

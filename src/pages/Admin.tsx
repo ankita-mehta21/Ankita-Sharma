@@ -26,8 +26,8 @@ export default function Admin() {
             <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
               <LogIn className="w-8 h-8 text-primary" />
             </div>
-            <h1 className="font-display text-2xl font-semibold">Admin Login</h1>
-            <p className="text-muted-foreground text-sm">Enter your credentials to continue</p>
+            <h1 className="font-display text-2xl font-semibold">Portfolio Admin</h1>
+            <p className="text-muted-foreground text-sm">Sign in to review submissions</p>
           </div>
           <form onSubmit={handleLogin} className="space-y-4">
             <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required />
@@ -43,7 +43,7 @@ export default function Admin() {
     <div className="min-h-screen bg-muted/30">
       <header className="bg-card border-b border-border p-4">
         <div className="container-wide flex items-center justify-between">
-          <h1 className="font-display text-xl font-semibold">Admin Dashboard</h1>
+          <h1 className="font-display text-xl font-semibold">Review Management</h1>
           <Button variant="outline" onClick={() => setIsLoggedIn(false)}>Logout</Button>
         </div>
       </header>
@@ -59,7 +59,7 @@ export default function Admin() {
             <p className="text-3xl font-bold">3</p>
           </div>
           <div className="glass-card p-6 rounded-2xl">
-            <p className="text-muted-foreground text-sm">New Appointments</p>
+            <p className="text-muted-foreground text-sm">New Messages</p>
             <p className="text-3xl font-bold">5</p>
           </div>
         </div>

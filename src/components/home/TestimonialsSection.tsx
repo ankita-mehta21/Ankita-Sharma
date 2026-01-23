@@ -32,9 +32,9 @@ export function TestimonialsSection() {
       <div className="container-wide">
         <AnimateOnScroll animation="fade-up">
           <SectionHeader
-            badge="Patient Stories"
+            badge="Patient Feedback"
             title="What Our Patients Say"
-            subtitle="Real experiences from real patients. Discover why thousands trust Dr. Mitchell with their smiles."
+            subtitle="Real experiences from patients who have received care from Dr. Ankita Sharma."
           />
         </AnimateOnScroll>
 
