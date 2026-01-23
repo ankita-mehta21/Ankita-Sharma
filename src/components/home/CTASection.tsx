@@ -34,7 +34,7 @@ export function CTASection() {
               asChild
               size="lg"
               variant="outline"
-              className="rounded-full px-8 gap-2 border-white/30 text-white hover:bg-white/10 btn-hover-scale"
+              className="rounded-full px-8 gap-2 border-white/30 text-white bg-transparent hover:bg-white/10 hover:text-white btn-hover-scale"
             >
               <a href="mailto:ankita.omfp@outlook.com">
                 <Mail className="w-4 h-4" />
