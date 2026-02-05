@@ -3,7 +3,7 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 const summary =
-  "A California Board Certified Dentist with over 3.5 years of experience providing a full array of preventive and restorative dental services, patient care, and dental surgeries. Proven track record of improving patient satisfaction by providing superior dental care to a diverse patient base. Experienced in procedures associated with oral cancer screening and identifying early stages of oral cancer, oral benign, and pre-malignant lesions. Strong interpersonal and time management skills.";
+  "A Board Certified Dentist with over 3.5 years of experience providing a full array of preventive and restorative dental services, patient care, and dental surgeries. Proven track record of improving patient satisfaction by providing superior dental care to a diverse patient base. Experienced in procedures associated with oral cancer screening and identifying early stages of oral cancer, oral benign, and pre-malignant lesions. Strong interpersonal and time management skills.";
 
 const education = [
   {
@@ -35,7 +35,7 @@ const publications = [
 
 const experience = [
   {
-    dates: "06/2022 - Current",
+    dates: "",
     role: "General Dentist",
     organization: "Family Health Care",
     location: "Baldwin, MI",
@@ -50,24 +50,6 @@ const experience = [
       "Engaged in community outreach programs to promote oral health awareness.",
     ],
   },
-  {
-    dates: "10/2021 - 05/2022",
-    role: "General Dentist",
-    organization: "Royal Dental Clinic",
-    location: "Pontiac, MI",
-    bullets: [],
-  },
-  {
-    dates: "11/2017 - 11/2017",
-    role: "Shadowed Dr. Joseph Leonetti",
-    organization: "MainLine Centre",
-    location: "Paoli, PA",
-    bullets: [
-      "Assisted in patient evaluations to gather health history and clinical information.",
-      "Observed treatment procedures to learn advanced techniques in patient care.",
-      "Shadowed dental specialists to understand diverse treatment approaches and methodologies.",
-    ],
-  },
 ];
 
 const languages = [
@@ -75,10 +57,7 @@ const languages = [
   { language: "Hindi", level: "Native/Bilingual" },
 ];
 
-const additionalDetails = [
-  "H1-B visa status (CAP exempt) with PERM approved.",
-  "Resume Reference: #HRJ#42 930574-4 511-4ce5-ab3b-e041e6eb4466#",
-];
+const additionalDetails: string[] = [];
 
 export default function About() {
   return (
@@ -98,7 +77,7 @@ export default function About() {
             </AnimateOnScroll>
             <AnimateOnScroll animation="fade-up" delay={200}>
               <p className="text-lg text-muted-foreground">
-                California Board Certified Dentist focused on preventive, restorative, and surgical care with a
+                Board Certified Dentist focused on preventive, restorative, and surgical care with a
                 patient-centered approach.
               </p>
             </AnimateOnScroll>
@@ -234,19 +213,7 @@ export default function About() {
                 </ul>
               </div>
             </AnimateOnScroll>
-            <AnimateOnScroll animation="fade-left">
-              <div className="glass-card p-8 rounded-3xl h-full">
-                <SectionHeader badge="Additional" title="Professional Details" align="left" className="mb-6" />
-                <ul className="mt-6 space-y-3 text-muted-foreground">
-                  {additionalDetails.map((item) => (
-                    <li key={item} className="flex items-start gap-2">
-                      <span className="w-2 h-2 mt-2 rounded-full bg-primary" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </AnimateOnScroll>
+            {/* Additional Details Removed */}
           </div>
         </div>
       </section>

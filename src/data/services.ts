@@ -1,12 +1,14 @@
-import { 
-  Sparkles, 
-  SmilePlus, 
-  CircleDot, 
-  Stethoscope, 
-  ShieldCheck, 
+import {
+  Sparkles,
+  SmilePlus,
+  CircleDot,
+  Stethoscope,
+  ShieldCheck,
   Heart,
   Zap,
-  Scan
+  Scan,
+  Activity,
+  Shapes
 } from "lucide-react";
 
 export interface Service {
@@ -56,7 +58,7 @@ export const services: Service[] = [
     title: "Endodontic Therapy",
     shortDescription: "Root canal care for anterior teeth, premolars, and first mandibular molars.",
     fullDescription: "Experienced in endodontic treatment of anterior teeth, premolars, and first mandibular molars with ideal anatomy.",
-    icon: Stethoscope,
+    icon: Activity,
     duration: "Single or multiple visits",
     benefits: [
       "Preserves natural teeth",
@@ -71,7 +73,7 @@ export const services: Service[] = [
     title: "Dentures & Prosthodontics",
     shortDescription: "Partial and complete dentures designed for comfort and function.",
     fullDescription: "Skilled in delivering partial and complete dentures with attention to fit, esthetics, and function.",
-    icon: SmilePlus,
+    icon: Shapes,
     duration: "Multiple visits",
     benefits: [
       "Comfortable fit",
@@ -128,6 +130,7 @@ export const services: Service[] = [
   },
   {
     id: "facial-injectables",
+    title: "Facial Injectables & Botox",
     title: "Facial Injectables & Botox",
     shortDescription: "Certified in facial injectables and Botox for facial esthetics.",
     fullDescription: "Facial injectables and Botox certification reflects training in facial esthetics and patient care.",

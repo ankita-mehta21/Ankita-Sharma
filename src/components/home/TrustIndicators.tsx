@@ -1,28 +1,7 @@
 import { ShieldCheck, Award, GraduationCap, Sparkles } from "lucide-react";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
-const trustItems = [
-  {
-    icon: ShieldCheck,
-    title: "California Board Certified",
-    description: "Licensed dentist with board certification in California"
-  },
-  {
-    icon: GraduationCap,
-    title: "DMD Advanced Standing",
-    description: "Henry M. Goldman School of Dental Sciences, Boston, MA"
-  },
-  {
-    icon: Award,
-    title: "MDS Oral Pathology",
-    description: "Oral and Maxillofacial Pathology, Manipal College of Dental Sciences"
-  },
-  {
-    icon: Sparkles,
-    title: "Invisalign & Botox Certified",
-    description: "Certified in Invisalign and facial injectables/Botox"
-  }
-];
+const trustItems: { icon: any; title: string; description: string }[] = [];
 
 export function TrustIndicators() {
   return (

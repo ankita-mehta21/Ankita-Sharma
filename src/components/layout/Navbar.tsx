@@ -52,7 +52,7 @@ export function Navbar() {
                 Dr. Ankita Sharma
               </span>
               <span className="block text-xs text-muted-foreground -mt-0.5">
-                General Dentist | Oral & Maxillofacial Pathology
+                General Dentist
               </span>
             </div>
           </Link>

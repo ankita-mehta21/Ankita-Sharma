@@ -41,8 +41,7 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-background/70 text-sm leading-relaxed mb-6">
-              California Board Certified Dentist with 3.5+ years of experience in preventive, restorative,
-              and surgical dental care. Focused on patient-centered outcomes and clear communication.
+              Focused on patient-centered outcomes and clear communication.
             </p>
           </div>
 
