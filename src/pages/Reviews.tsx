@@ -48,7 +48,7 @@ export default function Reviews() {
                 Your feedback helps us provide better care. We'd love to hear about your experience with Dr. Ankita Sharma.
               </p>
               <Button asChild size="lg" className="rounded-full px-8 btn-hover-scale shadow-lg shadow-primary/20">
-                <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://form.typeform.com/to/kwqnIPmU" target="_blank" rel="noopener noreferrer">
                   Write a Review
                 </a>
               </Button>
