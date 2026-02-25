@@ -332,7 +332,7 @@
   },
   "reviewsPage": {
     "_comment": "Full reviews page labels/templates and CTA copy.",
-    "title": "Patient Reviews (Give us yours too)",
+    "title": "Patient Reviews",
     "ratingOutOfTextTemplate": "{{rating}} out of 5",
     "basedOnReviewsTemplate": "Based on {{count}} reviews",
     "shareExperience": {
