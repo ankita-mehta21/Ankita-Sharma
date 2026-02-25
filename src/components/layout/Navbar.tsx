@@ -3,15 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "Portfolio" },
-  { href: "/reviews", label: "Patient Reviews" },
-  { href: "/contact", label: "Contact" },
-];
+import { getSiteContent } from "@/content/siteContent";
 
 export function Navbar() {
+  const siteContent = getSiteContent();
+  const navLinks = siteContent.layout.navbar.navLinks;
+
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
@@ -45,14 +42,14 @@ export function Navbar() {
             className="flex items-center gap-2 group"
           >
             <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-              <span className="text-xl font-display font-bold text-primary">AS</span>
+              <span className="text-xl font-display font-bold text-primary">{siteContent.siteMeta.brandInitials}</span>
             </div>
             <div className="hidden sm:block">
               <span className="font-display text-lg font-semibold text-foreground">
-                Dr. Ankita Sharma
+                {siteContent.siteMeta.brandName}
               </span>
               <span className="block text-xs text-muted-foreground -mt-0.5">
-                General Dentist
+                {siteContent.siteMeta.primaryRole}
               </span>
             </div>
           </Link>
@@ -78,14 +75,14 @@ export function Navbar() {
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="mailto:ankita.omfp@outlook.com"
+              href={`mailto:${siteContent.siteMeta.email}`}
               className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <Mail className="w-4 h-4" />
-              <span className="hidden xl:inline">ankita.omfp@outlook.com</span>
+              <span className="hidden xl:inline">{siteContent.layout.navbar.desktopEmailText}</span>
             </a>
             <Button asChild size="sm" className="rounded-full px-6">
-              <Link to="/contact">Get in Touch</Link>
+              <Link to="/contact">{siteContent.layout.navbar.desktopCtaLabel}</Link>
             </Button>
           </div>
 
@@ -93,7 +90,7 @@ export function Navbar() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
-            aria-label="Toggle menu"
+            aria-label={siteContent.layout.navbar.mobileMenuAriaLabel}
           >
             {isOpen ? (
               <X className="w-6 h-6 text-foreground" />
@@ -128,7 +125,7 @@ export function Navbar() {
             ))}
             <div className="pt-3 px-4 flex items-center gap-3">
               <Button asChild className="w-full rounded-full">
-                <Link to="/contact">Get in Touch</Link>
+                <Link to="/contact">{siteContent.layout.navbar.mobileCtaLabel}</Link>
               </Button>
             </div>
           </div>

@@ -1,106 +1,71 @@
 import { Link } from "react-router-dom";
-import { Mail, MapPin } from "lucide-react";
-
-const quickLinks = [
-  { href: "/about", label: "Portfolio Overview" },
-  { href: "/about#experience", label: "Clinical Experience" },
-  { href: "/about#publications", label: "Publications" },
-  { href: "/reviews", label: "Patient Reviews" },
-  { href: "/contact", label: "Contact" },
-];
-
-const services = [
-  "Preventive & Restorative Care",
-  "Extractions & Emergency Care",
-  "Endodontic Therapy",
-  "Dentures & Prosthodontics",
-  "Oral Surgery & Biopsy",
-  "Oral Cancer Screening",
-];
+import { getIconByKey, getSiteContent, resolveTemplate } from "@/content/siteContent";
 
 export function Footer() {
+  const siteContent = getSiteContent();
+  const footerContent = siteContent.layout.footer;
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-foreground text-background/90">
       {/* Main Footer */}
       <div className="container-wide section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
-          {/* Brand Column */}
-          <div className="lg:col-span-1">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+          <div>
             <Link to="/" className="inline-block mb-4">
               <div className="flex items-center gap-2">
                 <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-                  <span className="text-xl font-display font-bold text-primary-foreground">AS</span>
+                  <span className="text-xl font-display font-bold text-primary-foreground">
+                    {siteContent.siteMeta.brandInitials}
+                  </span>
                 </div>
                 <div>
                   <span className="font-display text-lg font-semibold text-background">
-                    Dr. Ankita Sharma
+                    {siteContent.siteMeta.brandName}
                   </span>
                 </div>
               </div>
             </Link>
             <p className="text-background/70 text-sm leading-relaxed mb-6">
-              Focused on patient-centered outcomes and clear communication.
+              {footerContent.summary}
             </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-display text-lg font-semibold text-background mb-4">
-              Quick Links
-            </h3>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    to={link.href}
-                    className="text-background/70 hover:text-primary text-sm transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="font-display text-lg font-semibold text-background mb-4">
-              Clinical Focus
-            </h3>
-            <ul className="space-y-3">
-              {services.map((service) => (
-                <li key={service}>
-                  <span className="text-background/70 text-sm">
-                    {service}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <div className="flex flex-wrap items-center gap-3">
+              <Link
+                to={footerContent.primaryCta.href}
+                className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity"
+              >
+                {footerContent.primaryCta.label}
+              </Link>
+              <Link
+                to={footerContent.secondaryCta.href}
+                className="inline-flex items-center justify-center px-4 py-2 rounded-full border border-background/20 text-background/80 text-sm font-medium hover:text-primary hover:border-primary/50 transition-colors"
+              >
+                {footerContent.secondaryCta.label}
+              </Link>
+            </div>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-display text-lg font-semibold text-background mb-4">
-              Contact
+            <h3 className="font-display text-lg font-semibold text-background mb-5">
+              {footerContent.detailsTitle}
             </h3>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                <span className="text-background/70 text-sm">
-                  Baldwin, MI (Current Practice)
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-primary shrink-0" />
-                <a
-                  href="mailto:ankita.omfp@outlook.com"
-                  className="text-background/70 hover:text-primary text-sm transition-colors"
-                >
-                  ankita.omfp@outlook.com
-                </a>
-              </li>
+              {footerContent.details.map((detail) => {
+                const DetailIcon = getIconByKey(detail.iconKey);
+                return (
+                  <li key={`${detail.iconKey}-${detail.text}`} className="flex items-start gap-3">
+                    <DetailIcon className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                    {detail.href ? (
+                      <a href={detail.href} className="text-background/70 hover:text-primary text-sm transition-colors">
+                        {detail.text}
+                      </a>
+                    ) : (
+                      <span className="text-background/70 text-sm">{detail.text}</span>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
@@ -111,16 +76,14 @@ export function Footer() {
         <div className="container-wide py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-background/60 text-sm text-center md:text-left">
-              (c) {currentYear} Dr. Ankita Sharma. All rights reserved.
+              {resolveTemplate(footerContent.copyrightTemplate, { year: currentYear })}
             </p>
-            <div className="flex items-center gap-6">
-              <Link
-                to="/admin"
-                className="text-background/60 hover:text-primary text-sm transition-colors"
-              >
-                Admin
-              </Link>
-            </div>
+            <Link
+              to={footerContent.bottomLink.href}
+              className="text-background/60 hover:text-primary text-sm transition-colors"
+            >
+              {footerContent.bottomLink.label}
+            </Link>
           </div>
         </div>
       </div>

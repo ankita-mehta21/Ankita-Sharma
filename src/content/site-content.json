@@ -1,0 +1,555 @@
+{
+  "__guide": {
+    "_comment": "JSON does not support native comments. This file uses keys like `__guide`, `__schema`, and `_comment` for human/AI documentation. Do not remove them unless intentionally cleaning docs.",
+    "editingRules": [
+      "Keep all existing keys unless intentionally deprecating a feature.",
+      "Prefer updating text/content values over changing key names.",
+      "URLs should be full links (https://...) or site routes (/about).",
+      "If an image object has `path`, the app uses that first; otherwise it falls back to `importKey`.",
+      "Arrays like `services`, `reviews`, `education`, and `contactInfo` are fully dynamic. Add/remove objects as needed."
+    ],
+    "commonTemplates": {
+      "linkObject": { "href": "/contact", "label": "Contact" },
+      "iconDetailObject": { "iconKey": "Mail", "text": "example@domain.com", "href": "mailto:example@domain.com" },
+      "serviceObject": {
+        "id": "unique-service-id",
+        "title": "Service Title",
+        "shortDescription": "Card description",
+        "fullDescription": "Detailed description",
+        "iconKey": "Sparkles",
+        "iconImageKey": "preventiveIcon",
+        "duration": "Varies",
+        "benefits": ["Benefit one", "Benefit two"],
+        "whoIsItFor": "Audience description"
+      },
+      "reviewObject": {
+        "id": "example-id",
+        "name": "Patient Name",
+        "treatment": "Treatment Name",
+        "rating": 5,
+        "review": "Review text",
+        "date": "YYYY-MM-DD",
+        "verified": true
+      }
+    }
+  },
+  "siteMeta": {
+    "_comment": "Global brand values used across navbar/footer and shared labels.",
+    "brandName": "Dr. Ankita Sharma",
+    "brandInitials": "AS",
+    "primaryRole": "General Dentist",
+    "email": "ankita.omfp@outlook.com",
+    "location": "Baldwin, MI (Current Practice)"
+  },
+  "doctorProfile": {
+    "_comment": "Primary doctor profile data for future centralization and reusable contact/profile references.",
+    "fullName": "Dr. Ankita Sharma",
+    "credentials": "DMD, MDS",
+    "headline": "Board Certified Dentist",
+    "specialties": [
+      "Preventive and Restorative Dentistry",
+      "Oral Surgery",
+      "Oral Cancer Screening"
+    ],
+    "clinicName": "Family Health Care",
+    "currentRole": "General Dentist",
+    "contact": {
+      "email": "ankita.omfp@outlook.com",
+      "phone": "",
+      "addressLine1": "",
+      "cityStateCountry": "Baldwin, MI (Current Practice)"
+    },
+    "languages": [
+      "English (Fluent)",
+      "Hindi (Native)"
+    ]
+  },
+  "assets": {
+    "_comment": "Asset registry. Keep image IDs stable because pages/services reference these keys.",
+    "images": {
+      "_comment": "Use either `path` (public URL/path) or bundled fallback via `importKey`.",
+      "heroDoctorImage": {
+        "importKey": "heroDoctorImage",
+        "path": "",
+        "alt": "Dr. Ankita Sharma"
+      },
+      "preventiveIcon": {
+        "importKey": "preventiveIcon",
+        "path": "",
+        "alt": "Preventive and restorative care icon"
+      },
+      "extractionIcon": {
+        "importKey": "extractionIcon",
+        "path": "",
+        "alt": "Extraction and emergency care icon"
+      },
+      "endodonticsIcon": {
+        "importKey": "endodonticsIcon",
+        "path": "",
+        "alt": "Endodontic therapy icon"
+      },
+      "prosthodonticsIcon": {
+        "importKey": "prosthodonticsIcon",
+        "path": "",
+        "alt": "Dentures and prosthodontics icon"
+      },
+      "seoOgImage": {
+        "importKey": "heroDoctorImage",
+        "path": "",
+        "alt": "Portfolio preview image"
+      }
+    },
+    "guidance": {
+      "publicPathNote": "If you set `path`, keep files in the Vite public folder and use paths like /images/file-name.jpg.",
+      "fallbackBehavior": "If `path` is blank, the app uses the bundled import mapped by `importKey`."
+    }
+  },
+  "externalLinks": {
+    "_comment": "Editable external URLs. Leave as empty string if not used.",
+    "reviewForm": "https://form.typeform.com/to/kwqnIPmU",
+    "website": "",
+    "linkedin": "",
+    "instagram": "",
+    "facebook": "",
+    "x": "",
+    "youtube": ""
+  },
+  "seo": {
+    "_comment": "Reserved for metadata/SEO integrations.",
+    "defaultTitle": "Dr. Ankita Sharma Portfolio",
+    "titleTemplate": "{{pageTitle}} | Dr. Ankita Sharma",
+    "defaultDescription": "Portfolio of preventive, restorative, and surgical dental care by Dr. Ankita Sharma.",
+    "keywords": [
+      "Dentist",
+      "Preventive Dentistry",
+      "Restorative Dentistry",
+      "Oral Surgery",
+      "Oral Cancer Screening",
+      "Baldwin MI"
+    ],
+    "openGraphImageAssetKey": "seoOgImage"
+  },
+  "visibility": {
+    "_comment": "Feature flags for conditional sections in future iterations.",
+    "showTestimonialsSection": true,
+    "showReviewsPageShareCta": true,
+    "showAdminPage": true
+  },
+  "display": {
+    "_comment": "Numeric display controls (counts/limits) consumed by selector functions.",
+    "homeFeaturedServicesCount": 4,
+    "homeFeaturedTestimonialsCount": 5,
+    "homeFeaturedTestimonialsMinRating": 5,
+    "adminRecentReviewsCount": 5
+  },
+  "layoutConfig": {
+    "_comment": "Tailwind class presets used for dynamic styling without changing component code.",
+    "homeServices": {
+      "gridClassName": "grid sm:grid-cols-2 lg:grid-cols-4 gap-6",
+      "cardClassName": "group glass-card rounded-2xl p-6 hover-lift h-full text-center flex flex-col items-center",
+      "iconContainerClassName": "w-16 h-16 flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110",
+      "iconImageClassName": "w-full h-full object-contain",
+      "iconFallbackClassName": "w-14 h-14 text-primary",
+      "descriptionClassName": "text-sm text-muted-foreground line-clamp-3"
+    },
+    "reviewsPage": {
+      "gridClassName": "grid md:grid-cols-2 gap-6 pb-16"
+    }
+  },
+  "layout": {
+    "_comment": "Shared layout content for navbar/footer.",
+    "navbar": {
+      "_comment": "Main top navigation configuration.",
+      "navLinks": [
+        { "href": "/", "label": "Home" },
+        { "href": "/about", "label": "Portfolio" },
+        { "href": "/reviews", "label": "Patient Reviews" },
+        { "href": "/contact", "label": "Contact" }
+      ],
+      "desktopEmailText": "ankita.omfp@outlook.com",
+      "desktopCtaLabel": "Get in Touch",
+      "mobileCtaLabel": "Get in Touch",
+      "mobileMenuAriaLabel": "Toggle menu"
+    },
+    "footer": {
+      "_comment": "Footer CTAs and detail rows.",
+      "summary": "Board Certified Dentist with 3.5+ years of experience in preventive and restorative dentistry, oral surgery, and oral cancer screening.",
+      "primaryCta": { "href": "/about", "label": "View Portfolio" },
+      "secondaryCta": { "href": "/reviews", "label": "Patient Reviews" },
+      "detailsTitle": "Professional Details",
+      "details": [
+        { "iconKey": "MapPin", "text": "Baldwin, MI (Current Practice)" },
+        { "iconKey": "Briefcase", "text": "General Dentist - Family Health Care" },
+        { "iconKey": "Languages", "text": "English (Fluent), Hindi (Native)" },
+        { "iconKey": "Mail", "text": "ankita.omfp@outlook.com", "href": "mailto:ankita.omfp@outlook.com" }
+      ],
+      "bottomLink": { "href": "/contact", "label": "Contact" },
+      "copyrightTemplate": "(c) {{year}} Dr. Ankita Sharma. All rights reserved."
+    }
+  },
+  "home": {
+    "_comment": "Homepage sections in render order: hero -> areasOfPractice -> testimonials -> cta.",
+    "hero": {
+      "_comment": "Hero section with headline, buttons, stats, and visual card.",
+      "badgeText": "Board Certified Dentist",
+      "titlePrefix": "Dr. Ankita Sharma",
+      "titleHighlight": "DMD",
+      "description": "A portfolio of clinical care with 3.5+ years of experience in preventive and restorative dentistry, oral surgery, and oral cancer screening.",
+      "primaryButton": {
+        "href": "/about",
+        "label": "View Portfolio"
+      },
+      "secondaryButton": {
+        "href": "/reviews",
+        "label": "Read Patient Reviews"
+      },
+      "stats": [
+        { "iconKey": "Clock", "value": "3.5+ Years", "label": "Clinical Experience" },
+        { "iconKey": "BookOpen", "value": "5 Published", "label": "Research Papers" },
+        { "iconKey": "Star", "value": "4.9 Rating", "label": "Patient Reviews" }
+      ],
+      "doctorImageAssetKey": "heroDoctorImage",
+      "doctorImageAlt": "Dr. Ankita Sharma",
+      "profileCard": {
+        "name": "Dr. Ankita Sharma",
+        "credentials": "DMD, MDS",
+        "tags": ["Invisalign Certified", "Botox Certified"]
+      },
+      "floatingReviewCard": {
+        "avatarLetters": ["A", "B", "C", "D"],
+        "starCount": 5,
+        "label": "Verified patient feedback"
+      }
+    },
+    "areasOfPractice": {
+      "_comment": "Section header text for services preview cards.",
+      "badge": "Clinical Focus",
+      "title": "Areas of Practice",
+      "subtitle": "A portfolio of preventive, restorative, and surgical dental care with an emphasis on patient education and outcomes."
+    },
+    "testimonials": {
+      "_comment": "Carousel labels and autoplay behavior.",
+      "badge": "Patient Feedback",
+      "title": "What Our Patients Say",
+      "subtitle": "Real experiences from patients who have received care from Dr. Ankita Sharma.",
+      "autoplayMs": 5000,
+      "verifiedLabel": "Verified Patient",
+      "ctaLabel": "Read All Reviews",
+      "ctaHref": "/reviews",
+      "previousAriaLabel": "Previous review",
+      "nextAriaLabel": "Next review",
+      "dotAriaLabelTemplate": "Go to review {{index}}"
+    },
+    "cta": {
+      "_comment": "Bottom call-to-action section on homepage.",
+      "title": "Let's Connect",
+      "description": "For patient inquiries, professional collaboration, or community outreach, feel free to reach out or share your experience.",
+      "primaryButton": { "href": "/contact", "label": "Contact Ankita" },
+      "secondaryButton": {
+        "href": "mailto:ankita.omfp@outlook.com",
+        "label": "Email ankita.omfp@outlook.com"
+      }
+    }
+  },
+  "aboutPage": {
+    "_comment": "All content blocks for /about page.",
+    "heroBadge": "Portfolio",
+    "heroTitle": "Dr. Ankita Sharma, DMD, MDS",
+    "heroDescription": "Board Certified Dentist focused on preventive, restorative, and surgical care with a patient-centered approach.",
+    "heroEmail": "ankita.omfp@outlook.com",
+    "heroLocation": "Baldwin, MI (Current Practice)",
+    "summarySection": {
+      "_comment": "Professional summary card.",
+      "badge": "Summary",
+      "title": "Professional Overview",
+      "summary": "A Board Certified Dentist with over 3.5 years of experience providing a full array of preventive and restorative dental services, patient care, and dental surgeries. Proven track record of improving patient satisfaction by providing superior dental care to a diverse patient base. Experienced in procedures associated with oral cancer screening and identifying early stages of oral cancer, oral benign, and pre-malignant lesions. Strong interpersonal and time management skills."
+    },
+    "credentialsSection": {
+      "_comment": "Education and certification block.",
+      "badge": "Credentials",
+      "title": "Education & Certifications",
+      "educationTitle": "Education",
+      "certificationsTitle": "Certifications",
+      "education": [
+        {
+          "degree": "Doctor of Dental Medicine (DMD), Advanced Standing",
+          "school": "Henry M. Goldman School of Dental Sciences",
+          "location": "Boston, MA"
+        },
+        {
+          "degree": "BDS, MDS (Oral and Maxillofacial Pathology)",
+          "school": "Manipal College of Dental Sciences",
+          "location": "Mangalore, India"
+        }
+      ],
+      "certifications": ["Invisalign Certification", "Facial injectables and Botox Certified"]
+    },
+    "experienceSection": {
+      "_comment": "Clinical role timeline/cards.",
+      "badge": "Experience",
+      "title": "Clinical Roles",
+      "emptyBulletsFallback": "General dentistry role supporting comprehensive patient care.",
+      "roles": [
+        {
+          "dates": "",
+          "role": "General Dentist",
+          "organization": "Family Health Care",
+          "location": "Baldwin, MI",
+          "bullets": [
+            "Performed routine dental procedures including extractions (simple and partially impacted), simple and complex restorations, full coverage restorations, partial and complete dentures, emergency care, endodontic treatment of anterior teeth, premolars, and first mandibular molars with ideal anatomy, and outpatient oral surgery procedures (e.g. incisional biopsy, alveoloplasty).",
+            "Diagnosis and treatment planning for oral benign, pre-malignant, and malignant lesions.",
+            "Conducted patient assessments and developed tailored treatment plans.",
+            "Collaborated with dental specialists to ensure comprehensive patient care.",
+            "Trained and supervised dental assistants in daily clinical operations.",
+            "Communicated treatment options and procedures clearly to patients.",
+            "Managed appointment scheduling and patient follow-ups to enhance clinic efficiency.",
+            "Engaged in community outreach programs to promote oral health awareness."
+          ]
+        }
+      ]
+    },
+    "publicationsSection": {
+      "_comment": "Publications list; order is preserved in UI.",
+      "badge": "Research",
+      "title": "Publications",
+      "publications": [
+        "Understanding patterns of invasion: a novel approach to assessment of podoplanin expression in prediction of lymph node metastasis in OSCC, Sharma A, Boaz K, N. Srikant, Histopathology, 72, 4, 672-678, 2018",
+        "Dysgenetic Polycystic Disease of Minor Salivary Gland: A Rare Case Report and Review of the Literature, N. Srikant, Shweta Yellapurkar, Karen Boaz, Mohan Baliga, Nidhi Manaktala, Ankita Sharma, Shakthi Dorai, Prajwal Pai, Case Reports in Pathology, 2017, 5279025, 5, 2017",
+        "Rapidly Enlarging Swelling of the Palate: A Case Report, K. Boaz, A. Sharma, N. Srikant, Journal of Oral and Maxillofacial Surgery, Medicine and Pathology, Japanese Editorial, 29, 6, 576-580, 2017",
+        "Vitality and accuracy of age estimation using tooth coronal index, cementum and sclerosis index, Reddy BM, Natarajan S, Sharma A, Dorai SB, JCDUR, 7, 2, 3-7, 2016",
+        "Rhinocerebral mucormycosis: a systematic review of case reports and case series from a global perspective, Kumar M et al., Oral Surg Oral Med Oral Pathol Oral Radiol, 134, 6, 708-716, 2022"
+      ]
+    },
+    "languagesSection": {
+      "_comment": "Language proficiency list.",
+      "badge": "Languages",
+      "title": "Language Proficiency",
+      "languages": [
+        { "language": "English", "level": "Fluent/Full professional proficiency" },
+        { "language": "Hindi", "level": "Native/Bilingual" }
+      ]
+    }
+  },
+  "reviewsPage": {
+    "_comment": "Full reviews page labels/templates and CTA copy.",
+    "title": "Patient Reviews",
+    "ratingOutOfTextTemplate": "{{rating}} out of 5",
+    "basedOnReviewsTemplate": "Based on {{count}} reviews",
+    "shareExperience": {
+      "title": "Share Your Experience",
+      "description": "Your feedback helps us provide better care. We'd love to hear about your experience with Dr. Ankita Sharma.",
+      "buttonLabel": "Write a Review",
+      "buttonHref": "https://form.typeform.com/to/kwqnIPmU"
+    },
+    "filters": {
+      "allLabel": "All"
+    },
+    "reviewCard": {
+      "verifiedLabel": "Verified"
+    }
+  },
+  "contactPage": {
+    "_comment": "Contact page header + information cards.",
+    "title": "Contact Ankita",
+    "subtitle": "Patient inquiries, referrals, and professional collaborations welcome.",
+    "contactInfo": [
+      {
+        "iconKey": "Mail",
+        "title": "Email",
+        "content": "ankita.omfp@outlook.com",
+        "href": "mailto:ankita.omfp@outlook.com"
+      },
+      {
+        "iconKey": "MapPin",
+        "title": "Location",
+        "content": "Baldwin, MI (Current Practice)"
+      },
+      {
+        "iconKey": "Briefcase",
+        "title": "Current Role",
+        "content": "General Dentist - Family Health Care"
+      },
+      {
+        "iconKey": "Languages",
+        "title": "Languages",
+        "content": "English (Fluent) • Hindi (Native)"
+      }
+    ]
+  },
+  "adminPage": {
+    "_comment": "Admin route display text and mock dashboard labels.",
+    "login": {
+      "title": "Portfolio Admin",
+      "subtitle": "Sign in to review submissions",
+      "emailPlaceholder": "Email",
+      "passwordPlaceholder": "Password",
+      "submitLabel": "Sign In",
+      "welcomeToastTitle": "Welcome!",
+      "welcomeToastDescription": "You're now logged in."
+    },
+    "dashboard": {
+      "title": "Review Management",
+      "logoutLabel": "Logout",
+      "stats": [
+        { "label": "Total Reviews", "type": "totalReviews" },
+        { "label": "Pending Approval", "type": "static", "value": 3 },
+        { "label": "New Messages", "type": "static", "value": 5 }
+      ],
+      "recentReviewsTitle": "Recent Reviews"
+    }
+  },
+  "notFoundPage": {
+    "_comment": "Fallback route content for missing pages.",
+    "code": "404",
+    "title": "Oops! Page not found",
+    "homeLinkLabel": "Return to Home",
+    "homeLinkHref": "/"
+  },
+  "__schema": {
+    "_comment": "Reference enum-like values used in this file.",
+    "iconKeyExamples": ["Sparkles", "CircleDot", "ShieldCheck", "Scan", "Clock", "BookOpen", "Star", "Mail", "MapPin", "Briefcase", "Languages"],
+    "assetImageKeys": ["heroDoctorImage", "preventiveIcon", "extractionIcon", "endodonticsIcon", "prosthodonticsIcon", "seoOgImage"],
+    "adminStatTypes": ["totalReviews", "static"]
+  },
+  "services": [
+    {
+      "id": "preventive-restorative",
+      "title": "Preventive & Restorative Care",
+      "shortDescription": "Comprehensive exams, cleanings, and restorations with a prevention-first focus.",
+      "fullDescription": "Experienced in simple and complex restorations as well as full coverage restorations, with treatment plans tailored to each patient.",
+      "iconKey": "Sparkles",
+      "iconImageKey": "preventiveIcon",
+      "duration": "Varies by visit",
+      "benefits": [
+        "Personalized treatment planning",
+        "Evidence-based preventive care",
+        "Durable restorative outcomes",
+        "Clear patient communication"
+      ],
+      "whoIsItFor": "Patients seeking routine care, restorations, or long-term oral health planning."
+    },
+    {
+      "id": "extractions-emergency",
+      "title": "Extractions & Emergency Care",
+      "shortDescription": "Same-day relief with gentle extractions and urgent dental care.",
+      "fullDescription": "Performed routine extractions including simple and partially impacted cases, plus emergency visits to stabilize pain and infection.",
+      "iconKey": "Sparkles",
+      "iconImageKey": "extractionIcon",
+      "duration": "Varies by case",
+      "benefits": [
+        "Comfort-focused care",
+        "Prompt pain relief",
+        "Clear aftercare guidance",
+        "Coordinated referrals when needed"
+      ],
+      "whoIsItFor": "Patients with urgent dental issues or teeth that require removal."
+    },
+    {
+      "id": "endodontic-therapy",
+      "title": "Endodontic Therapy",
+      "shortDescription": "Root canal care for anterior teeth, premolars, and first mandibular molars.",
+      "fullDescription": "Experienced in endodontic treatment of anterior teeth, premolars, and first mandibular molars with ideal anatomy.",
+      "iconKey": "Sparkles",
+      "iconImageKey": "endodonticsIcon",
+      "duration": "Single or multiple visits",
+      "benefits": [
+        "Preserves natural teeth",
+        "Relieves dental pain",
+        "Precise clinical technique",
+        "Long-term tooth stability"
+      ],
+      "whoIsItFor": "Patients with pulp infection or inflammation requiring root canal therapy."
+    },
+    {
+      "id": "dentures-prosthodontics",
+      "title": "Dentures & Prosthodontics",
+      "shortDescription": "Partial and complete dentures designed for comfort and function.",
+      "fullDescription": "Skilled in delivering partial and complete dentures with attention to fit, esthetics, and function.",
+      "iconKey": "Sparkles",
+      "iconImageKey": "prosthodonticsIcon",
+      "duration": "Multiple visits",
+      "benefits": [
+        "Comfortable fit",
+        "Improved chewing and speech",
+        "Natural appearance",
+        "Patient education and follow-up"
+      ],
+      "whoIsItFor": "Patients needing replacement of multiple or all teeth."
+    },
+    {
+      "id": "oral-surgery-biopsy",
+      "title": "Oral Surgery & Biopsy",
+      "shortDescription": "Outpatient oral surgery including incisional biopsy and alveoloplasty.",
+      "fullDescription": "Performed outpatient oral surgery procedures such as incisional biopsy and alveoloplasty with precise surgical technique.",
+      "iconKey": "Scan",
+      "duration": "Outpatient visit",
+      "benefits": [
+        "Minimally invasive approach",
+        "Accurate diagnostics",
+        "Comprehensive aftercare",
+        "Coordinated specialty care"
+      ],
+      "whoIsItFor": "Patients requiring surgical evaluation or minor oral surgery."
+    },
+    {
+      "id": "oral-cancer-screening",
+      "title": "Oral Cancer Screening",
+      "shortDescription": "Early identification of benign, pre-malignant, and malignant lesions.",
+      "fullDescription": "Experienced in oral cancer screening and identifying early stages of oral cancer, as well as benign and pre-malignant lesions.",
+      "iconKey": "ShieldCheck",
+      "duration": "Included in exams",
+      "benefits": [
+        "Early detection focus",
+        "Thorough soft-tissue evaluation",
+        "Clear referral pathways",
+        "Patient education"
+      ],
+      "whoIsItFor": "All patients, especially those seeking comprehensive preventive evaluations."
+    },
+    {
+      "id": "invisalign",
+      "title": "Invisalign Certified Care",
+      "shortDescription": "Clear aligner therapy delivered by a certified provider.",
+      "fullDescription": "Invisalign Certification supports evidence-based clear aligner planning and patient guidance.",
+      "iconKey": "Sparkles",
+      "duration": "Varies by case",
+      "benefits": [
+        "Discreet treatment option",
+        "Customized aligner planning",
+        "Patient education and monitoring",
+        "Comfort-first approach"
+      ],
+      "whoIsItFor": "Patients interested in clear aligner orthodontic care."
+    },
+    {
+      "id": "facial-injectables",
+      "title": "Facial Injectables & Botox",
+      "shortDescription": "Certified in facial injectables and Botox for facial esthetics.",
+      "fullDescription": "Facial injectables and Botox certification reflects training in facial esthetics and patient care.",
+      "iconKey": "CircleDot",
+      "duration": "Varies by service",
+      "benefits": [
+        "Certified technique",
+        "Aesthetic focus",
+        "Patient-centered consultation",
+        "Safety-first care"
+      ],
+      "whoIsItFor": "Patients exploring facial esthetic services."
+    }
+  ],
+
+
+  "_reviewsPlaceholderComment": "JSON does not support commented blocks. Keep `reviews` empty to hide reviews on the website. Use the template in `reviewsPlaceholder` when adding real reviews later.",
+  "reviewsPlaceholder": {
+    "id": "example-id",
+    "name": "Patient Name",
+    "treatment": "Treatment Name",
+    "rating": 5,
+    "review": "Write the patient review text here.",
+    "date": "YYYY-MM-DD",
+    "verified": true
+  },
+
+
+  "reviews": []
+}

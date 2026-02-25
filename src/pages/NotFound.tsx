@@ -1,7 +1,9 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { getSiteContent } from "@/content/siteContent";
 
 const NotFound = () => {
+  const notFoundPage = getSiteContent().notFoundPage;
   const location = useLocation();
 
   useEffect(() => {
@@ -11,10 +13,10 @@ const NotFound = () => {
   return (
     <div className="flex min-h-screen items-center justify-center bg-muted">
       <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
-        <a href="/" className="text-primary underline hover:text-primary/90">
-          Return to Home
+        <h1 className="mb-4 text-4xl font-bold">{notFoundPage.code}</h1>
+        <p className="mb-4 text-xl text-muted-foreground">{notFoundPage.title}</p>
+        <a href={notFoundPage.homeLinkHref} className="text-primary underline hover:text-primary/90">
+          {notFoundPage.homeLinkLabel}
         </a>
       </div>
     </div>

@@ -2,20 +2,22 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 import { ArrowRight, Mail } from "lucide-react";
+import { getSiteContent } from "@/content/siteContent";
 
 export function CTASection() {
+  const ctaContent = getSiteContent().home.cta;
+
   return (
     <section className="section-padding" style={{ background: "var(--gradient-primary)" }}>
       <div className="container-tight text-center">
         <AnimateOnScroll animation="fade-up">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6">
-            Let's Connect
+            {ctaContent.title}
           </h2>
         </AnimateOnScroll>
         <AnimateOnScroll animation="fade-up" delay={100}>
           <p className="text-white/80 text-lg max-w-2xl mx-auto mb-8">
-            For patient inquiries, professional collaboration, or community outreach,
-            feel free to reach out or share your experience.
+            {ctaContent.description}
           </p>
         </AnimateOnScroll>
         <AnimateOnScroll animation="fade-up" delay={200}>
@@ -25,8 +27,8 @@ export function CTASection() {
               size="lg"
               className="rounded-full px-8 gap-2 bg-white text-primary hover:bg-white/90 btn-hover-scale"
             >
-              <Link to="/contact">
-                Contact Ankita
+              <Link to={ctaContent.primaryButton.href}>
+                {ctaContent.primaryButton.label}
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
@@ -36,9 +38,9 @@ export function CTASection() {
               variant="outline"
               className="rounded-full px-8 gap-2 border-white/30 text-white bg-transparent hover:bg-white/10 hover:text-white btn-hover-scale"
             >
-              <a href="mailto:ankita.omfp@outlook.com">
+              <a href={ctaContent.secondaryButton.href}>
                 <Mail className="w-4 h-4" />
-                Email ankita.omfp@outlook.com
+                {ctaContent.secondaryButton.label}
               </a>
             </Button>
           </div>

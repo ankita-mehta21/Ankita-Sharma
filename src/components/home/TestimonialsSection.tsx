@@ -3,25 +3,36 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/ui/section-header";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
-import { reviews } from "@/data/reviews";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { getFeaturedReviews, getSiteContent, resolveTemplate } from "@/content/siteContent";
 
 export function TestimonialsSection() {
+  const siteContent = getSiteContent();
+  const { testimonials } = siteContent.home;
   const [currentIndex, setCurrentIndex] = useState(0);
-  const featuredReviews = reviews.filter((r) => r.rating === 5).slice(0, 5);
+  const featuredReviews = getFeaturedReviews();
 
   useEffect(() => {
+    if (featuredReviews.length === 0) {
+      return;
+    }
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % featuredReviews.length);
-    }, 5000);
+    }, testimonials.autoplayMs);
     return () => clearInterval(timer);
-  }, [featuredReviews.length]);
+  }, [featuredReviews.length, testimonials.autoplayMs]);
 
   const goToPrevious = () => {
+    if (featuredReviews.length === 0) {
+      return;
+    }
     setCurrentIndex((prev) => (prev - 1 + featuredReviews.length) % featuredReviews.length);
   };
 
   const goToNext = () => {
+    if (featuredReviews.length === 0) {
+      return;
+    }
     setCurrentIndex((prev) => (prev + 1) % featuredReviews.length);
   };
 
@@ -32,9 +43,9 @@ export function TestimonialsSection() {
       <div className="container-wide">
         <AnimateOnScroll animation="fade-up">
           <SectionHeader
-            badge="Patient Feedback"
-            title="What Our Patients Say"
-            subtitle="Real experiences from patients who have received care from Dr. Ankita Sharma."
+            badge={testimonials.badge}
+            title={testimonials.title}
+            subtitle={testimonials.subtitle}
           />
         </AnimateOnScroll>
 
@@ -73,7 +84,7 @@ export function TestimonialsSection() {
                   </div>
                   {currentReview?.verified && (
                     <span className="px-3 py-1 rounded-full bg-success/10 text-success text-xs font-medium">
-                      Verified Patient
+                      {testimonials.verifiedLabel}
                     </span>
                   )}
                 </div>
@@ -84,7 +95,7 @@ export function TestimonialsSection() {
                 <button
                   onClick={goToPrevious}
                   className="w-10 h-10 rounded-full border border-border hover:bg-muted flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95"
-                  aria-label="Previous review"
+                  aria-label={testimonials.previousAriaLabel}
                 >
                   <ChevronLeft className="w-5 h-5 text-muted-foreground" />
                 </button>
@@ -98,14 +109,16 @@ export function TestimonialsSection() {
                           ? "w-6 bg-primary"
                           : "bg-border hover:bg-muted-foreground/30"
                       }`}
-                      aria-label={`Go to review ${index + 1}`}
+                      aria-label={resolveTemplate(testimonials.dotAriaLabelTemplate, {
+                        index: index + 1,
+                      })}
                     />
                   ))}
                 </div>
                 <button
                   onClick={goToNext}
                   className="w-10 h-10 rounded-full border border-border hover:bg-muted flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95"
-                  aria-label="Next review"
+                  aria-label={testimonials.nextAriaLabel}
                 >
                   <ChevronRight className="w-5 h-5 text-muted-foreground" />
                 </button>
@@ -115,7 +128,7 @@ export function TestimonialsSection() {
             {/* CTA */}
             <div className="text-center mt-8">
               <Button asChild variant="outline" className="rounded-full btn-hover-scale">
-                <Link to="/reviews">Read All Reviews</Link>
+                <Link to={testimonials.ctaHref}>{testimonials.ctaLabel}</Link>
               </Button>
             </div>
           </div>
