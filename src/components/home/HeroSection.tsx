@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star, ShieldCheck } from "lucide-react";
-import { getIconByKey, getImageByKey, getSiteContent } from "@/content/siteContent";
+import { ContentLink } from "@/components/ui/content-link";
+import { getHomeHeroStats, getIconByKey, getImageByKey, getSiteContent } from "@/content/siteContent";
 
 export function HeroSection() {
   const hero = getSiteContent().home.hero;
   const heroDoctorImage = getImageByKey(hero.doctorImageAssetKey) ?? "";
+  const heroStats = getHomeHeroStats();
 
   return (
     <section className="relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
@@ -60,13 +61,13 @@ export function HeroSection() {
               style={{ animationDelay: "400ms", animationFillMode: "forwards" }}
             >
               <Button asChild size="lg" className="rounded-full px-8 gap-2 btn-hover-scale">
-                <Link to={hero.primaryButton.href}>
+                <ContentLink href={hero.primaryButton.href}>
                   {hero.primaryButton.label}
                   <ArrowRight className="w-4 h-4" />
-                </Link>
+                </ContentLink>
               </Button>
               <Button asChild variant="outline" size="lg" className="rounded-full px-8 btn-hover-scale">
-                <Link to={hero.secondaryButton.href}>{hero.secondaryButton.label}</Link>
+                <ContentLink href={hero.secondaryButton.href}>{hero.secondaryButton.label}</ContentLink>
               </Button>
             </div>
 
@@ -75,7 +76,7 @@ export function HeroSection() {
               className="flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-8 opacity-0 animate-fade-in-up"
               style={{ animationDelay: "500ms", animationFillMode: "forwards" }}
             >
-              {hero.stats.map((stat, index) => {
+              {heroStats.map((stat, index) => {
                 const StatIcon = getIconByKey(stat.iconKey);
                 return (
                   <div key={`${stat.value}-${stat.label}`} className="contents">

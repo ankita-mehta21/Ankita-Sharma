@@ -8,6 +8,11 @@ export default defineConfig({
     host: "::",
     port: 8080,
   },
+  build: {
+    outDir: "site-build",
+    assetsDir: "static",
+    emptyOutDir: true,
+  },
   plugins: [react()],
   resolve: {
     alias: {

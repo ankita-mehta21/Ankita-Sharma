@@ -1,13 +1,17 @@
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeader } from "@/components/ui/section-header";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
-import { getSiteContent } from "@/content/siteContent";
+import { getPrimaryEmail, getPrimaryLocation, getSiteContent } from "@/content/siteContent";
+import { Seo } from "@/components/seo/Seo";
 
 export default function About() {
   const aboutPage = getSiteContent().aboutPage;
+  const primaryEmail = getPrimaryEmail();
+  const primaryLocation = getPrimaryLocation();
 
   return (
     <Layout>
+      <Seo pageTitle={aboutPage.heroBadge} description={aboutPage.heroDescription} />
       <section className="section-padding" style={{ background: "var(--gradient-hero)" }}>
         <div className="container-wide">
           <div className="max-w-3xl mx-auto text-center">
@@ -28,9 +32,9 @@ export default function About() {
             </AnimateOnScroll>
             <AnimateOnScroll animation="fade-up" delay={300}>
               <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
-                <span>{aboutPage.heroEmail}</span>
+                <span>{primaryEmail || aboutPage.heroEmail}</span>
                 <span className="hidden sm:inline">|</span>
-                <span>{aboutPage.heroLocation}</span>
+                <span>{primaryLocation || aboutPage.heroLocation}</span>
               </div>
             </AnimateOnScroll>
           </div>
@@ -155,9 +159,9 @@ export default function About() {
 
       <section className="section-padding">
         <div className="container-wide">
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="max-w-3xl mx-auto">
             <AnimateOnScroll animation="fade-right">
-              <div className="glass-card p-8 rounded-3xl h-full">
+              <div className="glass-card p-8 rounded-3xl">
                 <SectionHeader
                   badge={aboutPage.languagesSection.badge}
                   title={aboutPage.languagesSection.title}
@@ -174,7 +178,6 @@ export default function About() {
                 </ul>
               </div>
             </AnimateOnScroll>
-            {/* Additional Details Removed */}
           </div>
         </div>
       </section>

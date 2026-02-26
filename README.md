@@ -1,109 +1,35 @@
-# Ankita Sharma - Dental Portfolio
+# Dr. Ankita Sharma Portfolio
 
-A portfolio site for Dr. Ankita Sharma, showcasing clinical experience, education, certifications, publications, and patient reviews.
+Frontend-only portfolio site powered by `src/content/site-content.json`.
 
-## Project Overview
+## Stack
+- React + Vite + TypeScript
+- Tailwind CSS + shadcn/ui
+- React Router
+- `zod` content validation
+- `react-helmet-async` for page SEO metadata
 
-This website presents Dr. Ankita Sharma's professional portfolio, including clinical roles, research publications, and a patient review submission workflow. It is designed as a personal portfolio rather than a clinic website.
+## Content Editing Flow
+1. Update `src/content/site-content.json`.
+2. Commit to GitHub.
+3. Auto-deploy publishes the updated site.
 
-## Technology Stack
+## Quality Safeguards
+- Schema validation for `site-content.json` before build.
+- Reference checks (icons, image keys, duplicate IDs).
+- CI workflow runs `validate:content`, `lint`, and `build`.
 
-This project is built with:
+## Scripts
+- `npm run dev`: local dev server
+- `npm run validate:content`: validate JSON schema + references
+- `npm run lint`: lint codebase
+- `npm run build`: production build (output: `site-build/`)
+- `npm run preview`: preview production build
+- `npm run check`: full local quality gate
+- `npm run start`: serve `site-build/` (production)
 
-- **Vite** - Fast build tool and development server
-- **TypeScript** - Type-safe JavaScript
-- **React** - UI library
-- **React Router** - Client-side routing
-- **shadcn-ui** - High-quality component library
-- **Tailwind CSS** - Utility-first CSS framework
-- **Radix UI** - Accessible component primitives
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v18 or higher recommended)
-- npm or yarn package manager
-
-### Installation
-
-1. Clone the repository:
-`sh
-git clone <repository-url>
-cd gentle-dental-care
-`
-
-2. Install dependencies:
-`sh
-npm install
-`
-
-3. Start the development server:
-`sh
-npm run dev
-`
-
-The application will be available at http://localhost:8080
-
-### Available Scripts
-
-- 
-pm run dev - Start development server
-- 
-pm run build - Build for production
-- 
-pm run build:dev - Build in development mode
-- 
-pm run preview - Preview production build
-- 
-pm run lint - Run ESLint
-
-## Project Structure
-
-`
-gentle-dental-care/
-|-- public/          # Static assets
-|-- src/
-|   |-- components/  # React components
-|   |   |-- home/     # Home page components
-|   |   |-- layout/   # Layout components (Navbar, Footer)
-|   |   -- ui/       # Reusable UI components
-|   |-- data/         # Static data files
-|   |-- hooks/        # Custom React hooks
-|   |-- lib/          # Utility functions
-|   -- pages/        # Page components
-|-- index.html        # HTML entry point
--- vite.config.ts    # Vite configuration
-`
-
-## Features
-
-- **Portfolio Focus** - Education, experience, certifications, and publications
-- **Patient Reviews** - Testimonials and a review submission form
-- **Contact Form** - Inquiries and collaboration requests
-- **Classic Medical Blue Theme** - Consistent, professional styling
-- **Responsive Design** - Mobile-first layout with smooth animations
-
-## Building for Production
-
-To create a production build:
-
-`sh
-npm run build
-`
-
-The build output will be in the dist/ directory, ready for deployment to any static hosting service.
-
-## Deployment
-
-The built files in the dist/ directory can be deployed to:
-
-- Vercel
-- Netlify
-- GitHub Pages
-- AWS S3
-- Any static hosting service
-
-## License
-
-Private project - All rights reserved
+## Key Paths
+- `src/content/site-content.json`: single source of editable content
+- `src/content/siteContentSchema.ts`: content schema and validator
+- `scripts/validate-content.ts`: build-time content checks
+- `.github/workflows/quality-checks.yml`: CI checks

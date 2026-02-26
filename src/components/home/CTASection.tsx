@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 import { ArrowRight, Mail } from "lucide-react";
+import { ContentLink } from "@/components/ui/content-link";
 import { getSiteContent } from "@/content/siteContent";
 
 export function CTASection() {
@@ -27,10 +27,10 @@ export function CTASection() {
               size="lg"
               className="rounded-full px-8 gap-2 bg-white text-primary hover:bg-white/90 btn-hover-scale"
             >
-              <Link to={ctaContent.primaryButton.href}>
+              <ContentLink href={ctaContent.primaryButton.href}>
                 {ctaContent.primaryButton.label}
                 <ArrowRight className="w-4 h-4" />
-              </Link>
+              </ContentLink>
             </Button>
             <Button
               asChild
@@ -38,10 +38,10 @@ export function CTASection() {
               variant="outline"
               className="rounded-full px-8 gap-2 border-white/30 text-white bg-transparent hover:bg-white/10 hover:text-white btn-hover-scale"
             >
-              <a href={ctaContent.secondaryButton.href}>
+              <ContentLink href={ctaContent.secondaryButton.href}>
                 <Mail className="w-4 h-4" />
                 {ctaContent.secondaryButton.label}
-              </a>
+              </ContentLink>
             </Button>
           </div>
         </AnimateOnScroll>

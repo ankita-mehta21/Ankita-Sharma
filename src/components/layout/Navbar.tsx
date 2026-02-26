@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Menu, X, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { getSiteContent } from "@/content/siteContent";
+import { ContentLink } from "@/components/ui/content-link";
+import { getPrimaryEmail, getSiteContent, resolveHref } from "@/content/siteContent";
 
 export function Navbar() {
   const siteContent = getSiteContent();
   const navLinks = siteContent.layout.navbar.navLinks;
+  const contactLink = navLinks.find((link) => resolveHref(link.href) === "/contact")?.href ?? "/contact";
+  const primaryEmail = getPrimaryEmail();
 
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,8 +40,8 @@ export function Navbar() {
       <nav className="container-wide">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link
-            to="/"
+          <ContentLink
+            href="/"
             className="flex items-center gap-2 group"
           >
             <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -52,37 +55,37 @@ export function Navbar() {
                 {siteContent.siteMeta.primaryRole}
               </span>
             </div>
-          </Link>
+          </ContentLink>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
-              <Link
+              <ContentLink
                 key={link.href}
-                to={link.href}
+                href={link.href}
                 className={cn(
                   "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200",
-                  location.pathname === link.href
+                  location.pathname === resolveHref(link.href)
                     ? "text-primary bg-primary/10"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 )}
               >
                 {link.label}
-              </Link>
+              </ContentLink>
             ))}
           </div>
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href={`mailto:${siteContent.siteMeta.email}`}
+              href={primaryEmail ? `mailto:${primaryEmail}` : "mailto:"}
               className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <Mail className="w-4 h-4" />
               <span className="hidden xl:inline">{siteContent.layout.navbar.desktopEmailText}</span>
             </a>
             <Button asChild size="sm" className="rounded-full px-6">
-              <Link to="/contact">{siteContent.layout.navbar.desktopCtaLabel}</Link>
+              <ContentLink href={contactLink}>{siteContent.layout.navbar.desktopCtaLabel}</ContentLink>
             </Button>
           </div>
 
@@ -110,22 +113,22 @@ export function Navbar() {
         >
           <div className="flex flex-col gap-1 pt-2">
             {navLinks.map((link) => (
-              <Link
+              <ContentLink
                 key={link.href}
-                to={link.href}
+                href={link.href}
                 className={cn(
                   "px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200",
-                  location.pathname === link.href
+                  location.pathname === resolveHref(link.href)
                     ? "text-primary bg-primary/10"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 )}
               >
                 {link.label}
-              </Link>
+              </ContentLink>
             ))}
             <div className="pt-3 px-4 flex items-center gap-3">
               <Button asChild className="w-full rounded-full">
-                <Link to="/contact">{siteContent.layout.navbar.mobileCtaLabel}</Link>
+                <ContentLink href={contactLink}>{siteContent.layout.navbar.mobileCtaLabel}</ContentLink>
               </Button>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { ContentLink } from "@/components/ui/content-link";
 import { getIconByKey, getSiteContent, resolveTemplate } from "@/content/siteContent";
 
 export function Footer() {
@@ -12,7 +12,7 @@ export function Footer() {
       <div className="container-wide section-padding">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           <div>
-            <Link to="/" className="inline-block mb-4">
+            <ContentLink href="/" className="inline-block mb-4">
               <div className="flex items-center gap-2">
                 <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
                   <span className="text-xl font-display font-bold text-primary-foreground">
@@ -25,23 +25,23 @@ export function Footer() {
                   </span>
                 </div>
               </div>
-            </Link>
+            </ContentLink>
             <p className="text-background/70 text-sm leading-relaxed mb-6">
               {footerContent.summary}
             </p>
             <div className="flex flex-wrap items-center gap-3">
-              <Link
-                to={footerContent.primaryCta.href}
+              <ContentLink
+                href={footerContent.primaryCta.href}
                 className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity"
               >
                 {footerContent.primaryCta.label}
-              </Link>
-              <Link
-                to={footerContent.secondaryCta.href}
+              </ContentLink>
+              <ContentLink
+                href={footerContent.secondaryCta.href}
                 className="inline-flex items-center justify-center px-4 py-2 rounded-full border border-background/20 text-background/80 text-sm font-medium hover:text-primary hover:border-primary/50 transition-colors"
               >
                 {footerContent.secondaryCta.label}
-              </Link>
+              </ContentLink>
             </div>
           </div>
 
@@ -78,12 +78,12 @@ export function Footer() {
             <p className="text-background/60 text-sm text-center md:text-left">
               {resolveTemplate(footerContent.copyrightTemplate, { year: currentYear })}
             </p>
-            <Link
-              to={footerContent.bottomLink.href}
+            <ContentLink
+              href={footerContent.bottomLink.href}
               className="text-background/60 hover:text-primary text-sm transition-colors"
             >
               {footerContent.bottomLink.label}
-            </Link>
+            </ContentLink>
           </div>
         </div>
       </div>

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/ui/section-header";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { ContentLink } from "@/components/ui/content-link";
 import { getFeaturedReviews, getSiteContent, resolveTemplate } from "@/content/siteContent";
 
 export function TestimonialsSection() {
@@ -11,16 +11,31 @@ export function TestimonialsSection() {
   const { testimonials } = siteContent.home;
   const [currentIndex, setCurrentIndex] = useState(0);
   const featuredReviews = getFeaturedReviews();
+  const hasFeaturedReviews = featuredReviews.length > 0;
 
   useEffect(() => {
-    if (featuredReviews.length === 0) {
+    if (!hasFeaturedReviews) {
       return;
     }
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % featuredReviews.length);
     }, testimonials.autoplayMs);
     return () => clearInterval(timer);
-  }, [featuredReviews.length, testimonials.autoplayMs]);
+  }, [hasFeaturedReviews, featuredReviews.length, testimonials.autoplayMs]);
+
+  useEffect(() => {
+    if (!hasFeaturedReviews) {
+      setCurrentIndex(0);
+      return;
+    }
+    if (currentIndex >= featuredReviews.length) {
+      setCurrentIndex(0);
+    }
+  }, [currentIndex, hasFeaturedReviews, featuredReviews.length]);
+
+  if (!hasFeaturedReviews) {
+    return null;
+  }
 
   const goToPrevious = () => {
     if (featuredReviews.length === 0) {
@@ -37,6 +52,7 @@ export function TestimonialsSection() {
   };
 
   const currentReview = featuredReviews[currentIndex];
+  const starCount = currentReview?.rating ?? 5;
 
   return (
     <section className="section-padding">
@@ -61,7 +77,9 @@ export function TestimonialsSection() {
                   {[1, 2, 3, 4, 5].map((i) => (
                     <Star
                       key={i}
-                      className="w-6 h-6 fill-warning text-warning transition-transform duration-200 hover:scale-110"
+                      className={`w-6 h-6 transition-transform duration-200 hover:scale-110 ${
+                        i <= starCount ? "fill-warning text-warning" : "text-muted"
+                      }`}
                     />
                   ))}
                 </div>
@@ -128,7 +146,7 @@ export function TestimonialsSection() {
             {/* CTA */}
             <div className="text-center mt-8">
               <Button asChild variant="outline" className="rounded-full btn-hover-scale">
-                <Link to={testimonials.ctaHref}>{testimonials.ctaLabel}</Link>
+                <ContentLink href={testimonials.ctaHref}>{testimonials.ctaLabel}</ContentLink>
               </Button>
             </div>
           </div>

@@ -13,13 +13,15 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import siteContentJson from "./site-content.json";
-import heroDoctorImage from "../../Hero_Section_Image.jpeg";
-import preventiveIconImage from "../../Preventive_Icon.png";
-import extractionIconImage from "../../Extraction_Icon.png";
-import endodonticsIconImage from "../../Endodontics_Icon.png";
-import prosthodonticsIconImage from "../../Prosthodontics_Icon.png";
+import heroDoctorImage from "@/assets/images/hero-doctor-image.jpeg";
+import preventiveIconImage from "@/assets/images/preventive-icon.png";
+import extractionIconImage from "@/assets/images/extraction-icon.png";
+import endodonticsIconImage from "@/assets/images/endodontics-icon.png";
+import prosthodonticsIconImage from "@/assets/images/prosthodontics-icon.png";
+import { type SiteContent, validateSiteContent } from "./siteContentSchema";
 
 type TemplateValues = Record<string, string | number>;
+const SCHEME_PATTERN = /^[a-z][a-z\d+.-]*:/i;
 
 const lucideIconMap: Record<string, LucideIcon> = {
   Sparkles,
@@ -41,12 +43,6 @@ const imageAssetMap: Record<string, string> = {
   extractionIcon: extractionIconImage,
   endodonticsIcon: endodonticsIconImage,
   prosthodonticsIcon: prosthodonticsIconImage,
-};
-
-type DashboardStat = {
-  label: string;
-  type: "totalReviews" | "static";
-  value?: number;
 };
 
 export interface Review {
@@ -71,12 +67,140 @@ export interface Service {
   whoIsItFor: string;
 }
 
-type SiteContent = typeof siteContentJson;
+function pickFirstNonEmpty(...values: Array<string | undefined | null>) {
+  for (const value of values) {
+    if (typeof value === "string") {
+      const trimmed = value.trim();
+      if (trimmed.length > 0) {
+        return trimmed;
+      }
+    }
+  }
+  return "";
+}
 
-const content: SiteContent = siteContentJson;
+function normalizeText(value: string) {
+  return value.replace(/â€¢/g, ", ").trim();
+}
+
+function normalizeContent(rawContent: SiteContent): SiteContent {
+  const primaryEmail = pickFirstNonEmpty(rawContent.doctorProfile.contact.email, rawContent.siteMeta.email);
+  const primaryLocation = pickFirstNonEmpty(
+    rawContent.doctorProfile.contact.cityStateCountry,
+    rawContent.siteMeta.location,
+  );
+  const primaryRole = pickFirstNonEmpty(rawContent.doctorProfile.currentRole, rawContent.siteMeta.primaryRole);
+  const languageSummary = rawContent.doctorProfile.languages.map((language) => normalizeText(language)).join(", ");
+  const normalizedEmailHref = primaryEmail ? `mailto:${primaryEmail}` : "";
+
+  return {
+    ...rawContent,
+    siteMeta: {
+      ...rawContent.siteMeta,
+      email: primaryEmail || rawContent.siteMeta.email,
+      location: primaryLocation || rawContent.siteMeta.location,
+      primaryRole: primaryRole || rawContent.siteMeta.primaryRole,
+    },
+    doctorProfile: {
+      ...rawContent.doctorProfile,
+      currentRole: primaryRole || rawContent.doctorProfile.currentRole,
+      contact: {
+        ...rawContent.doctorProfile.contact,
+        email: primaryEmail || rawContent.doctorProfile.contact.email,
+        cityStateCountry: primaryLocation || rawContent.doctorProfile.contact.cityStateCountry,
+      },
+      languages: rawContent.doctorProfile.languages.map((language) => normalizeText(language)),
+    },
+    layout: {
+      ...rawContent.layout,
+      navbar: {
+        ...rawContent.layout.navbar,
+        desktopEmailText: pickFirstNonEmpty(rawContent.layout.navbar.desktopEmailText, primaryEmail),
+      },
+      footer: {
+        ...rawContent.layout.footer,
+        details: rawContent.layout.footer.details.map((detail) => ({
+          ...detail,
+          text: normalizeText(detail.text),
+        })),
+      },
+    },
+    home: {
+      ...rawContent.home,
+      cta: {
+        ...rawContent.home.cta,
+        secondaryButton: {
+          ...rawContent.home.cta.secondaryButton,
+          href: pickFirstNonEmpty(rawContent.home.cta.secondaryButton.href, normalizedEmailHref),
+          label: pickFirstNonEmpty(
+            rawContent.home.cta.secondaryButton.label,
+            primaryEmail ? `Email ${primaryEmail}` : "Email",
+          ),
+        },
+      },
+    },
+    aboutPage: {
+      ...rawContent.aboutPage,
+      heroEmail: pickFirstNonEmpty(rawContent.aboutPage.heroEmail, primaryEmail),
+      heroLocation: pickFirstNonEmpty(rawContent.aboutPage.heroLocation, primaryLocation),
+    },
+    contactPage: {
+      ...rawContent.contactPage,
+      contactInfo: rawContent.contactPage.contactInfo.map((item) => {
+        if (item.iconKey === "Mail") {
+          return {
+            ...item,
+            content: pickFirstNonEmpty(item.content, primaryEmail),
+            href: pickFirstNonEmpty(item.href, normalizedEmailHref),
+          };
+        }
+        if (item.iconKey === "MapPin") {
+          return {
+            ...item,
+            content: pickFirstNonEmpty(item.content, primaryLocation),
+          };
+        }
+        if (item.iconKey === "Briefcase") {
+          return {
+            ...item,
+            content: pickFirstNonEmpty(item.content, primaryRole),
+          };
+        }
+        if (item.iconKey === "Languages" && !item.content.trim()) {
+          return {
+            ...item,
+            content: languageSummary,
+          };
+        }
+        return {
+          ...item,
+          content: normalizeText(item.content),
+        };
+      }),
+    },
+  };
+}
+
+const content = normalizeContent(validateSiteContent(siteContentJson));
 
 export function getSiteContent() {
   return content;
+}
+
+export function getPrimaryEmail() {
+  return content.siteMeta.email;
+}
+
+export function getPrimaryLocation() {
+  return content.siteMeta.location;
+}
+
+export function getPrimaryRole() {
+  return content.siteMeta.primaryRole;
+}
+
+export function getLanguageSummary() {
+  return content.doctorProfile.languages.join(", ");
 }
 
 export function resolveTemplate(template: string, values: TemplateValues) {
@@ -84,6 +208,28 @@ export function resolveTemplate(template: string, values: TemplateValues) {
     (acc, [key, value]) => acc.replace(new RegExp(`\\{\\{${key}\\}\\}`, "g"), String(value)),
     template
   );
+}
+
+export function resolveHref(href: string, fallbackHref = "/") {
+  const trimmedHref = href.trim();
+  if (!trimmedHref) {
+    return fallbackHref;
+  }
+
+  if (trimmedHref.startsWith("/") || trimmedHref.startsWith("#") || trimmedHref.startsWith("//")) {
+    return trimmedHref;
+  }
+
+  if (SCHEME_PATTERN.test(trimmedHref)) {
+    return trimmedHref;
+  }
+
+  return `/${trimmedHref.replace(/^\/+/, "")}`;
+}
+
+export function isExternalHref(href: string) {
+  const resolvedHref = resolveHref(href, "/");
+  return resolvedHref.startsWith("//") || resolvedHref.startsWith("#") || SCHEME_PATTERN.test(resolvedHref);
 }
 
 export function getIconByKey(iconKey: string): LucideIcon {
@@ -95,10 +241,13 @@ export function getImageByKey(imageKey?: string): string | undefined {
     return undefined;
   }
   const configuredImage = content.assets?.images?.[imageKey];
-  if (configuredImage?.path) {
+  if (typeof configuredImage === "object" && configuredImage !== null && configuredImage.path) {
     return configuredImage.path;
   }
-  const importKey = configuredImage?.importKey ?? imageKey;
+  const importKey =
+    typeof configuredImage === "object" && configuredImage !== null
+      ? configuredImage.importKey ?? imageKey
+      : imageKey;
   return imageAssetMap[importKey];
 }
 
@@ -144,15 +293,25 @@ export function getFeaturedReviews() {
     .slice(0, homeFeaturedTestimonialsCount);
 }
 
-export function getAdminRecentReviews() {
-  return getReviews().slice(0, content.display.adminRecentReviewsCount);
-}
+export function getHomeHeroStats() {
+  const reviews = getReviews();
+  const averageRating = getAverageRating();
 
-export function getAdminDashboardStats(): Array<{ label: string; value: number }> {
-  return content.adminPage.dashboard.stats.map((stat: DashboardStat) => {
-    if (stat.type === "totalReviews") {
-      return { label: stat.label, value: getReviews().length };
+  return content.home.hero.stats.map((stat) => {
+    if (stat.iconKey !== "Star") {
+      return stat;
     }
-    return { label: stat.label, value: stat.value ?? 0 };
+
+    if (reviews.length === 0) {
+      return {
+        ...stat,
+        value: "No Reviews Yet",
+      };
+    }
+
+    return {
+      ...stat,
+      value: `${averageRating.toFixed(1)} Rating`,
+    };
   });
 }

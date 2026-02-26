@@ -1,5 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
+import { ContentLink } from "@/components/ui/content-link";
+import { Seo } from "@/components/seo/Seo";
 import { getIconByKey, getSiteContent } from "@/content/siteContent";
 
 export default function Contact() {
@@ -7,6 +9,7 @@ export default function Contact() {
 
   return (
     <Layout>
+      <Seo pageTitle={contactPage.title} description={contactPage.subtitle} />
       <section className="section-padding" style={{ background: "var(--gradient-hero)" }}>
         <div className="container-wide text-center">
           <AnimateOnScroll animation="fade-up">
@@ -33,9 +36,9 @@ export default function Contact() {
                         <div>
                           <h3 className="font-semibold mb-1">{item.title}</h3>
                           {item.href ? (
-                            <a href={item.href} className="text-muted-foreground hover:text-primary transition-colors">
+                            <ContentLink href={item.href} className="text-muted-foreground hover:text-primary transition-colors">
                               {item.content}
-                            </a>
+                            </ContentLink>
                           ) : (
                             <p className="text-muted-foreground whitespace-pre-line">{item.content}</p>
                           )}

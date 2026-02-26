@@ -1,6 +1,13 @@
-{
+﻿{
   "__guide": {
     "_comment": "JSON does not support native comments. This file uses keys like `__guide`, `__schema`, and `_comment` for human/AI documentation. Do not remove them unless intentionally cleaning docs.",
+    "nonTechnicalQuickStart": [
+      "Step 1: Open this file and search for the page name in `pageSectionMap` below.",
+      "Step 2: Find the exact key path shown in `editPathExamples`.",
+      "Step 3: Edit only text values first. Do not rename keys unless your developer says so.",
+      "Step 4: Commit changes. The site auto-deploys from GitHub.",
+      "Tip: If something disappears, check spelling and commas in the edited block."
+    ],
     "editingRules": [
       "Keep all existing keys unless intentionally deprecating a feature.",
       "Prefer updating text/content values over changing key names.",
@@ -8,6 +15,130 @@
       "If an image object has `path`, the app uses that first; otherwise it falls back to `importKey`.",
       "Arrays like `services`, `reviews`, `education`, and `contactInfo` are fully dynamic. Add/remove objects as needed."
     ],
+    "pageSectionMap": {
+      "_comment": "Use this as a map: page -> section -> exact key paths to edit.",
+      "HomePage_/": {
+        "sectionsInOrder": ["Hero", "Areas of Practice", "Testimonials", "Bottom CTA"],
+        "editPathExamples": {
+          "Hero title/subtitle/buttons": [
+            "home.hero.titlePrefix",
+            "home.hero.titleHighlight",
+            "home.hero.description",
+            "home.hero.primaryButton",
+            "home.hero.secondaryButton"
+          ],
+          "Hero image/profile card": [
+            "home.hero.doctorImageAssetKey",
+            "home.hero.profileCard"
+          ],
+          "Areas of Practice heading": [
+            "home.areasOfPractice.badge",
+            "home.areasOfPractice.title",
+            "home.areasOfPractice.subtitle"
+          ],
+          "Testimonials heading and behavior": [
+            "home.testimonials.badge",
+            "home.testimonials.title",
+            "home.testimonials.subtitle",
+            "home.testimonials.autoplayMs"
+          ],
+          "Bottom CTA section": [
+            "home.cta.title",
+            "home.cta.description",
+            "home.cta.primaryButton",
+            "home.cta.secondaryButton"
+          ]
+        }
+      },
+      "PortfolioPage_/about": {
+        "sectionsInOrder": ["Hero", "Summary", "Credentials", "Clinical Roles", "Publications", "Language Proficiency"],
+        "editPathExamples": {
+          "Top hero block": [
+            "aboutPage.heroBadge",
+            "aboutPage.heroTitle",
+            "aboutPage.heroDescription"
+          ],
+          "Professional summary card": [
+            "aboutPage.summarySection.summary"
+          ],
+          "Education and certifications": [
+            "aboutPage.credentialsSection.education",
+            "aboutPage.credentialsSection.certifications"
+          ],
+          "Experience cards": [
+            "aboutPage.experienceSection.roles"
+          ],
+          "Publications list": [
+            "aboutPage.publicationsSection.publications"
+          ],
+          "Languages card": [
+            "aboutPage.languagesSection.languages"
+          ]
+        }
+      },
+      "ReviewsPage_/reviews": {
+        "sectionsInOrder": ["Header rating area", "Share review CTA", "Filters", "Review cards"],
+        "editPathExamples": {
+          "Page headings and labels": [
+            "reviewsPage.title",
+            "reviewsPage.ratingOutOfTextTemplate",
+            "reviewsPage.basedOnReviewsTemplate"
+          ],
+          "Share review button": [
+            "externalLinks.reviewForm",
+            "reviewsPage.shareExperience"
+          ],
+          "Actual patient reviews data": [
+            "reviews"
+          ],
+          "Show/hide share review card": [
+            "visibility.showReviewsPageShareCta"
+          ]
+        }
+      },
+      "ContactPage_/contact": {
+        "sectionsInOrder": ["Header", "Contact info cards"],
+        "editPathExamples": {
+          "Page title/subtitle": [
+            "contactPage.title",
+            "contactPage.subtitle"
+          ],
+          "Contact cards (email/location/role/languages)": [
+            "contactPage.contactInfo"
+          ]
+        }
+      },
+      "Global_AppearsOnAllPages": {
+        "sectionsInOrder": ["Navbar", "Footer", "Brand + doctor identity", "SEO"],
+        "editPathExamples": {
+          "Brand name/initials/email/location": [
+            "siteMeta"
+          ],
+          "Doctor profile base info": [
+            "doctorProfile"
+          ],
+          "Navbar links and CTA": [
+            "layout.navbar"
+          ],
+          "Footer text and links": [
+            "layout.footer"
+          ],
+          "Browser/social preview metadata": [
+            "seo"
+          ]
+        }
+      }
+    },
+    "quickTasks": {
+      "_comment": "Copy these paths into GitHub search inside this file to jump quickly.",
+      "Change doctor credentials line (example DMD, MDS)": "doctorProfile.credentials",
+      "Change main email everywhere": "siteMeta.email",
+      "Change current location everywhere": "siteMeta.location",
+      "Add a new service card": "services",
+      "Add a new patient review": "reviews",
+      "Change Google Form link": "externalLinks.reviewForm",
+      "Hide testimonials on home page": "visibility.showTestimonialsSection"
+    },
     "commonTemplates": {
       "linkObject": { "href": "/contact", "label": "Contact" },
       "iconDetailObject": { "iconKey": "Mail", "text": "example@domain.com", "href": "mailto:example@domain.com" },
@@ -133,7 +264,7 @@
     "_comment": "Feature flags for conditional sections in future iterations.",
     "showTestimonialsSection": true,
     "showReviewsPageShareCta": true,
-    "showAdminPage": true
+    "showAdminPage": false
   },
   "display": {
     "_comment": "Numeric display controls (counts/limits) consumed by selector functions.",
@@ -339,7 +470,7 @@
       "title": "Share Your Experience",
       "description": "Your feedback helps us provide better care. We'd love to hear about your experience with Dr. Ankita Sharma.",
       "buttonLabel": "Write a Review",
-      "buttonHref": "https://form.typeform.com/to/kwqnIPmU"
+      "buttonHref": "https://docs.google.com/forms/d/e/1FAIpQLSeFn_O9uFsYlVevnKqcGDMJYST4l_nhlKgOVPunmL22SjpKcw/viewform"
     },
     "filters": {
       "allLabel": "All"
@@ -372,7 +503,7 @@
       {
         "iconKey": "Languages",
         "title": "Languages",
-        "content": "English (Fluent) • Hindi (Native)"
+        "content": "English (Fluent), Hindi (Native)"
       }
     ]
   },
@@ -553,3 +684,4 @@
 
   "reviews": []
 }
+
