@@ -9,7 +9,7 @@ export default defineConfig({
     port: 8080,
   },
   build: {
-    outDir: "site-build",
+    outDir: "dist",
     assetsDir: "static",
     emptyOutDir: true,
   },

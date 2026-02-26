@@ -11,7 +11,7 @@
     "validate:content": "tsx scripts/validate-content.ts",
     "check": "npm run validate:content && npm run lint && npm run build",
     "preview": "vite preview",
-    "start": "serve -s site-build -l $PORT"
+    "start": "serve -s dist -l $PORT"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

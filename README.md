@@ -23,10 +23,10 @@ Frontend-only portfolio site powered by `src/content/site-content.json`.
 - `npm run dev`: local dev server
 - `npm run validate:content`: validate JSON schema + references
 - `npm run lint`: lint codebase
-- `npm run build`: production build (output: `site-build/`)
+- `npm run build`: production build (output: `dist/`)
 - `npm run preview`: preview production build
 - `npm run check`: full local quality gate
-- `npm run start`: serve `site-build/` (production)
+- `npm run start`: serve `dist/` (production)
 
 ## Key Paths
 - `src/content/site-content.json`: single source of editable content
