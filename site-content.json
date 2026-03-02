@@ -127,7 +127,9 @@
       "badge": "Credentials",
       "title": "Education & Certifications",
       "educationTitle": "Education",
-      "certificationsTitle": "Certifications",
+      "certificationsTitle": "Certifications and Licensure",
+      "licensureTitle": "Licensure",
+      "licensure": ["State of Michigan and California"],
       "education": [
         {
           "degree": "Doctor of Dental Medicine (DMD), Advanced Standing",
@@ -175,7 +177,8 @@
         "Dysgenetic Polycystic Disease of Minor Salivary Gland: A Rare Case Report and Review of the Literature, N. Srikant, Shweta Yellapurkar, Karen Boaz, Mohan Baliga, Nidhi Manaktala, Ankita Sharma, Shakthi Dorai, Prajwal Pai, Case Reports in Pathology, 2017, 5279025, 5, 2017",
         "Rapidly Enlarging Swelling of the Palate: A Case Report, K. Boaz, A. Sharma, N. Srikant, Journal of Oral and Maxillofacial Surgery, Medicine and Pathology, Japanese Editorial, 29, 6, 576-580, 2017",
         "Vitality and accuracy of age estimation using tooth coronal index, cementum and sclerosis index, Reddy BM, Natarajan S, Sharma A, Dorai SB, JCDUR, 7, 2, 3-7, 2016",
-        "Rhinocerebral mucormycosis: a systematic review of case reports and case series from a global perspective, Kumar M et al., Oral Surg Oral Med Oral Pathol Oral Radiol, 134, 6, 708-716, 2022"
+        "Rhinocerebral mucormycosis: a systematic review of case reports and case series from a global perspective, Kumar M et al., Oral Surg Oral Med Oral Pathol Oral Radiol, 134, 6, 708-716, 2022",
+        "Sharma A, Natarajan S, Manaktala N, Boaz K, KP N, Lewis A, Yellapurkar S. Prognostic Nomogram for Lymph-Node Metastasis in Oral Squamous Cell Carcinoma (OSCC) Using Immunohistochemical Marker D2-40. Cancer Manag Res. 2023;15:929-936"
       ]
     },
     "languagesSection": {
@@ -211,7 +214,7 @@
   "contactPage": {
     "_comment": "SAFE TO EDIT — Contact page header text. The info cards below are AUTO-SYNCED from siteMeta and doctorProfile — change the master values there.",
     "title": "Contact Ankita",
-    "subtitle": "Patient inquiries, referrals, and professional collaborations welcome.",
+    "subtitle": "Patient inquiries, referrals, and professional collaborations are welcome.",
     "contactInfo": [
       {
         "_autoSync": "content and href auto-filled from siteMeta.email",
@@ -262,7 +265,7 @@
       "shortDescription": "Comprehensive exams, cleanings, and restorations with a prevention-first focus.",
       "fullDescription": "Experienced in simple and complex restorations as well as full coverage restorations, with treatment plans tailored to each patient.",
       "iconKey": "Sparkles",
-      "iconImageKey": "preventiveIcon",
+      "iconImageKey": "endodonticsIcon",
       "duration": "Varies by visit",
       "benefits": [
         "Personalized treatment planning",
@@ -294,7 +297,7 @@
       "shortDescription": "Root canal care for anterior teeth, premolars, and first mandibular molars.",
       "fullDescription": "Experienced in endodontic treatment of anterior teeth, premolars, and first mandibular molars with ideal anatomy.",
       "iconKey": "Sparkles",
-      "iconImageKey": "endodonticsIcon",
+      "iconImageKey": "preventiveIcon",
       "duration": "Single or multiple visits",
       "benefits": [
         "Preserves natural teeth",
@@ -434,7 +437,8 @@
     "_comment": "TECHNICAL — Show/hide site sections. true = visible, false = hidden.",
     "showTestimonialsSection": true,
     "showReviewsPageShareCta": true,
-    "showAdminPage": false
+    "showAdminPage": false,
+    "showLanguagesSection": false
   },
 
   "display": {

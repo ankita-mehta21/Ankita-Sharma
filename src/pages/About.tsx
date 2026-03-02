@@ -5,9 +5,15 @@ import { getPrimaryEmail, getPrimaryLocation, getSiteContent } from "@/content/s
 import { Seo } from "@/components/seo/Seo";
 
 export default function About() {
-  const aboutPage = getSiteContent().aboutPage;
+  const siteContent = getSiteContent();
+  const aboutPage = siteContent.aboutPage;
   const primaryEmail = getPrimaryEmail();
   const primaryLocation = getPrimaryLocation();
+  const credentials = aboutPage.credentialsSection as typeof aboutPage.credentialsSection & {
+    licensureTitle?: string;
+    licensure?: string[];
+  };
+  const showLanguages = (siteContent.visibility as typeof siteContent.visibility & { showLanguagesSection?: boolean }).showLanguagesSection !== false;
 
   return (
     <Layout>
@@ -82,15 +88,28 @@ export default function About() {
             </AnimateOnScroll>
             <AnimateOnScroll animation="fade-left" delay={100}>
               <div className="glass-card p-8 rounded-3xl h-full">
-                <h3 className="font-display text-xl font-semibold mb-4">{aboutPage.credentialsSection.certificationsTitle}</h3>
+                <h3 className="font-display text-xl font-semibold mb-4">{credentials.certificationsTitle}</h3>
                 <ul className="space-y-3 text-muted-foreground">
-                  {aboutPage.credentialsSection.certifications.map((cert) => (
+                  {credentials.certifications.map((cert) => (
                     <li key={cert} className="flex items-start gap-2">
                       <span className="w-2 h-2 mt-2 rounded-full bg-primary" />
                       <span>{cert}</span>
                     </li>
                   ))}
                 </ul>
+                {credentials.licensureTitle && credentials.licensure && credentials.licensure.length > 0 && (
+                  <div className="mt-6">
+                    <h4 className="font-display text-base font-semibold text-foreground mb-3">{credentials.licensureTitle}</h4>
+                    <ul className="space-y-3 text-muted-foreground">
+                      {credentials.licensure.map((item) => (
+                        <li key={item} className="flex items-start gap-2">
+                          <span className="w-2 h-2 mt-2 rounded-full bg-primary" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             </AnimateOnScroll>
           </div>
@@ -157,30 +176,32 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section-padding">
-        <div className="container-wide">
-          <div className="max-w-3xl mx-auto">
-            <AnimateOnScroll animation="fade-right">
-              <div className="glass-card p-8 rounded-3xl">
-                <SectionHeader
-                  badge={aboutPage.languagesSection.badge}
-                  title={aboutPage.languagesSection.title}
-                  align="left"
-                  className="mb-6"
-                />
-                <ul className="mt-6 space-y-3 text-muted-foreground">
-                  {aboutPage.languagesSection.languages.map((language) => (
-                    <li key={language.language} className="flex items-center justify-between">
-                      <span className="font-semibold text-foreground">{language.language}</span>
-                      <span>{language.level}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </AnimateOnScroll>
+      {showLanguages && (
+        <section className="section-padding">
+          <div className="container-wide">
+            <div className="max-w-3xl mx-auto">
+              <AnimateOnScroll animation="fade-right">
+                <div className="glass-card p-8 rounded-3xl">
+                  <SectionHeader
+                    badge={aboutPage.languagesSection.badge}
+                    title={aboutPage.languagesSection.title}
+                    align="left"
+                    className="mb-6"
+                  />
+                  <ul className="mt-6 space-y-3 text-muted-foreground">
+                    {aboutPage.languagesSection.languages.map((language) => (
+                      <li key={language.language} className="flex items-center justify-between">
+                        <span className="font-semibold text-foreground">{language.language}</span>
+                        <span>{language.level}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AnimateOnScroll>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </Layout>
   );
 }
