@@ -1,6 +1,6 @@
 # Dr. Ankita Sharma Portfolio
 
-Frontend-only portfolio site powered by `src/content/site-content.json`.
+Frontend-only portfolio site powered by `site-content.json`.
 
 ## Stack
 - React + Vite + TypeScript
@@ -10,7 +10,7 @@ Frontend-only portfolio site powered by `src/content/site-content.json`.
 - `react-helmet-async` for page SEO metadata
 
 ## Content Editing Flow
-1. Update `src/content/site-content.json`.
+1. Update `site-content.json` (at project root).
 2. Commit to GitHub.
 3. Auto-deploy publishes the updated site.
 
@@ -29,7 +29,7 @@ Frontend-only portfolio site powered by `src/content/site-content.json`.
 - `npm run start`: serve `dist/` (production)
 
 ## Key Paths
-- `src/content/site-content.json`: single source of editable content
+- `site-content.json`: single source of editable content (at project root)
 - `src/content/siteContentSchema.ts`: content schema and validator
 - `scripts/validate-content.ts`: build-time content checks
 - `.github/workflows/quality-checks.yml`: CI checks

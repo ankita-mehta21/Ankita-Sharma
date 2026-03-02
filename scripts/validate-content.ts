@@ -1,4 +1,4 @@
-import siteContentJson from "../src/content/site-content.json";
+import siteContentJson from "../site-content.json";
 import {
   formatSiteContentValidationIssues,
   siteContentSchema,

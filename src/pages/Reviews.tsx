@@ -114,7 +114,7 @@ export default function Reviews() {
               <div className="glass-card rounded-2xl p-8 text-center">
                 <p className="text-lg font-semibold text-foreground mb-2">No reviews available yet</p>
                 <p className="text-muted-foreground">
-                  Verified patient feedback will appear here after you add entries in `site-content.json`.
+                  Verified patient feedback will appear here after you add entries in `site-content.json` at the project root.
                 </p>
               </div>
             </AnimateOnScroll>

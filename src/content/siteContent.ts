@@ -12,7 +12,7 @@ import {
   Star,
   type LucideIcon,
 } from "lucide-react";
-import siteContentJson from "./site-content.json";
+import siteContentJson from "../../site-content.json";
 import heroDoctorImage from "@/assets/images/hero-doctor-image.jpeg";
 import preventiveIconImage from "@/assets/images/preventive-icon.png";
 import extractionIconImage from "@/assets/images/extraction-icon.png";
@@ -119,10 +119,27 @@ function normalizeContent(rawContent: SiteContent): SiteContent {
       },
       footer: {
         ...rawContent.layout.footer,
-        details: rawContent.layout.footer.details.map((detail) => ({
-          ...detail,
-          text: normalizeText(detail.text),
-        })),
+        details: rawContent.layout.footer.details.map((detail) => {
+          if (detail.iconKey === "Mail") {
+            return {
+              ...detail,
+              text: primaryEmail || normalizeText(detail.text),
+              href: primaryEmail ? `mailto:${primaryEmail}` : (detail.href ?? ""),
+            };
+          }
+          if (detail.iconKey === "MapPin") {
+            return { ...detail, text: primaryLocation || normalizeText(detail.text) };
+          }
+          if (detail.iconKey === "Briefcase") {
+            const clinicName = rawContent.doctorProfile.clinicName.trim();
+            const combined = clinicName ? `${primaryRole} - ${clinicName}` : primaryRole;
+            return { ...detail, text: combined || normalizeText(detail.text) };
+          }
+          if (detail.iconKey === "Languages") {
+            return { ...detail, text: languageSummary || normalizeText(detail.text) };
+          }
+          return { ...detail, text: normalizeText(detail.text) };
+        }),
       },
     },
     home: {

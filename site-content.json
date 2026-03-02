@@ -1,179 +1,15 @@
-﻿{
-  "__guide": {
-    "_comment": "JSON does not support native comments. This file uses keys like `__guide`, `__schema`, and `_comment` for human/AI documentation. Do not remove them unless intentionally cleaning docs.",
-    "nonTechnicalQuickStart": [
-      "Step 1: Open this file and search for the page name in `pageSectionMap` below.",
-      "Step 2: Find the exact key path shown in `editPathExamples`.",
-      "Step 3: Edit only text values first. Do not rename keys unless your developer says so.",
-      "Step 4: Commit changes. The site auto-deploys from GitHub.",
-      "Tip: If something disappears, check spelling and commas in the edited block."
-    ],
-    "editingRules": [
-      "Keep all existing keys unless intentionally deprecating a feature.",
-      "Prefer updating text/content values over changing key names.",
-      "URLs should be full links (https://...) or site routes (/about).",
-      "If an image object has `path`, the app uses that first; otherwise it falls back to `importKey`.",
-      "Arrays like `services`, `reviews`, `education`, and `contactInfo` are fully dynamic. Add/remove objects as needed."
-    ],
-    "pageSectionMap": {
-      "_comment": "Use this as a map: page -> section -> exact key paths to edit.",
-      "HomePage_/": {
-        "sectionsInOrder": ["Hero", "Areas of Practice", "Testimonials", "Bottom CTA"],
-        "editPathExamples": {
-          "Hero title/subtitle/buttons": [
-            "home.hero.titlePrefix",
-            "home.hero.titleHighlight",
-            "home.hero.description",
-            "home.hero.primaryButton",
-            "home.hero.secondaryButton"
-          ],
-          "Hero image/profile card": [
-            "home.hero.doctorImageAssetKey",
-            "home.hero.profileCard"
-          ],
-          "Areas of Practice heading": [
-            "home.areasOfPractice.badge",
-            "home.areasOfPractice.title",
-            "home.areasOfPractice.subtitle"
-          ],
-          "Testimonials heading and behavior": [
-            "home.testimonials.badge",
-            "home.testimonials.title",
-            "home.testimonials.subtitle",
-            "home.testimonials.autoplayMs"
-          ],
-          "Bottom CTA section": [
-            "home.cta.title",
-            "home.cta.description",
-            "home.cta.primaryButton",
-            "home.cta.secondaryButton"
-          ]
-        }
-      },
-      "PortfolioPage_/about": {
-        "sectionsInOrder": ["Hero", "Summary", "Credentials", "Clinical Roles", "Publications", "Language Proficiency"],
-        "editPathExamples": {
-          "Top hero block": [
-            "aboutPage.heroBadge",
-            "aboutPage.heroTitle",
-            "aboutPage.heroDescription"
-          ],
-          "Professional summary card": [
-            "aboutPage.summarySection.summary"
-          ],
-          "Education and certifications": [
-            "aboutPage.credentialsSection.education",
-            "aboutPage.credentialsSection.certifications"
-          ],
-          "Experience cards": [
-            "aboutPage.experienceSection.roles"
-          ],
-          "Publications list": [
-            "aboutPage.publicationsSection.publications"
-          ],
-          "Languages card": [
-            "aboutPage.languagesSection.languages"
-          ]
-        }
-      },
-      "ReviewsPage_/reviews": {
-        "sectionsInOrder": ["Header rating area", "Share review CTA", "Filters", "Review cards"],
-        "editPathExamples": {
-          "Page headings and labels": [
-            "reviewsPage.title",
-            "reviewsPage.ratingOutOfTextTemplate",
-            "reviewsPage.basedOnReviewsTemplate"
-          ],
-          "Share review button": [
-            "externalLinks.reviewForm",
-            "reviewsPage.shareExperience"
-          ],
-          "Actual patient reviews data": [
-            "reviews"
-          ],
-          "Show/hide share review card": [
-            "visibility.showReviewsPageShareCta"
-          ]
-        }
-      },
-      "ContactPage_/contact": {
-        "sectionsInOrder": ["Header", "Contact info cards"],
-        "editPathExamples": {
-          "Page title/subtitle": [
-            "contactPage.title",
-            "contactPage.subtitle"
-          ],
-          "Contact cards (email/location/role/languages)": [
-            "contactPage.contactInfo"
-          ]
-        }
-      },
-      "Global_AppearsOnAllPages": {
-        "sectionsInOrder": ["Navbar", "Footer", "Brand + doctor identity", "SEO"],
-        "editPathExamples": {
-          "Brand name/initials/email/location": [
-            "siteMeta"
-          ],
-          "Doctor profile base info": [
-            "doctorProfile"
-          ],
-          "Navbar links and CTA": [
-            "layout.navbar"
-          ],
-          "Footer text and links": [
-            "layout.footer"
-          ],
-          "Browser/social preview metadata": [
-            "seo"
-          ]
-        }
-      }
-    },
-    "quickTasks": {
-      "_comment": "Copy these paths into GitHub search inside this file to jump quickly.",
-      "Change doctor credentials line (example DMD, MDS)": "doctorProfile.credentials",
-      "Change main email everywhere": "siteMeta.email",
-      "Change current location everywhere": "siteMeta.location",
-      "Add a new service card": "services",
-      "Add a new patient review": "reviews",
-      "Change Google Form link": "externalLinks.reviewForm",
-      "Hide testimonials on home page": "visibility.showTestimonialsSection"
-    },
-    "commonTemplates": {
-      "linkObject": { "href": "/contact", "label": "Contact" },
-      "iconDetailObject": { "iconKey": "Mail", "text": "example@domain.com", "href": "mailto:example@domain.com" },
-      "serviceObject": {
-        "id": "unique-service-id",
-        "title": "Service Title",
-        "shortDescription": "Card description",
-        "fullDescription": "Detailed description",
-        "iconKey": "Sparkles",
-        "iconImageKey": "preventiveIcon",
-        "duration": "Varies",
-        "benefits": ["Benefit one", "Benefit two"],
-        "whoIsItFor": "Audience description"
-      },
-      "reviewObject": {
-        "id": "example-id",
-        "name": "Patient Name",
-        "treatment": "Treatment Name",
-        "rating": 5,
-        "review": "Review text",
-        "date": "YYYY-MM-DD",
-        "verified": true
-      }
-    }
-  },
+{
   "siteMeta": {
-    "_comment": "Global brand values used across navbar/footer and shared labels.",
+    "_comment": "START HERE — Change email, location, name, and role here. These auto-update the navbar, footer, contact page, and homepage.",
     "brandName": "Dr. Ankita Sharma",
     "brandInitials": "AS",
     "primaryRole": "General Dentist",
     "email": "ankita.omfp@outlook.com",
     "location": "Baldwin, MI (Current Practice)"
   },
+
   "doctorProfile": {
-    "_comment": "Primary doctor profile data for future centralization and reusable contact/profile references.",
+    "_comment": "SAFE TO EDIT — Doctor bio, clinic, specialties, and languages. Email/location here also override siteMeta if set.",
     "fullName": "Dr. Ankita Sharma",
     "credentials": "DMD, MDS",
     "headline": "Board Certified Dentist",
@@ -195,48 +31,9 @@
       "Hindi (Native)"
     ]
   },
-  "assets": {
-    "_comment": "Asset registry. Keep image IDs stable because pages/services reference these keys.",
-    "images": {
-      "_comment": "Use either `path` (public URL/path) or bundled fallback via `importKey`.",
-      "heroDoctorImage": {
-        "importKey": "heroDoctorImage",
-        "path": "",
-        "alt": "Dr. Ankita Sharma"
-      },
-      "preventiveIcon": {
-        "importKey": "preventiveIcon",
-        "path": "",
-        "alt": "Preventive and restorative care icon"
-      },
-      "extractionIcon": {
-        "importKey": "extractionIcon",
-        "path": "",
-        "alt": "Extraction and emergency care icon"
-      },
-      "endodonticsIcon": {
-        "importKey": "endodonticsIcon",
-        "path": "",
-        "alt": "Endodontic therapy icon"
-      },
-      "prosthodonticsIcon": {
-        "importKey": "prosthodonticsIcon",
-        "path": "",
-        "alt": "Dentures and prosthodontics icon"
-      },
-      "seoOgImage": {
-        "importKey": "heroDoctorImage",
-        "path": "",
-        "alt": "Portfolio preview image"
-      }
-    },
-    "guidance": {
-      "publicPathNote": "If you set `path`, keep files in the Vite public folder and use paths like /images/file-name.jpg.",
-      "fallbackBehavior": "If `path` is blank, the app uses the bundled import mapped by `importKey`."
-    }
-  },
+
   "externalLinks": {
-    "_comment": "Editable external URLs. Leave as empty string if not used.",
+    "_comment": "SAFE TO EDIT — External URLs only. Leave as empty string \"\" to hide. reviewForm is the Google Form link shown on the reviews page.",
     "reviewForm": "https://docs.google.com/forms/d/e/1FAIpQLSeFn_O9uFsYlVevnKqcGDMJYST4l_nhlKgOVPunmL22SjpKcw/viewform",
     "website": "",
     "linkedin": "",
@@ -245,83 +42,11 @@
     "x": "",
     "youtube": ""
   },
-  "seo": {
-    "_comment": "Reserved for metadata/SEO integrations.",
-    "defaultTitle": "Dr. Ankita Sharma Portfolio",
-    "titleTemplate": "{{pageTitle}} | Dr. Ankita Sharma",
-    "defaultDescription": "Portfolio of preventive, restorative, and surgical dental care by Dr. Ankita Sharma.",
-    "keywords": [
-      "Dentist",
-      "Preventive Dentistry",
-      "Restorative Dentistry",
-      "Oral Surgery",
-      "Oral Cancer Screening",
-      "Baldwin MI"
-    ],
-    "openGraphImageAssetKey": "seoOgImage"
-  },
-  "visibility": {
-    "_comment": "Feature flags for conditional sections in future iterations.",
-    "showTestimonialsSection": true,
-    "showReviewsPageShareCta": true,
-    "showAdminPage": false
-  },
-  "display": {
-    "_comment": "Numeric display controls (counts/limits) consumed by selector functions.",
-    "homeFeaturedServicesCount": 4,
-    "homeFeaturedTestimonialsCount": 5,
-    "homeFeaturedTestimonialsMinRating": 5,
-    "adminRecentReviewsCount": 5
-  },
-  "layoutConfig": {
-    "_comment": "Tailwind class presets used for dynamic styling without changing component code.",
-    "homeServices": {
-      "gridClassName": "grid sm:grid-cols-2 lg:grid-cols-4 gap-6",
-      "cardClassName": "group glass-card rounded-2xl p-6 hover-lift h-full text-center flex flex-col items-center",
-      "iconContainerClassName": "w-16 h-16 flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110",
-      "iconImageClassName": "w-full h-full object-contain",
-      "iconFallbackClassName": "w-14 h-14 text-primary",
-      "descriptionClassName": "text-sm text-muted-foreground line-clamp-3"
-    },
-    "reviewsPage": {
-      "gridClassName": "grid md:grid-cols-2 gap-6 pb-16"
-    }
-  },
-  "layout": {
-    "_comment": "Shared layout content for navbar/footer.",
-    "navbar": {
-      "_comment": "Main top navigation configuration.",
-      "navLinks": [
-        { "href": "/", "label": "Home" },
-        { "href": "/about", "label": "Portfolio" },
-        { "href": "/reviews", "label": "Patient Reviews" },
-        { "href": "/contact", "label": "Contact" }
-      ],
-      "desktopEmailText": "ankita.omfp@outlook.com",
-      "desktopCtaLabel": "Get in Touch",
-      "mobileCtaLabel": "Get in Touch",
-      "mobileMenuAriaLabel": "Toggle menu"
-    },
-    "footer": {
-      "_comment": "Footer CTAs and detail rows.",
-      "summary": "Board Certified Dentist with 3.5+ years of experience in preventive and restorative dentistry, oral surgery, and oral cancer screening.",
-      "primaryCta": { "href": "/about", "label": "View Portfolio" },
-      "secondaryCta": { "href": "/reviews", "label": "Patient Reviews" },
-      "detailsTitle": "Professional Details",
-      "details": [
-        { "iconKey": "MapPin", "text": "Baldwin, MI (Current Practice)" },
-        { "iconKey": "Briefcase", "text": "General Dentist - Family Health Care" },
-        { "iconKey": "Languages", "text": "English (Fluent), Hindi (Native)" },
-        { "iconKey": "Mail", "text": "ankita.omfp@outlook.com", "href": "mailto:ankita.omfp@outlook.com" }
-      ],
-      "bottomLink": { "href": "/contact", "label": "Contact" },
-      "copyrightTemplate": "(c) {{year}} Dr. Ankita Sharma. All rights reserved."
-    }
-  },
+
   "home": {
-    "_comment": "Homepage sections in render order: hero -> areasOfPractice -> testimonials -> cta.",
+    "_comment": "SAFE TO EDIT — Homepage sections in order: hero -> areasOfPractice -> testimonials -> cta.",
     "hero": {
-      "_comment": "Hero section with headline, buttons, stats, and visual card.",
+      "_comment": "Hero section: headline, description, buttons, stats, and the profile card visual.",
       "badgeText": "Board Certified Dentist",
       "titlePrefix": "Dr. Ankita Sharma",
       "titleHighlight": "DMD",
@@ -353,13 +78,13 @@
       }
     },
     "areasOfPractice": {
-      "_comment": "Section header text for services preview cards.",
+      "_comment": "Section heading for the service cards preview on the homepage.",
       "badge": "Clinical Focus",
       "title": "Areas of Practice",
       "subtitle": "A portfolio of preventive, restorative, and surgical dental care with an emphasis on patient education and outcomes."
     },
     "testimonials": {
-      "_comment": "Carousel labels and autoplay behavior.",
+      "_comment": "Carousel section heading and behavior. autoplayMs controls how fast reviews rotate (in milliseconds).",
       "badge": "Patient Feedback",
       "title": "What Our Patients Say",
       "subtitle": "Real experiences from patients who have received care from Dr. Ankita Sharma.",
@@ -377,26 +102,28 @@
       "description": "For patient inquiries, professional collaboration, or community outreach, feel free to reach out or share your experience.",
       "primaryButton": { "href": "/contact", "label": "Contact Ankita" },
       "secondaryButton": {
+        "_comment": "AUTO-SYNCED — href and label auto-fill from siteMeta.email. Only set these to override with a different value.",
         "href": "mailto:ankita.omfp@outlook.com",
         "label": "Email ankita.omfp@outlook.com"
       }
     }
   },
+
   "aboutPage": {
-    "_comment": "All content blocks for /about page.",
+    "_comment": "SAFE TO EDIT — All text blocks on the /about portfolio page.",
     "heroBadge": "Portfolio",
     "heroTitle": "Dr. Ankita Sharma, DMD, MDS",
     "heroDescription": "Board Certified Dentist focused on preventive, restorative, and surgical care with a patient-centered approach.",
-    "heroEmail": "ankita.omfp@outlook.com",
-    "heroLocation": "Baldwin, MI (Current Practice)",
+    "heroEmail": "",
+    "heroLocation": "",
     "summarySection": {
-      "_comment": "Professional summary card.",
+      "_comment": "Professional summary card. Edit the summary paragraph text here.",
       "badge": "Summary",
       "title": "Professional Overview",
       "summary": "A Board Certified Dentist with over 3.5 years of experience providing a full array of preventive and restorative dental services, patient care, and dental surgeries. Proven track record of improving patient satisfaction by providing superior dental care to a diverse patient base. Experienced in procedures associated with oral cancer screening and identifying early stages of oral cancer, oral benign, and pre-malignant lesions. Strong interpersonal and time management skills."
     },
     "credentialsSection": {
-      "_comment": "Education and certification block.",
+      "_comment": "Education and certifications block.",
       "badge": "Credentials",
       "title": "Education & Certifications",
       "educationTitle": "Education",
@@ -416,7 +143,7 @@
       "certifications": ["Invisalign Certification", "Facial injectables and Botox Certified"]
     },
     "experienceSection": {
-      "_comment": "Clinical role timeline/cards.",
+      "_comment": "Clinical role cards. Add an object to roles for each position. bullets is a list of responsibilities.",
       "badge": "Experience",
       "title": "Clinical Roles",
       "emptyBulletsFallback": "General dentistry role supporting comprehensive patient care.",
@@ -440,7 +167,7 @@
       ]
     },
     "publicationsSection": {
-      "_comment": "Publications list; order is preserved in UI.",
+      "_comment": "Publications list. Order is preserved in the UI — first item appears first.",
       "badge": "Research",
       "title": "Publications",
       "publications": [
@@ -461,8 +188,9 @@
       ]
     }
   },
+
   "reviewsPage": {
-    "_comment": "Full reviews page labels/templates and CTA copy.",
+    "_comment": "SAFE TO EDIT — Labels and headings on the /reviews page. Actual patient reviews are in the 'reviews' array below.",
     "title": "Patient Reviews",
     "ratingOutOfTextTemplate": "{{rating}} out of 5",
     "basedOnReviewsTemplate": "Based on {{count}} reviews",
@@ -479,71 +207,56 @@
       "verifiedLabel": "Verified"
     }
   },
+
   "contactPage": {
-    "_comment": "Contact page header + information cards.",
+    "_comment": "SAFE TO EDIT — Contact page header text. The info cards below are AUTO-SYNCED from siteMeta and doctorProfile — change the master values there.",
     "title": "Contact Ankita",
     "subtitle": "Patient inquiries, referrals, and professional collaborations welcome.",
     "contactInfo": [
       {
+        "_autoSync": "content and href auto-filled from siteMeta.email",
         "iconKey": "Mail",
         "title": "Email",
         "content": "ankita.omfp@outlook.com",
         "href": "mailto:ankita.omfp@outlook.com"
       },
       {
+        "_autoSync": "content auto-filled from siteMeta.location",
         "iconKey": "MapPin",
         "title": "Location",
         "content": "Baldwin, MI (Current Practice)"
       },
       {
+        "_autoSync": "content auto-filled from siteMeta.primaryRole",
         "iconKey": "Briefcase",
         "title": "Current Role",
         "content": "General Dentist - Family Health Care"
       },
       {
+        "_autoSync": "content auto-filled from doctorProfile.languages",
         "iconKey": "Languages",
         "title": "Languages",
         "content": "English (Fluent), Hindi (Native)"
       }
     ]
   },
-  "adminPage": {
-    "_comment": "Admin route display text and mock dashboard labels.",
-    "login": {
-      "title": "Portfolio Admin",
-      "subtitle": "Sign in to review submissions",
-      "emailPlaceholder": "Email",
-      "passwordPlaceholder": "Password",
-      "submitLabel": "Sign In",
-      "welcomeToastTitle": "Welcome!",
-      "welcomeToastDescription": "You're now logged in."
-    },
-    "dashboard": {
-      "title": "Review Management",
-      "logoutLabel": "Logout",
-      "stats": [
-        { "label": "Total Reviews", "type": "totalReviews" },
-        { "label": "Pending Approval", "type": "static", "value": 3 },
-        { "label": "New Messages", "type": "static", "value": 5 }
-      ],
-      "recentReviewsTitle": "Recent Reviews"
-    }
+
+  "reviews": [],
+
+  "reviewsPlaceholder": {
+    "_comment": "TEMPLATE — Copy this object into the reviews array above when adding a real patient review. Fill in all fields. Delete this _comment key from your copy.",
+    "id": "example-id",
+    "name": "Patient Name",
+    "treatment": "Treatment Name",
+    "rating": 5,
+    "review": "Write the patient review text here.",
+    "date": "YYYY-MM-DD",
+    "verified": true
   },
-  "notFoundPage": {
-    "_comment": "Fallback route content for missing pages.",
-    "code": "404",
-    "title": "Oops! Page not found",
-    "homeLinkLabel": "Return to Home",
-    "homeLinkHref": "/"
-  },
-  "__schema": {
-    "_comment": "Reference enum-like values used in this file.",
-    "iconKeyExamples": ["Sparkles", "CircleDot", "ShieldCheck", "Scan", "Clock", "BookOpen", "Star", "Mail", "MapPin", "Briefcase", "Languages"],
-    "assetImageKeys": ["heroDoctorImage", "preventiveIcon", "extractionIcon", "endodonticsIcon", "prosthodonticsIcon", "seoOgImage"],
-    "adminStatTypes": ["totalReviews", "static"]
-  },
+
   "services": [
     {
+      "_comment": "SAFE TO EDIT — Each object is one service card. iconKey must be from __schema.iconKeyExamples.",
       "id": "preventive-restorative",
       "title": "Preventive & Restorative Care",
       "shortDescription": "Comprehensive exams, cleanings, and restorations with a prevention-first focus.",
@@ -669,19 +382,182 @@
     }
   ],
 
-
-  "_reviewsPlaceholderComment": "JSON does not support commented blocks. Keep `reviews` empty to hide reviews on the website. Use the template in `reviewsPlaceholder` when adding real reviews later.",
-  "reviewsPlaceholder": {
-    "id": "example-id",
-    "name": "Patient Name",
-    "treatment": "Treatment Name",
-    "rating": 5,
-    "review": "Write the patient review text here.",
-    "date": "YYYY-MM-DD",
-    "verified": true
+  "layout": {
+    "_comment": "TECHNICAL — Navbar links and footer. Footer 'details' are AUTO-SYNCED from siteMeta and doctorProfile — edit master values there instead.",
+    "navbar": {
+      "_comment": "Top navigation links and button labels. desktopEmailText is AUTO-SYNCED from siteMeta.email — leave blank.",
+      "navLinks": [
+        { "href": "/", "label": "Home" },
+        { "href": "/about", "label": "Portfolio" },
+        { "href": "/reviews", "label": "Patient Reviews" },
+        { "href": "/contact", "label": "Contact" }
+      ],
+      "desktopEmailText": "",
+      "desktopCtaLabel": "Get in Touch",
+      "mobileCtaLabel": "Get in Touch",
+      "mobileMenuAriaLabel": "Toggle menu"
+    },
+    "footer": {
+      "_comment": "Footer summary text, CTA buttons, and professional detail rows.",
+      "summary": "Board Certified Dentist with 3.5+ years of experience in preventive and restorative dentistry, oral surgery, and oral cancer screening.",
+      "primaryCta": { "href": "/about", "label": "View Portfolio" },
+      "secondaryCta": { "href": "/reviews", "label": "Patient Reviews" },
+      "detailsTitle": "Professional Details",
+      "details": [
+        { "_autoSync": "AUTO-SYNCED from siteMeta.location — edit there instead", "iconKey": "MapPin", "text": "Baldwin, MI (Current Practice)" },
+        { "_autoSync": "AUTO-SYNCED from siteMeta.primaryRole + doctorProfile.clinicName — edit there instead", "iconKey": "Briefcase", "text": "General Dentist - Family Health Care" },
+        { "_autoSync": "AUTO-SYNCED from doctorProfile.languages — edit there instead", "iconKey": "Languages", "text": "English (Fluent), Hindi (Native)" },
+        { "_autoSync": "AUTO-SYNCED from siteMeta.email — edit there instead", "iconKey": "Mail", "text": "ankita.omfp@outlook.com", "href": "mailto:ankita.omfp@outlook.com" }
+      ],
+      "bottomLink": { "href": "/contact", "label": "Contact" },
+      "copyrightTemplate": "(c) {{year}} Dr. Ankita Sharma. All rights reserved."
+    }
   },
 
+  "seo": {
+    "_comment": "TECHNICAL — Browser tab title, meta description, and Open Graph image for social sharing previews.",
+    "defaultTitle": "Dr. Ankita Sharma Portfolio",
+    "titleTemplate": "{{pageTitle}} | Dr. Ankita Sharma",
+    "defaultDescription": "Portfolio of preventive, restorative, and surgical dental care by Dr. Ankita Sharma.",
+    "keywords": [
+      "Dentist",
+      "Preventive Dentistry",
+      "Restorative Dentistry",
+      "Oral Surgery",
+      "Oral Cancer Screening",
+      "Baldwin MI"
+    ],
+    "openGraphImageAssetKey": "seoOgImage"
+  },
 
-  "reviews": []
+  "visibility": {
+    "_comment": "TECHNICAL — Show/hide site sections. true = visible, false = hidden.",
+    "showTestimonialsSection": true,
+    "showReviewsPageShareCta": true,
+    "showAdminPage": false
+  },
+
+  "display": {
+    "_comment": "TECHNICAL — Controls how many items appear on the homepage (services count, testimonial count, minimum star rating for featured reviews).",
+    "homeFeaturedServicesCount": 4,
+    "homeFeaturedTestimonialsCount": 5,
+    "homeFeaturedTestimonialsMinRating": 5,
+    "adminRecentReviewsCount": 5
+  },
+
+  "assets": {
+    "_comment": "TECHNICAL — Image registry. Do not rename any keys — they are referenced by services and the hero section.",
+    "images": {
+      "_comment": "Use either `path` (public URL/path) or bundled fallback via `importKey`. If `path` is blank, the bundled import is used.",
+      "heroDoctorImage": {
+        "importKey": "heroDoctorImage",
+        "path": "",
+        "alt": "Dr. Ankita Sharma"
+      },
+      "preventiveIcon": {
+        "importKey": "preventiveIcon",
+        "path": "",
+        "alt": "Preventive and restorative care icon"
+      },
+      "extractionIcon": {
+        "importKey": "extractionIcon",
+        "path": "",
+        "alt": "Extraction and emergency care icon"
+      },
+      "endodonticsIcon": {
+        "importKey": "endodonticsIcon",
+        "path": "",
+        "alt": "Endodontic therapy icon"
+      },
+      "prosthodonticsIcon": {
+        "importKey": "prosthodonticsIcon",
+        "path": "",
+        "alt": "Dentures and prosthodontics icon"
+      },
+      "seoOgImage": {
+        "importKey": "heroDoctorImage",
+        "path": "",
+        "alt": "Portfolio preview image"
+      }
+    }
+  },
+
+  "layoutConfig": {
+    "_comment": "TECHNICAL — Tailwind CSS class strings. Do not edit unless you understand Tailwind CSS. These control the visual layout of service cards and the reviews grid.",
+    "homeServices": {
+      "gridClassName": "grid sm:grid-cols-2 lg:grid-cols-4 gap-6",
+      "cardClassName": "group glass-card rounded-2xl p-6 hover-lift h-full text-center flex flex-col items-center",
+      "iconContainerClassName": "w-16 h-16 flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110",
+      "iconImageClassName": "w-full h-full object-contain",
+      "iconFallbackClassName": "w-14 h-14 text-primary",
+      "descriptionClassName": "text-sm text-muted-foreground line-clamp-3"
+    },
+    "reviewsPage": {
+      "gridClassName": "grid md:grid-cols-2 gap-6 pb-16"
+    }
+  },
+
+  "adminPage": {
+    "_comment": "RARELY USED — Admin login/dashboard labels. Only relevant if visibility.showAdminPage is set to true.",
+    "login": {
+      "title": "Portfolio Admin",
+      "subtitle": "Sign in to review submissions",
+      "emailPlaceholder": "Email",
+      "passwordPlaceholder": "Password",
+      "submitLabel": "Sign In",
+      "welcomeToastTitle": "Welcome!",
+      "welcomeToastDescription": "You're now logged in."
+    },
+    "dashboard": {
+      "title": "Review Management",
+      "logoutLabel": "Logout",
+      "stats": [
+        { "label": "Total Reviews", "type": "totalReviews" },
+        { "label": "Pending Approval", "type": "static", "value": 3 },
+        { "label": "New Messages", "type": "static", "value": 5 }
+      ],
+      "recentReviewsTitle": "Recent Reviews"
+    }
+  },
+
+  "notFoundPage": {
+    "_comment": "RARELY CHANGED — Text shown on the 404 page.",
+    "code": "404",
+    "title": "Oops! Page not found",
+    "homeLinkLabel": "Return to Home",
+    "homeLinkHref": "/"
+  },
+
+  "__schema": {
+    "_comment": "REFERENCE ONLY — Valid values for iconKey fields used in services, footer details, and contact info. Do not edit this block.",
+    "iconKeyExamples": ["Sparkles", "CircleDot", "ShieldCheck", "Scan", "Clock", "BookOpen", "Star", "Mail", "MapPin", "Briefcase", "Languages"],
+    "assetImageKeys": ["heroDoctorImage", "preventiveIcon", "extractionIcon", "endodonticsIcon", "prosthodonticsIcon", "seoOgImage"],
+    "adminStatTypes": ["totalReviews", "static"]
+  },
+
+  "__guide": {
+    "_comment": "Quick-start editing guide. For the full visual guide see Website-Content-Editing-Guide.docx.",
+    "howToEdit": [
+      "1. Change email or location? Update siteMeta.email and siteMeta.location — these auto-update the entire site.",
+      "2. Update page text? Find the page key (home, aboutPage, reviewsPage, contactPage) and edit text values.",
+      "3. Add a patient review? Copy the reviewsPlaceholder object into the reviews array. Fill in all fields.",
+      "4. Add a service card? Copy any object from services. Give it a unique id. Use a valid iconKey from __schema.",
+      "5. Commit and push to GitHub — the site deploys automatically."
+    ],
+    "doNotEdit": [
+      "layoutConfig — Tailwind CSS class strings. Wrong values will break the layout.",
+      "assets.images keys — renaming any key breaks references from services and the hero section.",
+      "__schema — reference only, not rendered on the site."
+    ],
+    "quickFind": {
+      "Change email everywhere": "siteMeta.email",
+      "Change location everywhere": "siteMeta.location",
+      "Change doctor name / credentials": "doctorProfile.fullName / doctorProfile.credentials",
+      "Add a review": "reviews",
+      "Add a service": "services",
+      "Google Form link": "externalLinks.reviewForm",
+      "Hide testimonials on home page": "visibility.showTestimonialsSection",
+      "Hide share-review button on reviews page": "visibility.showReviewsPageShareCta"
+    }
+  }
 }
-
