@@ -10,6 +10,7 @@ export default function About() {
   const primaryEmail = getPrimaryEmail();
   const primaryLocation = getPrimaryLocation();
   const credentials = aboutPage.credentialsSection as typeof aboutPage.credentialsSection & {
+    certificationsSubTitle?: string;
     licensureTitle?: string;
     licensure?: string[];
   };
@@ -89,6 +90,9 @@ export default function About() {
             <AnimateOnScroll animation="fade-left" delay={100}>
               <div className="glass-card p-8 rounded-3xl h-full">
                 <h3 className="font-display text-xl font-semibold mb-4">{credentials.certificationsTitle}</h3>
+                {credentials.certificationsSubTitle && (
+                  <h4 className="font-display text-base font-semibold text-foreground mb-3">{credentials.certificationsSubTitle}</h4>
+                )}
                 <ul className="space-y-3 text-muted-foreground">
                   {credentials.certifications.map((cert) => (
                     <li key={cert} className="flex items-start gap-2">
