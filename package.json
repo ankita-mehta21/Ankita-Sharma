@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "test:content": "node --import tsx --test tests/content/siteTextContentParser.test.ts",
+    "test:content": "node --import tsx --test tests/content/siteTextContentParser.test.ts tests/content/seoMetadata.test.ts",
+    "typecheck": "tsc -p tsconfig.app.json --noEmit",
     "build": "node scripts/clean-dist.mjs && vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "validate:content": "tsx scripts/validate-content.ts",
-    "check": "npm run validate:content && npm run lint && npm run build",
+    "check": "npm run validate:content && npm run test:content && npm run typecheck && npm run lint && npm run build",
     "preview": "vite preview",
     "start": "serve -s dist -l $PORT"
   },
@@ -58,9 +59,9 @@
     "react-helmet-async": "^2.0.5",
     "react-hook-form": "^7.61.1",
     "react-resizable-panels": "^2.1.9",
-    "react-router-dom": "^6.30.1",
+    "react-router-dom": "^6.30.3",
     "recharts": "^2.15.4",
-    "serve": "^14.2.4",
+    "serve": "^14.2.6",
     "sonner": "^1.7.4",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
@@ -81,9 +82,9 @@
     "globals": "^15.15.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
-    "tsx": "^4.20.5",
+    "tsx": "^4.21.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
-    "vite": "^5.4.19"
+    "vite": "^5.4.21"
   }
 }

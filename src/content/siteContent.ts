@@ -50,15 +50,7 @@ const imageAssetMap: Record<string, string> = {
   prosthodonticsIcon: prosthodonticsIconImage,
 };
 
-export interface Review {
-  id: string;
-  name: string;
-  treatment: string;
-  rating: number;
-  review: string;
-  date: string;
-  verified: boolean;
-}
+export type Review = SiteContent["reviews"][number];
 
 export interface Service {
   id: string;

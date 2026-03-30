@@ -2,6 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { SectionHeader } from "@/components/ui/section-header";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 import { getPrimaryEmail, getPrimaryLocation, getSiteContent } from "@/content/siteContent";
+import { getAboutSeoTitle } from "@/content/seoMetadata";
 import { Seo } from "@/components/seo/Seo";
 
 export default function About() {
@@ -18,7 +19,7 @@ export default function About() {
 
   return (
     <Layout>
-      <Seo pageTitle={aboutPage.heroBadge} description={aboutPage.heroDescription} />
+      <Seo pageTitle={getAboutSeoTitle(aboutPage)} description={aboutPage.heroDescription} />
       <section className="section-padding" style={{ background: "var(--gradient-hero)" }}>
         <div className="container-wide">
           <div className="max-w-3xl mx-auto text-center">
