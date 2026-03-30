@@ -434,7 +434,7 @@ export function validateSiteContent(rawContent: unknown) {
   const parsed = siteContentSchema.safeParse(rawContent);
   if (!parsed.success) {
     const details = formatSiteContentValidationIssues(parsed.error.issues);
-    throw new Error(`Invalid site content JSON:\n${details}`);
+    throw new Error(`Invalid site content:\n${details}`);
   }
   return parsed.data;
 }

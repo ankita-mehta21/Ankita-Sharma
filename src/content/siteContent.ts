@@ -12,13 +12,18 @@ import {
   Star,
   type LucideIcon,
 } from "lucide-react";
-import siteContentJson from "../../site-content.json";
 import heroDoctorImage from "@/assets/images/hero-doctor-image.jpeg";
 import preventiveIconImage from "@/assets/images/preventive-icon.png";
 import extractionIconImage from "@/assets/images/extraction-icon.png";
 import endodonticsIconImage from "@/assets/images/endodontics-icon.png";
 import prosthodonticsIconImage from "@/assets/images/prosthodontics-icon.png";
 import { type SiteContent, validateSiteContent } from "./siteContentSchema";
+import { buildEditableContentFromTextFiles } from "./siteTextContent";
+import siteSettingsText from "../../content/site-settings.txt?raw";
+import homeText from "../../content/home.txt?raw";
+import aboutText from "../../content/about.txt?raw";
+import reviewsText from "../../content/reviews.txt?raw";
+import contactText from "../../content/contact.txt?raw";
 
 type TemplateValues = Record<string, string | number>;
 const SCHEME_PATTERN = /^[a-z][a-z\d+.-]*:/i;
@@ -198,7 +203,17 @@ function normalizeContent(rawContent: SiteContent): SiteContent {
   };
 }
 
-const content = normalizeContent(validateSiteContent(siteContentJson));
+const content = normalizeContent(
+  validateSiteContent(
+    buildEditableContentFromTextFiles({
+      "site-settings.txt": siteSettingsText,
+      "home.txt": homeText,
+      "about.txt": aboutText,
+      "reviews.txt": reviewsText,
+      "contact.txt": contactText,
+    }),
+  ),
+);
 
 export function getSiteContent() {
   return content;

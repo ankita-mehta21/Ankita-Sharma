@@ -1,8 +1,15 @@
-import siteContentJson from "../site-content.json";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import {
   formatSiteContentValidationIssues,
   siteContentSchema,
 } from "../src/content/siteContentSchema";
+import {
+  ROOT_CONTENT_FILE_NAMES,
+  buildEditableContentFromTextFiles,
+  getContentFilePath,
+} from "../src/content/siteTextContent";
 
 const KNOWN_ICON_KEYS = new Set([
   "Sparkles",
@@ -34,7 +41,15 @@ function findDuplicates(values: string[]) {
 }
 
 function runValidation() {
-  const parsed = siteContentSchema.safeParse(siteContentJson);
+  const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+  const rawFiles = Object.fromEntries(
+    ROOT_CONTENT_FILE_NAMES.map((fileName) => [
+      fileName,
+      fs.readFileSync(path.join(rootDir, getContentFilePath(fileName)), "utf8"),
+    ]),
+  ) as Record<(typeof ROOT_CONTENT_FILE_NAMES)[number], string>;
+  const editableContent = buildEditableContentFromTextFiles(rawFiles);
+  const parsed = siteContentSchema.safeParse(editableContent);
 
   if (!parsed.success) {
     console.error("Content schema validation failed:");

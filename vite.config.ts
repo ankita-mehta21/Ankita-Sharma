@@ -10,8 +10,8 @@ export default defineConfig({
   },
   build: {
     outDir: "dist",
-    assetsDir: "static",
-    emptyOutDir: true,
+    assetsDir: "assets",
+    emptyOutDir: false,
   },
   plugins: [react()],
   resolve: {

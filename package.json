@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "test:content": "node --import tsx --test tests/content/siteTextContentParser.test.ts",
     "build": "node scripts/clean-dist.mjs && vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",

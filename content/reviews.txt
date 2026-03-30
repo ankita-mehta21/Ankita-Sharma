@@ -1,0 +1,16 @@
+# Reviews page content and review entries.
+
+TITLE: Patient Reviews
+RATING_OUT_OF_TEXT_TEMPLATE: {{rating}} out of 5
+BASED_ON_REVIEWS_TEMPLATE: Based on {{count}} reviews
+SHARE_EXPERIENCE_TITLE: Share Your Experience
+SHARE_EXPERIENCE_BUTTON_LABEL: Write a Review
+SHARE_EXPERIENCE_BUTTON_LINK: https://docs.google.com/forms/d/e/1FAIpQLSeFn_O9uFsYlVevnKqcGDMJYST4l_nhlKgOVPunmL22SjpKcw/viewform
+FILTERS_ALL_LABEL: All
+REVIEW_CARD_VERIFIED_LABEL: Verified
+
+[SHARE_EXPERIENCE_DESCRIPTION]
+Your feedback helps us provide better care. We'd love to hear about your experience with Dr. Ankita Sharma.
+
+# Leave [REVIEWS] empty if there are no published reviews yet.
+[REVIEWS]

@@ -1,0 +1,183 @@
+# Home page content.
+
+HERO_BADGE_TEXT: Board Certified Dentist
+HERO_TITLE_PREFIX: Dr. Ankita Sharma
+HERO_TITLE_HIGHLIGHT: DMD
+HERO_PRIMARY_BUTTON_LABEL: View Portfolio
+HERO_PRIMARY_BUTTON_LINK: /about
+HERO_SECONDARY_BUTTON_LABEL: Read Patient Reviews
+HERO_SECONDARY_BUTTON_LINK: /reviews
+HERO_DOCTOR_IMAGE_ASSET_KEY: heroDoctorImage
+HERO_DOCTOR_IMAGE_ALT: Dr. Ankita Sharma
+PROFILE_CARD_NAME: Dr. Ankita Sharma
+PROFILE_CARD_CREDENTIALS: DMD, MDS
+FLOATING_REVIEW_STAR_COUNT: 5
+FLOATING_REVIEW_LABEL: Verified patient feedback
+AREAS_BADGE: Clinical Focus
+AREAS_TITLE: Areas of Practice
+AREAS_SUBTITLE: A portfolio of preventive, restorative, and surgical dental care with an emphasis on patient education and outcomes.
+TESTIMONIALS_BADGE: Patient Feedback
+TESTIMONIALS_TITLE: What Our Patients Say
+TESTIMONIALS_SUBTITLE: Real experiences from patients who have received care from Dr. Ankita Sharma.
+TESTIMONIALS_AUTOPLAY_MS: 5000
+TESTIMONIALS_VERIFIED_LABEL: Verified Patient
+TESTIMONIALS_CTA_LABEL: Read All Reviews
+TESTIMONIALS_CTA_LINK: /reviews
+TESTIMONIALS_PREVIOUS_ARIA_LABEL: Previous review
+TESTIMONIALS_NEXT_ARIA_LABEL: Next review
+TESTIMONIALS_DOT_ARIA_LABEL_TEMPLATE: Go to review {{index}}
+CTA_TITLE: Let's Connect
+CTA_PRIMARY_BUTTON_LABEL: Contact Ankita
+CTA_PRIMARY_BUTTON_LINK: /contact
+CTA_SECONDARY_BUTTON_LABEL: Email ankita.omfp@outlook.com
+CTA_SECONDARY_BUTTON_LINK: mailto:ankita.omfp@outlook.com
+
+[HERO_DESCRIPTION]
+A portfolio of clinical care with 3.5+ years of experience in preventive and restorative dentistry, oral surgery, and oral cancer screening.
+
+[CTA_DESCRIPTION]
+For patient inquiries, professional collaboration, or community outreach, feel free to reach out or share your experience.
+
+[PROFILE_CARD_TAGS]
+- Invisalign Certified
+- Botox Certified
+
+[FLOATING_REVIEW_AVATARS]
+- A
+- B
+- C
+- D
+
+[HERO_STATS]
+- Clock | 3.5+ Years | Clinical Experience
+- BookOpen | 5 Published | Research Papers
+- Star | 4.9 Rating | Patient Reviews
+
+[SERVICES]
+---
+  ID: preventive-restorative
+  TITLE: Preventive & Restorative Care
+  SHORT_DESCRIPTION: Comprehensive exams, cleanings, and restorations with a prevention-first focus.
+  FULL_DESCRIPTION: Experienced in simple and complex restorations as well as full coverage restorations, with treatment plans tailored to each patient.
+  ICON_KEY: Sparkles
+  ICON_IMAGE_KEY: endodonticsIcon
+  DURATION: Varies by visit
+  WHO_IS_IT_FOR: Patients seeking routine care, restorations, or long-term oral health planning.
+
+  [BENEFITS]
+  - Personalized treatment planning
+  - Evidence-based preventive care
+  - Durable restorative outcomes
+  - Clear patient communication
+
+---
+  ID: extractions-emergency
+  TITLE: Extractions & Emergency Care
+  SHORT_DESCRIPTION: Same-day relief with gentle extractions and urgent dental care.
+  FULL_DESCRIPTION: Performed routine extractions including simple and partially impacted cases, plus emergency visits to stabilize pain and infection.
+  ICON_KEY: Sparkles
+  ICON_IMAGE_KEY: extractionIcon
+  DURATION: Varies by case
+  WHO_IS_IT_FOR: Patients with urgent dental issues or teeth that require removal.
+
+  [BENEFITS]
+  - Comfort-focused care
+  - Prompt pain relief
+  - Clear aftercare guidance
+  - Coordinated referrals when needed
+
+---
+  ID: endodontic-therapy
+  TITLE: Endodontic Therapy
+  SHORT_DESCRIPTION: Root canal care for anterior teeth, premolars, and first mandibular molars.
+  FULL_DESCRIPTION: Experienced in endodontic treatment of anterior teeth, premolars, and first mandibular molars with ideal anatomy.
+  ICON_KEY: Sparkles
+  ICON_IMAGE_KEY: preventiveIcon
+  DURATION: Single or multiple visits
+  WHO_IS_IT_FOR: Patients with pulp infection or inflammation requiring root canal therapy.
+
+  [BENEFITS]
+  - Preserves natural teeth
+  - Relieves dental pain
+  - Precise clinical technique
+  - Long-term tooth stability
+
+---
+  ID: dentures-prosthodontics
+  TITLE: Dentures & Prosthodontics
+  SHORT_DESCRIPTION: Partial and complete dentures designed for comfort and function.
+  FULL_DESCRIPTION: Skilled in delivering partial and complete dentures with attention to fit, esthetics, and function.
+  ICON_KEY: Sparkles
+  ICON_IMAGE_KEY: prosthodonticsIcon
+  DURATION: Multiple visits
+  WHO_IS_IT_FOR: Patients needing replacement of multiple or all teeth.
+
+  [BENEFITS]
+  - Comfortable fit
+  - Improved chewing and speech
+  - Natural appearance
+  - Patient education and follow-up
+
+---
+  ID: oral-surgery-biopsy
+  TITLE: Oral Surgery & Biopsy
+  SHORT_DESCRIPTION: Outpatient oral surgery including incisional biopsy and alveoloplasty.
+  FULL_DESCRIPTION: Performed outpatient oral surgery procedures such as incisional biopsy and alveoloplasty with precise surgical technique.
+  ICON_KEY: Scan
+  ICON_IMAGE_KEY:
+  DURATION: Outpatient visit
+  WHO_IS_IT_FOR: Patients requiring surgical evaluation or minor oral surgery.
+
+  [BENEFITS]
+  - Minimally invasive approach
+  - Accurate diagnostics
+  - Comprehensive aftercare
+  - Coordinated specialty care
+
+---
+  ID: oral-cancer-screening
+  TITLE: Oral Cancer Screening
+  SHORT_DESCRIPTION: Early identification of benign, pre-malignant, and malignant lesions.
+  FULL_DESCRIPTION: Experienced in oral cancer screening and identifying early stages of oral cancer, as well as benign and pre-malignant lesions.
+  ICON_KEY: ShieldCheck
+  ICON_IMAGE_KEY:
+  DURATION: Included in exams
+  WHO_IS_IT_FOR: All patients, especially those seeking comprehensive preventive evaluations.
+
+  [BENEFITS]
+  - Early detection focus
+  - Thorough soft-tissue evaluation
+  - Clear referral pathways
+  - Patient education
+
+---
+  ID: invisalign
+  TITLE: Invisalign Certified Care
+  SHORT_DESCRIPTION: Clear aligner therapy delivered by a certified provider.
+  FULL_DESCRIPTION: Invisalign Certification supports evidence-based clear aligner planning and patient guidance.
+  ICON_KEY: Sparkles
+  ICON_IMAGE_KEY:
+  DURATION: Varies by case
+  WHO_IS_IT_FOR: Patients interested in clear aligner orthodontic care.
+
+  [BENEFITS]
+  - Discreet treatment option
+  - Customized aligner planning
+  - Patient education and monitoring
+  - Comfort-first approach
+
+---
+  ID: facial-injectables
+  TITLE: Facial Injectables & Botox
+  SHORT_DESCRIPTION: Certified in facial injectables and Botox for facial esthetics.
+  FULL_DESCRIPTION: Facial injectables and Botox certification reflects training in facial esthetics and patient care.
+  ICON_KEY: CircleDot
+  ICON_IMAGE_KEY:
+  DURATION: Varies by service
+  WHO_IS_IT_FOR: Patients exploring facial esthetic services.
+
+  [BENEFITS]
+  - Certified technique
+  - Aesthetic focus
+  - Patient-centered consultation
+  - Safety-first care

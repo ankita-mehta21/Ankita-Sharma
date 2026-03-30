@@ -1,0 +1,79 @@
+# About page content.
+
+HERO_BADGE: Portfolio
+HERO_TITLE: Dr. Ankita Sharma, DMD, MDS
+HERO_EMAIL:
+HERO_LOCATION:
+SUMMARY_BADGE: Summary
+SUMMARY_TITLE: Professional Overview
+CREDENTIALS_BADGE: Credentials
+CREDENTIALS_TITLE: Education & Certifications
+EDUCATION_TITLE: Education
+CERTIFICATIONS_TITLE: Certifications and Licensure
+CERTIFICATIONS_SUBTITLE: Certifications
+LICENSURE_TITLE: Licensure
+EXPERIENCE_BADGE: Experience
+EXPERIENCE_TITLE: Clinical Roles
+EXPERIENCE_EMPTY_BULLETS_FALLBACK: General dentistry role supporting comprehensive patient care.
+PUBLICATIONS_BADGE: Research
+PUBLICATIONS_TITLE: Publications
+LANGUAGES_BADGE: Languages
+LANGUAGES_TITLE: Language Proficiency
+
+[HERO_DESCRIPTION]
+Board Certified Dentist focused on preventive, restorative, and surgical care with a patient-centered approach.
+
+[SUMMARY]
+A Board Certified Dentist with over 3.5 years of experience providing a full array of preventive and restorative dental services, patient care, and dental surgeries. Proven track record of improving patient satisfaction by providing superior dental care to a diverse patient base. Experienced in procedures associated with oral cancer screening and identifying early stages of oral cancer, oral benign, and pre-malignant lesions. Strong interpersonal and time management skills.
+
+[LICENSURE]
+- State of Michigan and California
+
+[EDUCATION]
+---
+  DEGREE: Doctor of Dental Medicine (DMD), Advanced Standing
+  SCHOOL: Henry M. Goldman School of Dental Sciences
+  LOCATION: Boston, MA
+
+---
+  DEGREE: BDS, MDS (Oral and Maxillofacial Pathology)
+  SCHOOL: Manipal College of Dental Sciences
+  LOCATION: Mangalore, India
+
+[CERTIFICATIONS]
+- Invisalign Certification
+- Facial injectables and Botox Certified
+
+[EXPERIENCE_ROLES]
+---
+  DATES:
+  ROLE: General Dentist
+  ORGANIZATION: Family Health Care
+  LOCATION: Baldwin, MI
+
+  [BULLETS]
+  - Performed routine dental procedures including extractions (simple and partially impacted), simple and complex restorations, full coverage restorations, partial and complete dentures, emergency care, endodontic treatment of anterior teeth, premolars, and first mandibular molars with ideal anatomy, and outpatient oral surgery procedures (e.g. incisional biopsy, alveoloplasty).
+  - Diagnosis and treatment planning for oral benign, pre-malignant, and malignant lesions.
+  - Conducted patient assessments and developed tailored treatment plans.
+  - Collaborated with dental specialists to ensure comprehensive patient care.
+  - Trained and supervised dental assistants in daily clinical operations.
+  - Communicated treatment options and procedures clearly to patients.
+  - Managed appointment scheduling and patient follow-ups to enhance clinic efficiency.
+  - Engaged in community outreach programs to promote oral health awareness.
+
+[PUBLICATIONS]
+- Understanding patterns of invasion: a novel approach to assessment of podoplanin expression in prediction of lymph node metastasis in OSCC, Sharma A, Boaz K, N. Srikant, Histopathology, 72, 4, 672-678, 2018
+- Dysgenetic Polycystic Disease of Minor Salivary Gland: A Rare Case Report and Review of the Literature, N. Srikant, Shweta Yellapurkar, Karen Boaz, Mohan Baliga, Nidhi Manaktala, Ankita Sharma, Shakthi Dorai, Prajwal Pai, Case Reports in Pathology, 2017, 5279025, 5, 2017
+- Rapidly Enlarging Swelling of the Palate: A Case Report, K. Boaz, A. Sharma, N. Srikant, Journal of Oral and Maxillofacial Surgery, Medicine and Pathology, Japanese Editorial, 29, 6, 576-580, 2017
+- Vitality and accuracy of age estimation using tooth coronal index, cementum and sclerosis index, Reddy BM, Natarajan S, Sharma A, Dorai SB, JCDUR, 7, 2, 3-7, 2016
+- Rhinocerebral mucormycosis: a systematic review of case reports and case series from a global perspective, Kumar M et al., Oral Surg Oral Med Oral Pathol Oral Radiol, 134, 6, 708-716, 2022
+- Sharma A, Natarajan S, Manaktala N, Boaz K, KP N, Lewis A, Yellapurkar S. Prognostic Nomogram for Lymph-Node Metastasis in Oral Squamous Cell Carcinoma (OSCC) Using Immunohistochemical Marker D2-40. Cancer Manag Res. 2023;15:929-936
+
+[LANGUAGES]
+---
+  LANGUAGE: English
+  LEVEL: Fluent/Full professional proficiency
+
+---
+  LANGUAGE: Hindi
+  LEVEL: Native/Bilingual

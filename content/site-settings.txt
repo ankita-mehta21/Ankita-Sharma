@@ -1,0 +1,73 @@
+# Shared site-wide details. Update these once and the site reuses them everywhere.
+
+BRAND_NAME: Dr. Ankita Sharma
+BRAND_INITIALS: AS
+PRIMARY_ROLE: General Dentist
+EMAIL: ankita.omfp@outlook.com
+LOCATION: Baldwin, MI (Current Practice)
+FULL_NAME: Dr. Ankita Sharma
+CREDENTIALS: DMD, MDS
+HEADLINE: Board Certified Dentist
+CLINIC_NAME: Family Health Care
+PHONE:
+ADDRESS_LINE_1:
+
+# External links. Leave blank if not used.
+REVIEW_FORM_URL: https://docs.google.com/forms/d/e/1FAIpQLSeFn_O9uFsYlVevnKqcGDMJYST4l_nhlKgOVPunmL22SjpKcw/viewform
+WEBSITE_URL:
+LINKEDIN_URL:
+INSTAGRAM_URL:
+FACEBOOK_URL:
+X_URL:
+YOUTUBE_URL:
+
+# SEO defaults.
+DEFAULT_TITLE: Dr. Ankita Sharma Portfolio
+TITLE_TEMPLATE: {{pageTitle}} | Dr. Ankita Sharma
+DEFAULT_DESCRIPTION: Portfolio of preventive, restorative, and surgical dental care by Dr. Ankita Sharma.
+OPEN_GRAPH_IMAGE_ASSET_KEY: seoOgImage
+
+# Footer and navigation labels.
+FOOTER_SUMMARY: Board Certified Dentist with 3.5+ years of experience in preventive and restorative dentistry, oral surgery, and oral cancer screening.
+FOOTER_PRIMARY_CTA_LABEL: View Portfolio
+FOOTER_PRIMARY_CTA_LINK: /about
+FOOTER_SECONDARY_CTA_LABEL: Patient Reviews
+FOOTER_SECONDARY_CTA_LINK: /reviews
+FOOTER_DETAILS_TITLE: Professional Details
+FOOTER_BOTTOM_LINK_LABEL: Contact
+FOOTER_BOTTOM_LINK: /contact
+COPYRIGHT_TEMPLATE: (c) {{year}} Dr. Ankita Sharma. All rights reserved.
+NAV_DESKTOP_CTA_LABEL: Get in Touch
+NAV_MOBILE_CTA_LABEL: Get in Touch
+NAV_MOBILE_MENU_ARIA_LABEL: Toggle menu
+
+# Display toggles.
+SHOW_TESTIMONIALS_SECTION: true
+SHOW_REVIEWS_SHARE_CTA: true
+SHOW_LANGUAGES_SECTION: false
+HOME_FEATURED_SERVICES_COUNT: 4
+HOME_FEATURED_TESTIMONIALS_COUNT: 5
+HOME_FEATURED_TESTIMONIALS_MIN_RATING: 5
+
+[SPECIALTIES]
+- Preventive and Restorative Dentistry
+- Oral Surgery
+- Oral Cancer Screening
+
+[LANGUAGE_SUMMARY]
+- English (Fluent)
+- Hindi (Native)
+
+[SEO_KEYWORDS]
+- Dentist
+- Preventive Dentistry
+- Restorative Dentistry
+- Oral Surgery
+- Oral Cancer Screening
+- Baldwin MI
+
+[NAV_LINKS]
+- / | Home
+- /about | Portfolio
+- /reviews | Patient Reviews
+- /contact | Contact

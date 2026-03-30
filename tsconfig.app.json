@@ -32,7 +32,6 @@
   },
   "include": [
     "src",
-    "reviews.json",
-    "site-content.json"
+    "reviews.json"
   ]
 }

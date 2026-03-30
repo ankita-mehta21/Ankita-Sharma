@@ -1,0 +1,18 @@
+EDIT ONLY THE FILES IN THIS FOLDER.
+
+What each file does:
+- site-settings.txt = doctor name, email, clinic, footer, navigation, shared details
+- home.txt = home page content and services
+- about.txt = about/portfolio page content
+- reviews.txt = reviews page labels and review entries
+- contact.txt = contact page heading text
+
+Basic rules:
+- Keep the labels on the left side exactly as they are
+- Edit only the text after the colon, or the text inside sections
+- Do not rename files
+- Do not change folder names
+
+After editing:
+1. Commit the changes to GitHub
+2. The site will redeploy automatically
