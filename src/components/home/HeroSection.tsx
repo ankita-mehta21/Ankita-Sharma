@@ -117,7 +117,7 @@ export function HeroSection() {
                   <div className="flex flex-wrap justify-center gap-2">
                     {hero.profileCard.tags.map((tag, index) => (
                       <span
-                        key={tag}
+                        key={`${tag}-${index}`}
                         className={
                           index === 0
                             ? "px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium"
@@ -138,9 +138,9 @@ export function HeroSection() {
               >
                 <div className="flex items-center gap-3">
                   <div className="flex -space-x-2">
-                    {hero.floatingReviewCard.avatarLetters.map((letter) => (
+                    {hero.floatingReviewCard.avatarLetters.map((letter, index) => (
                       <div
-                        key={letter}
+                        key={`${letter}-${index}`}
                         className="w-7 h-7 rounded-full bg-primary/15 border-2 border-card flex items-center justify-center text-[10px] font-medium text-primary"
                       >
                         {letter}

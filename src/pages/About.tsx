@@ -78,8 +78,8 @@ export default function About() {
               <div className="glass-card p-8 rounded-3xl h-full">
                 <h3 className="font-display text-xl font-semibold mb-4">{aboutPage.credentialsSection.educationTitle}</h3>
                 <div className="space-y-4">
-                  {aboutPage.credentialsSection.education.map((item) => (
-                    <div key={item.degree} className="border-l-2 border-primary/20 pl-4">
+                  {aboutPage.credentialsSection.education.map((item, index) => (
+                    <div key={`${item.degree}-${index}`} className="border-l-2 border-primary/20 pl-4">
                       <p className="font-semibold text-foreground">{item.degree}</p>
                       <p className="text-sm text-muted-foreground">{item.school}</p>
                       <p className="text-sm text-muted-foreground">{item.location}</p>
@@ -95,8 +95,8 @@ export default function About() {
                   <h4 className="font-display text-base font-semibold text-foreground mb-3">{credentials.certificationsSubTitle}</h4>
                 )}
                 <ul className="space-y-3 text-muted-foreground">
-                  {credentials.certifications.map((cert) => (
-                    <li key={cert} className="flex items-start gap-2">
+                  {credentials.certifications.map((cert, index) => (
+                    <li key={`${cert}-${index}`} className="flex items-start gap-2">
                       <span className="w-2 h-2 mt-2 rounded-full bg-primary" />
                       <span>{cert}</span>
                     </li>
@@ -106,8 +106,8 @@ export default function About() {
                   <div className="mt-6">
                     <h4 className="font-display text-base font-semibold text-foreground mb-3">{credentials.licensureTitle}</h4>
                     <ul className="space-y-3 text-muted-foreground">
-                      {credentials.licensure.map((item) => (
-                        <li key={item} className="flex items-start gap-2">
+                      {credentials.licensure.map((item, index) => (
+                        <li key={`${item}-${index}`} className="flex items-start gap-2">
                           <span className="w-2 h-2 mt-2 rounded-full bg-primary" />
                           <span>{item}</span>
                         </li>
@@ -131,7 +131,7 @@ export default function About() {
           </AnimateOnScroll>
           <div className="space-y-6">
             {aboutPage.experienceSection.roles.map((role, index) => (
-              <AnimateOnScroll key={role.organization} animation="fade-up" delay={index * 100}>
+              <AnimateOnScroll key={`${role.organization}-${role.role}-${index}`} animation="fade-up" delay={index * 100}>
                 <div className="glass-card p-8 rounded-3xl">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
                     <div>
@@ -144,8 +144,8 @@ export default function About() {
                   </div>
                   {role.bullets.length > 0 ? (
                     <ul className="space-y-2 text-muted-foreground">
-                      {role.bullets.map((bullet) => (
-                        <li key={bullet} className="flex items-start gap-2">
+                      {role.bullets.map((bullet, bulletIndex) => (
+                        <li key={`${bullet}-${bulletIndex}`} className="flex items-start gap-2">
                           <span className="w-2 h-2 mt-2 rounded-full bg-primary" />
                           <span>{bullet}</span>
                         </li>
@@ -172,8 +172,8 @@ export default function About() {
           <AnimateOnScroll animation="fade-up" delay={100}>
             <div className="glass-card p-8 rounded-3xl">
               <ol className="space-y-4 text-muted-foreground list-decimal list-inside">
-                {aboutPage.publicationsSection.publications.map((item) => (
-                  <li key={item}>{item}</li>
+                {aboutPage.publicationsSection.publications.map((item, index) => (
+                  <li key={`${item}-${index}`}>{item}</li>
                 ))}
               </ol>
             </div>
@@ -194,8 +194,8 @@ export default function About() {
                     className="mb-6"
                   />
                   <ul className="mt-6 space-y-3 text-muted-foreground">
-                    {aboutPage.languagesSection.languages.map((language) => (
-                      <li key={language.language} className="flex items-center justify-between">
+                    {aboutPage.languagesSection.languages.map((language, index) => (
+                      <li key={`${language.language}-${index}`} className="flex items-center justify-between">
                         <span className="font-semibold text-foreground">{language.language}</span>
                         <span>{language.level}</span>
                       </li>

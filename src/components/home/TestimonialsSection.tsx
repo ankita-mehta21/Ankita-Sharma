@@ -5,6 +5,7 @@ import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { ContentLink } from "@/components/ui/content-link";
 import { getFeaturedReviews, getSiteContent, resolveTemplate } from "@/content/siteContent";
+import { getSafeInitial } from "@/lib/displayText";
 
 export function TestimonialsSection() {
   const siteContent = getSiteContent();
@@ -93,7 +94,7 @@ export function TestimonialsSection() {
                 <div className="flex items-center justify-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                     <span className="font-semibold text-primary">
-                      {currentReview?.name.charAt(0)}
+                      {getSafeInitial(currentReview?.name)}
                     </span>
                   </div>
                   <div className="text-left">

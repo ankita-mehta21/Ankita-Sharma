@@ -1,31 +1,12 @@
 import { Helmet } from "react-helmet-async";
 import { getImageByKey, getSiteContent, resolveTemplate } from "@/content/siteContent";
+import { toAbsoluteUrl } from "./seoUtils";
 
 interface SeoProps {
   pageTitle?: string;
   description?: string;
   keywords?: string[];
   noIndex?: boolean;
-}
-
-function toAbsoluteUrl(url: string, websiteBaseUrl: string) {
-  if (!url.trim()) {
-    return "";
-  }
-
-  if (/^(https?:)?\/\//i.test(url)) {
-    return url;
-  }
-
-  if (!websiteBaseUrl.trim()) {
-    return url;
-  }
-
-  try {
-    return new URL(url, websiteBaseUrl).toString();
-  } catch {
-    return url;
-  }
 }
 
 export function Seo({ pageTitle, description, keywords, noIndex = false }: SeoProps) {

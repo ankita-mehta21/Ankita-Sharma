@@ -20,6 +20,7 @@ export function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -61,7 +62,7 @@ export function Navbar() {
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <ContentLink
-                key={link.href}
+                key={`${link.href}-${link.label}`}
                 href={link.href}
                 className={cn(
                   "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200",
@@ -114,7 +115,7 @@ export function Navbar() {
           <div className="flex flex-col gap-1 pt-2">
             {navLinks.map((link) => (
               <ContentLink
-                key={link.href}
+                key={`${link.href}-${link.label}`}
                 href={link.href}
                 className={cn(
                   "px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200",

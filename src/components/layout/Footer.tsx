@@ -57,9 +57,13 @@ export function Footer() {
                   <li key={`${detail.iconKey}-${detail.text}`} className="flex items-start gap-3">
                     <DetailIcon className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                     {detail.href ? (
-                      <a href={detail.href} className="text-background/70 hover:text-primary text-sm transition-colors">
+                      <ContentLink
+                        href={detail.href}
+                        newTabForExternal
+                        className="text-background/70 hover:text-primary text-sm transition-colors"
+                      >
                         {detail.text}
-                      </a>
+                      </ContentLink>
                     ) : (
                       <span className="text-background/70 text-sm">{detail.text}</span>
                     )}

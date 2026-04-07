@@ -30,7 +30,7 @@ export default function Contact() {
                   {contactPage.contactInfo.map((item, index) => {
                     const ItemIcon = getIconByKey(item.iconKey);
                     return (
-                    <AnimateOnScroll key={item.title} animation="fade-up" delay={index * 100}>
+                    <AnimateOnScroll key={`${item.title}-${index}`} animation="fade-up" delay={index * 100}>
                       <div className="flex items-start gap-4">
                         <ItemIcon className="w-6 h-6 text-primary" />
                         <div>

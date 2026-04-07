@@ -1,40 +1,33 @@
-# Dr. Ankita Sharma Portfolio
+# Website Content Guide
 
-Frontend-only portfolio site powered by simple `.txt` content files in the `content/` folder.
+This website is updated through plain `.txt` files inside the `content/` folder.
 
-## Stack
-- React + Vite + TypeScript
-- Tailwind CSS + shadcn/ui
-- React Router
-- `zod` content validation
-- `react-helmet-async` for page SEO metadata
+## Which Files Can Be Edited
+- `content/site-settings.txt`: shared website details such as email, links, footer text, and SEO defaults
+- `content/home.txt`: homepage text, service cards, and homepage call-to-action content
+- `content/about.txt`: about page summary, education, certifications, experience, and publications
+- `content/reviews.txt`: review page labels and review entries
+- `content/contact.txt`: contact page heading text
 
-## Content Editing Flow
+## How To Update Content
 1. Open the `content/` folder.
-2. Update `site-settings.txt`, `home.txt`, `about.txt`, `reviews.txt`, or `contact.txt`.
-3. Commit to GitHub.
-4. Auto-deploy publishes the updated site.
+2. Open the TXT file that needs to be updated.
+3. Change only the text after the labels or inside the text sections.
+4. Do not rename labels, file names, or folders.
+5. Save the changes.
+6. Commit and push the update to GitHub.
+7. Wait for the deployment to finish, then refresh the live website.
 
-## Quality Safeguards
-- Schema validation for parsed TXT content before build.
-- Reference checks (icons, image keys, duplicate IDs).
-- CI workflow runs `validate:content`, `lint`, and `build`.
+## Important Editing Rules
+- Keep the labels exactly as they are.
+- Keep the section names exactly as they are.
+- Do not move files out of the `content/` folder.
+- Use valid links such as `/about`, `https://example.com`, `mailto:name@example.com`, or `tel:+1234567890`.
 
-## Scripts
-- `npm run dev`: local dev server
-- `npm run validate:content`: validate TXT content + references
-- `npm run test:content`: parser and content-loader tests
-- `npm run lint`: lint codebase
-- `npm run build`: production build (output: `dist/`)
-- `npm run preview`: preview production build
-- `npm run check`: full local quality gate
-- `npm run start`: serve `dist/` (production)
-
-## Key Paths
-- `content/READ-ME-FIRST.txt`: quick editing instructions for the doctor
-- `content/site-settings.txt`: shared doctor/site details
-- `content/home.txt`, `content/about.txt`, `content/reviews.txt`, `content/contact.txt`: page content files
-- `src/content/siteContentSchema.ts`: content schema and validator
-- `src/content/siteTextContent.ts`: TXT parser and content builder
-- `scripts/validate-content.ts`: build-time content checks
-- `.github/workflows/quality-checks.yml`: CI checks
+## Quick Reference
+- `content/READ-ME-FIRST.txt`: short editing reminder
+- `content/site-settings.txt`: global website details
+- `content/home.txt`: homepage content
+- `content/about.txt`: about page content
+- `content/reviews.txt`: reviews content
+- `content/contact.txt`: contact page content

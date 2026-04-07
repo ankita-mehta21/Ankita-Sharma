@@ -1,19 +1,13 @@
 import { z } from "zod";
-
-const SCHEME_PATTERN = /^[a-z][a-z\d+.-]*:/i;
-
-function isSupportedHref(value: string) {
-  if (value.startsWith("/") || value.startsWith("#") || value.startsWith("//")) {
-    return true;
-  }
-  return SCHEME_PATTERN.test(value);
-}
+import { hasSupportedHref, hasSupportedOptionalHref } from "./hrefSafety";
 
 const nonEmptyStringSchema = z.string().trim().min(1);
-const hrefSchema = nonEmptyStringSchema.refine(isSupportedHref, {
-  message: "Expected a route (/path), anchor (#id), protocol URL, or protocol-relative URL.",
+const hrefSchema = nonEmptyStringSchema.refine(hasSupportedHref, {
+  message: "Expected a route (/path), anchor (#id), or safe URL scheme (http, https, mailto, tel).",
 });
-const optionalHrefSchema = z.string().trim();
+const optionalHrefSchema = z.string().trim().refine(hasSupportedOptionalHref, {
+  message: "Expected blank, a route (/path), anchor (#id), or safe URL scheme (http, https, mailto, tel).",
+});
 const dateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Expected date in YYYY-MM-DD format.");
 
 const linkSchema = z

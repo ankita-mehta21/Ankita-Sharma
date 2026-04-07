@@ -19,17 +19,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Validate content schema
-        run: npm run validate:content
+      - name: Production dependency audit
+        run: npm run audit:prod
 
-      - name: Lint
-        run: npm run lint
-
-      - name: Build
-        run: npm run build
+      - name: Full quality gate
+        run: npm run check

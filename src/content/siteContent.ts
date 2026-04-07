@@ -17,6 +17,7 @@ import preventiveIconImage from "@/assets/images/preventive-icon.png";
 import extractionIconImage from "@/assets/images/extraction-icon.png";
 import endodonticsIconImage from "@/assets/images/endodontics-icon.png";
 import prosthodonticsIconImage from "@/assets/images/prosthodontics-icon.png";
+import { isExternalHref, resolveHref } from "./hrefSafety";
 import { type SiteContent, validateSiteContent } from "./siteContentSchema";
 import { buildEditableContentFromTextFiles } from "./siteTextContent";
 import siteSettingsText from "../../content/site-settings.txt?raw";
@@ -26,7 +27,6 @@ import reviewsText from "../../content/reviews.txt?raw";
 import contactText from "../../content/contact.txt?raw";
 
 type TemplateValues = Record<string, string | number>;
-const SCHEME_PATTERN = /^[a-z][a-z\d+.-]*:/i;
 
 const lucideIconMap: Record<string, LucideIcon> = {
   Sparkles,
@@ -234,27 +234,7 @@ export function resolveTemplate(template: string, values: TemplateValues) {
   );
 }
 
-export function resolveHref(href: string, fallbackHref = "/") {
-  const trimmedHref = href.trim();
-  if (!trimmedHref) {
-    return fallbackHref;
-  }
-
-  if (trimmedHref.startsWith("/") || trimmedHref.startsWith("#") || trimmedHref.startsWith("//")) {
-    return trimmedHref;
-  }
-
-  if (SCHEME_PATTERN.test(trimmedHref)) {
-    return trimmedHref;
-  }
-
-  return `/${trimmedHref.replace(/^\/+/, "")}`;
-}
-
-export function isExternalHref(href: string) {
-  const resolvedHref = resolveHref(href, "/");
-  return resolvedHref.startsWith("//") || resolvedHref.startsWith("#") || SCHEME_PATTERN.test(resolvedHref);
-}
+export { isExternalHref, resolveHref };
 
 export function getIconByKey(iconKey: string): LucideIcon {
   return lucideIconMap[iconKey] ?? Sparkles;
