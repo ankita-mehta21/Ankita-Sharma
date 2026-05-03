@@ -44,9 +44,23 @@ export function AnimateOnScroll({
   threshold = 0.1,
 }: AnimateOnScrollProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () => setPrefersReducedMotion(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -67,21 +81,22 @@ export function AnimateOnScroll({
         observer.unobserve(currentRef);
       }
     };
-  }, [threshold]);
+  }, [threshold, prefersReducedMotion]);
 
   const { initial, animate } = animationClasses[animation];
+  const motionSafe = !prefersReducedMotion;
 
   return (
     <div
       ref={ref}
       className={cn(
-        "transition-all ease-out",
+        motionSafe && "transition-all ease-out",
         isVisible ? animate : initial,
         className
       )}
       style={{
-        transitionDuration: `${duration}ms`,
-        transitionDelay: `${delay}ms`,
+        transitionDuration: motionSafe ? `${duration}ms` : undefined,
+        transitionDelay: motionSafe ? `${delay}ms` : undefined,
       }}
     >
       {children}

@@ -597,6 +597,7 @@ export function buildEditableContentFromTextFiles(rawFiles: TextContentFiles): S
     },
     reviewsPage: {
       title: getRequiredLabel(reviews, "reviews.txt", "TITLE"),
+      heroBadge: getRequiredLabel(reviews, "reviews.txt", "HERO_BADGE"),
       ratingOutOfTextTemplate: getRequiredLabel(reviews, "reviews.txt", "RATING_OUT_OF_TEXT_TEMPLATE"),
       basedOnReviewsTemplate: getRequiredLabel(reviews, "reviews.txt", "BASED_ON_REVIEWS_TEMPLATE"),
       shareExperience: {

@@ -326,6 +326,7 @@ export const siteContentSchema = z
     reviewsPage: z
       .object({
         title: nonEmptyStringSchema,
+        heroBadge: nonEmptyStringSchema,
         ratingOutOfTextTemplate: nonEmptyStringSchema,
         basedOnReviewsTemplate: nonEmptyStringSchema,
         shareExperience: z
