@@ -15,78 +15,78 @@ Your feedback helps us provide better care. We'd love to hear about your experie
 # Leave [REVIEWS] empty if there are no published reviews yet.
 [REVIEWS]
 ---
-ID: review-1
-NAME: Julie E
-TREATMENT: Extraction
-RATING: 5
-DATE: 2026-05-03
-VERIFIED: true
+  ID: review-1
+  NAME: Julie E
+  TREATMENT: Extraction
+  RATING: 5
+  DATE: 2026-05-03
+  VERIFIED: true
 
-[REVIEW]
-took out many teeth, no pain, have not felt better in many years.
-
----
-ID: review-2
-NAME: Ger C
-TREATMENT: Routine Care and Oral Cancer Screening
-RATING: 5
-DATE: 2026-04-20
-VERIFIED: true
-
-[REVIEW]
-The reason why I have many teeth at 80 is because Dr. Sharma took good care of them.
+  [REVIEW]
+  took out many teeth, no pain, have not felt better in many years.
 
 ---
-ID: review-3
-NAME: Raymond Z
-TREATMENT: Routine Care and Oral Cancer Screening
-RATING: 5
-DATE: 2026-04-20
-VERIFIED: true
+  ID: review-2
+  NAME: Ger C
+  TREATMENT: Routine Care and Oral Cancer Screening
+  RATING: 5
+  DATE: 2026-04-20
+  VERIFIED: true
 
-[REVIEW]
-Loved working with her, always makes me laugh, I can bite better and no pain in my teeth.
-
----
-ID: review-4
-NAME: Richard W
-TREATMENT: Dentures and/or Crowns
-RATING: 5
-DATE: 2026-04-20
-VERIFIED: true
-
-[REVIEW]
-Loved my smile, got crowns, never knew my tooth could look this great.
+  [REVIEW]
+  The reason why I have many teeth at 80 is because Dr. Sharma took good care of them.
 
 ---
-ID: review-5
-NAME: Diane G
-TREATMENT: Routine Care and Oral Cancer Screening
-RATING: 5
-DATE: 2026-04-20
-VERIFIED: true
+  ID: review-3
+  NAME: Raymond Z
+  TREATMENT: Routine Care and Oral Cancer Screening
+  RATING: 5
+  DATE: 2026-04-20
+  VERIFIED: true
 
-[REVIEW]
-Me and my husband love her, thank you Dr. Sharma.
-
----
-ID: review-6
-NAME: Judy M
-TREATMENT: Dentures and/or Crowns
-RATING: 5
-DATE: 2026-04-20
-VERIFIED: true
-
-[REVIEW]
-Writing for my mother, Dr. Sharma is always so kind and has helped my mother a lot, my mother eats a lot better despite so many issues due to better teeth.
+  [REVIEW]
+  Loved working with her, always makes me laugh, I can bite better and no pain in my teeth.
 
 ---
-ID: review-7
-NAME: Ronald B
-TREATMENT: Restorations
-RATING: 5
-DATE: 2026-04-20
-VERIFIED: true
+  ID: review-4
+  NAME: Richard W
+  TREATMENT: Dentures and/or Crowns
+  RATING: 5
+  DATE: 2026-04-20
+  VERIFIED: true
 
-[REVIEW]
-Always comfortable in the appointment!
+  [REVIEW]
+  Loved my smile, got crowns, never knew my tooth could look this great.
+
+---
+  ID: review-5
+  NAME: Diane G
+  TREATMENT: Routine Care and Oral Cancer Screening
+  RATING: 5
+  DATE: 2026-04-20
+  VERIFIED: true
+
+  [REVIEW]
+  Me and my husband love her, thank you Dr. Sharma.
+
+---
+  ID: review-6
+  NAME: Judy M
+  TREATMENT: Dentures and/or Crowns
+  RATING: 5
+  DATE: 2026-04-20
+  VERIFIED: true
+
+  [REVIEW]
+  Writing for my mother, Dr. Sharma is always so kind and has helped my mother a lot, my mother eats a lot better despite so many issues due to better teeth.
+
+---
+  ID: review-7
+  NAME: Ronald B
+  TREATMENT: Restorations
+  RATING: 5
+  DATE: 2026-04-20
+  VERIFIED: true
+
+  [REVIEW]
+  Always comfortable in the appointment!
