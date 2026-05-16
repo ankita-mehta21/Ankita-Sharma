@@ -103,3 +103,108 @@ I value your feedback—it helps me improve and helps others know what to expect
   [REVIEW]
   I was very nervous for my appointment but she did a great job and I felt very relieved, she took out 4 wisdom teeth in less than 1 hour and that was amazing ! Saved me so much time and money!
 
+---
+  ID: review-9
+  NAME: Lynda B
+  TREATMENT: Restorations
+  RATING: 5
+  DATE: 2026-04-20
+  VERIFIED: true
+
+  [REVIEW]
+  Would have any family member treated by her, very kind dentist!
+
+---
+  ID: review-10
+  NAME: Amy F
+  TREATMENT: Extractions, restorations
+  RATING: 5
+  DATE: 2026-04-20
+  VERIFIED: true
+
+  [REVIEW]
+ Love coming to the dentist and that says enough!
+
+---
+  ID: review-11
+  NAME: Edward F
+  TREATMENT: RCT
+  RATING: 5
+  DATE: 2026-04-20
+  VERIFIED: true
+
+  [REVIEW]
+  Slept off during the appointment, don't know when it was over :D
+
+---
+  ID: review-12
+  NAME: Levi J
+  TREATMENT: Crown
+  RATING: 5
+  DATE: 2026-04-20
+  VERIFIED: true
+
+  [REVIEW]
+  Truthfully, I do not like coming to the dentist but I love my front tooth now!
+
+---
+  ID: review-13
+  NAME: Denton G
+  TREATMENT: Extractions
+  RATING: 5
+  DATE: 2026-04-20
+  VERIFIED: true
+
+  [REVIEW]
+For years I was in pain as I could not find anyone to take my tooth out due to my BP issues, Dr. Sharma was the only one who helped me with a solution and finally took me out of my misery! God bless!
+
+---
+  ID: review-14
+  NAME: Lisa W
+  TREATMENT: exam
+  RATING: 5
+  DATE: 2026-04-20
+  VERIFIED: true
+
+  [REVIEW]
+  Love her, seems to know what she is doing.
+
+---
+  ID: review-15
+  NAME: Randy W
+  TREATMENT: Restorations
+  RATING: 5
+  DATE: 2026-04-20
+  VERIFIED: true
+
+  [REVIEW]
+  I have very bad anxiety, Dr. Sharma was very patient with me during all my appointments.
+
+---
+  ID: review-16
+  NAME: MV
+  TREATMENT: Crown
+  RATING: 5
+  DATE: 2026-04-20
+  VERIFIED: true
+
+  [REVIEW]
+  Very nice and patient dentist!
+
+---
+  ID: review-17
+  NAME: Steven S
+  TREATMENT: Extraction
+  RATING: 5
+  DATE: 2026-04-20
+  VERIFIED: true
+
+  [REVIEW]
+  I needed my teeth taken out for my hip surgery, she understood the urgency and took me in right away!
+
+
+
+
+
+
+
