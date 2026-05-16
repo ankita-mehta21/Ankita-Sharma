@@ -91,3 +91,15 @@ I value your feedback—it helps me improve and helps others know what to expect
 
   [REVIEW]
   Always comfortable in the appointment!
+
+---
+  ID: review-8
+  NAME: Joslyn B
+  TREATMENT: extractions
+  RATING: 5
+  DATE: 2026-04-20
+  VERIFIED: true
+
+  [REVIEW]
+  I was very nervous for my appointment but she did a great job and I felt very relieved, she took out 4 wisdom teeth in less than 1 hour and that was amazing ! Saved me so much time and money!
+
