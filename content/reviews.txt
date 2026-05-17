@@ -123,7 +123,7 @@ I value your feedback—it helps me improve and helps others know what to expect
   VERIFIED: true
 
   [REVIEW]
- Love coming to the dentist and that says enough!
+  Love coming to the dentist and that says enough!
 
 ---
   ID: review-11
@@ -156,7 +156,7 @@ I value your feedback—it helps me improve and helps others know what to expect
   VERIFIED: true
 
   [REVIEW]
-For years I was in pain as I could not find anyone to take my tooth out due to my BP issues, Dr. Sharma was the only one who helped me with a solution and finally took me out of my misery! God bless!
+  For years I was in pain as I could not find anyone to take my tooth out due to my BP issues, Dr. Sharma was the only one who helped me with a solution and finally took me out of my misery! God bless!
 
 ---
   ID: review-14
